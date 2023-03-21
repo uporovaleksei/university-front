@@ -36,7 +36,6 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', onScroll)
-    console.log(this.$route)
   },
   beforeUnmount() {
     window.removeEventListener('scroll', onScroll)

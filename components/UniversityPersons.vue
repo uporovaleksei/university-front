@@ -1,20 +1,21 @@
-<script>
-export default {}
+<script setup>
+const { baseURL } = useRuntimeConfig()
+const { data: persons } = await useFetch('persons', { baseURL })
 </script>
 
 <template>
   <div class="container">
     <h1>Университет в лицах</h1>
     <div class="cards">
-      <div class="card">
+      <div class="card" v-for="item in persons" :key="item.id">
         <div class="image">
           <div class="image-inner">
             <span class="circle"></span>
-            <img class="img" src="@/assets/images/тетя.png" alt="" />
+            <img class="img" :src="`${baseURL}imgs/${item.img.id}.${item.img.format}`" alt="" />
           </div>
         </div>
-        <h2>Ветлугина Наталия Олеговна</h2>
-        <p>Должность</p>
+        <h2>{{ item.name }}</h2>
+        <p>{{ item.description['Должность'] }}</p>
       </div>
       <div class="card">
         <div class="image">
@@ -26,48 +27,8 @@ export default {}
         <h2>Ветлугина Наталия Олеговна</h2>
         <p>Должность</p>
       </div>
-      <div class="card">
-        <div class="image">
-          <div class="image-inner">
-            <span class="circle"></span>
-            <img class="img" src="@/assets/images/тетя.png" alt="" />
-          </div>
-        </div>
-        <h2>Ветлугина Наталия Олеговна</h2>
-        <p>Должность</p>
-      </div>
-      <div class="card">
-        <div class="image">
-          <div class="image-inner">
-            <span class="circle"></span>
-            <img class="img" src="@/assets/images/тетя.png" alt="" />
-          </div>
-        </div>
-        <h2>Ветлугина Наталия Олеговна</h2>
-        <p>Должность</p>
-      </div>
-      <div class="card">
-        <div class="image">
-          <div class="image-inner">
-            <span class="circle"></span>
-            <img class="img" src="@/assets/images/тетя.png" alt="" />
-          </div>
-        </div>
-        <h2>Ветлугина Наталия Олеговна</h2>
-        <p>Должность</p>
-      </div>
-      <div class="card">
-        <div class="image">
-          <div class="image-inner">
-            <span class="circle"></span>
-            <img class="img" src="@/assets/images/тетя.png" alt="" />
-          </div>
-        </div>
-        <h2>Ветлугина Наталия Олеговна</h2>
-        <p>Должность</p>
-      </div>
+      <button>Подробнее</button>
     </div>
-    <button>Подробнее</button>
   </div>
 </template>
 
@@ -101,6 +62,7 @@ export default {}
         -webkit-tap-highlight-color: transparent;
         transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
         width: 100%;
+        user-select: none;
         &:hover {
           transform: scale(1.04);
         }
