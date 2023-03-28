@@ -3,7 +3,7 @@ export default {}
 </script>
 <template>
   <div class="container">
-    <img src="@/assets/images/second_logo.png" alt="" />
+    <img src="@/assets/images/second_logo.png" />
     <span></span>
     <h1>Открытый Университет</h1>
   </div>

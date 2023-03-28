@@ -1,27 +1,32 @@
-<script>
+<script setup>
 import MainVue from '@/layouts/Main.vue'
-export default {
-  components: {
-    MainVue,
-  },
+import imgLink from '~~/plugins/imgLink'
+
+const { baseURL } = useRuntimeConfig()
+const { data: persons } = await useFetch('persons/', { baseURL })
+const router = useRouter()
+const openPerson = ({ id }) => {
+  router.push('/persons/' + id)
 }
 </script>
-
 <template>
   <MainVue>
     <div class="container">
-      <h1>ОУ в лицах</h1>
-      <hr />
-      <ul>
-        <li v-for="persons of 5" :key="persons">Лица: {{ persons }}</li>
-      </ul>
+      <div class="card" v-for="item in persons" :key="item.id">
+        <div class="image" @click="openPerson(item)">
+          <img class="img" :src="imgLink(item)" />
+        </div>
+        <h2>{{ item.name }}</h2>
+        <p>Структурное подразделение: {{ item.description?.['Структурное подразделение'] }}</p>
+        <p>Должность: {{ item.description?.['Должность'] }}</p>
+      </div>
     </div>
   </MainVue>
 </template>
 
 <style lang="scss" scoped>
 .container {
-  background: #c9c9c9;
+  background: var(--blue);
   h1 {
     padding-top: 200px;
   }

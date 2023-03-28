@@ -52,7 +52,7 @@ export default {
   <nav>
     <div class="content">
       <NuxtLink to="/">
-        <img src="@/assets/images/logo.png" alt="" />
+        <img src="@/assets/images/logo.png" />
       </NuxtLink>
       <div class="links">
         <ul>

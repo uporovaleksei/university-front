@@ -1,20 +1,34 @@
-<script>
+<script setup>
 import MainVue from '@/layouts/Main.vue'
-export default {
-  components: {
-    MainVue,
-  },
-}
+import imgLink from '~~/plugins/imgLink'
+
+const router = useRouter()
+const { baseURL } = useRuntimeConfig()
+const { data: news } = await useFetch('/news', { baseURL })
 </script>
+<script></script>
 
 <template>
   <MainVue>
     <div class="container">
       <h1>Новости</h1>
       <hr />
-      <ul>
-        <li v-for="news of 5" :key="news">News: {{ news }}</li>
-      </ul>
+      <div class="card" v-for="item in news" :key="item.id">
+        <div class="image">
+          <img class="img" :src="imgLink(item)" />
+        </div>
+        <div class="info">
+          <div class="date">{{ item.date }}</div>
+          <div class="title">
+            <h2>{{ item.title }}</h2>
+          </div>
+          <div class="text">
+            <p>
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </MainVue>
 </template>

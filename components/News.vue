@@ -1,37 +1,39 @@
-<script>
-export default {}
+<script setup>
+import Slider from '@/components/Slider.vue'
+import { ref, onBeforeUnmount } from 'vue'
+const router = useRouter()
+const { baseURL } = useRuntimeConfig()
+const { data: news } = await useFetch('/news/3', { baseURL })
+
+const active = ref(0)
+const interval = ref(null)
+
+const newInterval = () => {
+  clearInterval(interval.value)
+  interval.value = setInterval(() => {
+    active.value++
+    if (active.value > 2) {
+      active.value = 0
+    }
+  }, 4500)
+}
+newInterval()
+
+const jump = i => {
+  active.value = i
+  newInterval()
+}
+
+onBeforeUnmount(() => {
+  clearInterval(interval.value)
+})
 </script>
 
 <template>
   <div class="wrapper">
     <div class="container">
       <h1>Новости</h1>
-      <div class="card">
-        <div class="image">
-          <img src="@/assets/images/logo.png" alt="" />
-        </div>
-        <div class="info">
-          <div class="date">02.02.2023</div>
-          <div class="title">
-            <h2>Заголовокк</h2>
-          </div>
-          <div class="text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis at perferendis, similique placeat neque,
-              nulla deserunt ipsum reiciendis esse magni in aliquam repellendus
-            </p>
-          </div>
-          <div class="buttons">
-            <button>Подробнее</button>
-            <a href="#">Все новости</a>
-          </div>
-        </div>
-        <div class="slider">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+      <Slider :sliderData="news" :active="active" @jump="jump" />
     </div>
   </div>
 </template>
@@ -41,7 +43,7 @@ export default {}
   background: #ececec;
   padding: 90px 0;
   .container {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     h1 {
       padding-bottom: 90px;
@@ -68,9 +70,21 @@ export default {}
         align-items: center;
         justify-content: center;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        &::before {
+          content: '';
+          z-index: 55;
+          position: absolute;
+          width: 95%;
+          height: 95%;
+          border-radius: 30px;
+          background: #00000038;
+        }
         img {
-          width: 233px;
-          height: 170px;
+          width: 95%;
+          height: 95%;
+          border-radius: 30px;
+          position: relative;
+          z-index: 14;
         }
       }
       .info {
@@ -84,7 +98,6 @@ export default {}
           text-transform: capitalize;
         }
         .title {
-          background: red;
           height: 80px;
           h2 {
             font-weight: 700;
@@ -149,6 +162,7 @@ export default {}
         }
         .active {
           height: 30px;
+          background: var(--red);
           border-radius: 10px;
         }
       }

@@ -1,0 +1,31 @@
+name: Build
+on:
+  workflow_run:
+    workflows: ['Make pull']
+    types:
+      - completed
+
+jobs:
+  front:
+    name: front
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build front
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.IP }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            cd university-front
+            npm i
+            
+            # cp .env.prod .env
+            # npm run build
+            # cp .env build/
+            # pm2 stop server
+            # cd build
+            # pm2 start server.js

@@ -8,19 +8,19 @@ export default {}
     <div class="cards">
       <div class="card">
         <div class="image">
-          <img src="@/assets/images/logo.png" alt="" />
+          <img src="@/assets/images/logo.png" />
         </div>
         <h2>Название</h2>
       </div>
       <div class="card">
         <div class="image">
-          <img src="@/assets/images/logo.png" alt="" />
+          <img src="@/assets/images/logo.png" />
         </div>
         <h2>Название</h2>
       </div>
       <div class="card">
         <div class="image">
-          <img src="@/assets/images/logo.png" alt="" />
+          <img src="@/assets/images/logo.png" />
         </div>
         <h2>Название</h2>
       </div>
