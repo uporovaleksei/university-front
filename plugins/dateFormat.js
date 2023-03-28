@@ -1,9 +1,9 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns'
 
-export default (date) => {
-	try{
-		return format(new Date(date), 'dd.MM.yyyy')
-	}catch{
-		return date
-	}
+export default date => {
+  try {
+    return format(new Date(date), 'dd.MM.yyyy')
+  } catch {
+    return date
+  }
 }

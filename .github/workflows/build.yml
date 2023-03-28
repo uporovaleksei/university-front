@@ -22,7 +22,7 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd university-front
             npm i
-            
+
             # cp .env.prod .env
             # npm run build
             # cp .env build/
