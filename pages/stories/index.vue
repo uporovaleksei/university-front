@@ -1,29 +1,118 @@
-<script>
+<script setup>
 import MainVue from '@/layouts/Main.vue'
-export default {
-  components: {
-    MainVue,
-  },
+import imgLink from '@/plugins/imgLink'
+import dateFormat from '@/plugins/dateFormat'
+import { onMounted } from 'vue'
+const router = useRouter()
+const { baseURL } = useRuntimeConfig()
+const { data: stories } = await useFetch('/stories', { baseURL })
+const openStories = ({ id }) => {
+  router.push('/stories/' + id)
 }
 </script>
 
 <template>
   <MainVue>
     <div class="container">
-      <h1>Сюжеты</h1>
-      <hr />
-      <ul>
-        <li v-for="stories of 5" :key="stories">Сюжеты: {{ stories }}</li>
-      </ul>
+      <h1>Видео сюжеты</h1>
+      <div class="cards">
+        <div class="card" v-for="(item, index) in stories" :key="index" @click="openStories(item)">
+          <div class="image">
+            <img class="img" :src="imgLink(item)" />
+          </div>
+          <div class="info">
+            <div class="title">
+              <h2>{{ item.title }}</h2>
+              <p>{{ item.duration }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </MainVue>
 </template>
 
 <style lang="scss" scoped>
 .container {
-  background: #c9c9c9;
+  width: 60%;
+  margin: 0 auto;
   h1 {
-    padding-top: 200px;
+    padding-top: 120px;
+    font-weight: 700;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  .cards {
+    display: flex;
+    margin: 60px 0;
+    margin-bottom: 180px;
+    gap: 30px;
+    .card {
+      width: 370px;
+      height: 310px;
+      background: #d9d9d9;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 30px;
+      transition: 0.3s ease all;
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+      }
+      .image {
+        width: 100%;
+        display: flex;
+        height: 240px;
+        justify-content: center;
+        img {
+          border-radius: 30px 30px 0 0;
+          width: 100%;
+          height: 240px;
+          object-fit: cover;
+        }
+      }
+      .info {
+        width: 100%;
+        height: 100%;
+        background: #185091;
+        border-radius: 0 0 30px 30px;
+        .title {
+          padding-top: 25px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          h2 {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 0%;
+            text-transform: uppercase;
+            color: #ffffff;
+          }
+          p {
+            font-weight: 300;
+            font-size: 14px;
+            color: #ffffff;
+          }
+        }
+        .text {
+          padding-top: 30px;
+          padding-left: 30px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          p {
+            font-weight: 300;
+            font-size: 24px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
   }
 }
 </style>

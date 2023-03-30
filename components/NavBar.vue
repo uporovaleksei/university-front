@@ -1,7 +1,8 @@
 <script>
 const onScroll = () => {
+  const a = document.querySelectorAll('.link')
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.querySelector('nav').style = 'background: rgba(0, 0, 0, 0.5);'
+    document.querySelector('nav').style = 'background: rgba(255, 255, 255, 0.9);'
   } else {
     document.querySelector('nav').style = 'background: transparantet;'
   }
@@ -57,14 +58,11 @@ export default {
       <div class="links">
         <ul>
           <li v-for="item in paths" :key="item.path">
-            <NuxtLink :to="item.path" :class="{ active: item.path === path }">
+            <NuxtLink :to="item.path" :class="{ active: item.path === path }" class="link">
               {{ item.label }}
             </NuxtLink>
           </li>
         </ul>
-      </div>
-      <div class="search">
-        <input type="text" />
       </div>
     </div>
   </nav>
@@ -103,11 +101,11 @@ nav {
             font-style: normal;
             font-weight: 600;
             font-size: 24px;
-            color: var(--white);
+            color: #000;
             position: relative;
             transition: 0.3s;
             &:hover {
-              color: var(--white-opacity);
+              color: rgba(0, 0, 0, 0.5);
             }
             &::before,
             &::after {
@@ -146,39 +144,6 @@ nav {
             }
           }
         }
-      }
-    }
-    .search {
-      margin-left: 44px;
-      position: relative;
-      input {
-        height: 25px;
-        width: 87px;
-        background: #c4c4c4;
-        border-radius: 20px;
-        outline: none;
-        border: 0;
-        padding: 0 10px;
-        cursor: pointer;
-        transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        &:focus {
-          width: 150px;
-        }
-      }
-      &::before {
-        background: url('@/assets/images/i_search.svg') no-repeat;
-        background-size: cover;
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0px;
-        cursor: pointer;
-        margin: auto;
-        background-position: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
       }
     }
   }

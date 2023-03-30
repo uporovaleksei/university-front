@@ -41,7 +41,9 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .wrapper {
   background: #ececec;
-  padding: 90px 0;
+  padding: 10px 0;
+  padding-top: 80px;
+  padding-bottom: 90px;
   .container {
     width: 80%;
     margin: 0 auto;

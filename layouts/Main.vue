@@ -10,6 +10,7 @@ export default {
 <template>
   <NavBarVue />
   <slot />
+  <Footer />
 </template>
 
 <style></style>

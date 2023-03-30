@@ -22,10 +22,10 @@ const openPerson = ({ id }) => {
         <h2>{{ item.name }}</h2>
         <p>{{ item.description?.['Должность'] }}</p>
       </div>
-      <NuxtLink to="/persons">
-        <button>Подробнее</button>
-      </NuxtLink>
     </div>
+    <NuxtLink to="/persons">
+      <button>Подробнее</button>
+    </NuxtLink>
   </div>
 </template>
 
@@ -114,21 +114,22 @@ const openPerson = ({ id }) => {
       text-align: center;
     }
   }
-  button {
-    margin-top: 70px;
+  a {
     align-self: flex-end;
-    width: 270px;
-    height: 50px;
-    border: 0;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    font-weight: 400;
-    font-size: 24px;
-    color: #000000;
-    transition: 0.3s ease all;
-    &:hover {
-      box-shadow: 0px 4px 4px #5e6ad3;
+    button {
+      width: 270px;
+      height: 50px;
+      border: 0;
+      background: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 30px;
+      font-weight: 400;
+      font-size: 24px;
+      color: #000000;
+      transition: 0.3s ease all;
+      &:hover {
+        box-shadow: 0px 4px 4px #5e6ad3;
+      }
     }
   }
 }

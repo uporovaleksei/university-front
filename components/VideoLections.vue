@@ -1,40 +1,31 @@
-<script>
-export default {}
+<script setup>
+const router = useRouter()
+const { baseURL } = useRuntimeConfig()
+import imgLink from '@/plugins/imgLink'
+const { data: lections } = await useFetch('/lections/4', { baseURL })
+const openLections = ({ id }) => {
+  router.push('/lections/' + id)
+}
 </script>
 
 <template>
   <div class="container">
     <h1>Видео лекции</h1>
     <div class="cards">
-      <div class="card">
+      <div class="card" v-for="item in lections" :key="item.id" @click="openLections(item)">
         <div class="image">
-          <img src="@/assets/images/logo.png" />
+          <img class="img" :src="imgLink(item)" />
+          <p>{{ item.duration }}</p>
         </div>
         <div class="text">
-          <h2>Название</h2>
-          <p>Краткое описание</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="image">
-          <img src="@/assets/images/logo.png" />
-        </div>
-        <div class="text">
-          <h2>Название</h2>
-          <p>Краткое описание</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="image">
-          <img src="@/assets/images/logo.png" />
-        </div>
-        <div class="text">
-          <h2>Название</h2>
-          <p>Краткое описание</p>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.description['Описание'] }}</p>
         </div>
       </div>
     </div>
-    <button>Все лекции</button>
+    <NuxtLink to="/lections">
+      <button>Все лекции</button>
+    </NuxtLink>
   </div>
 </template>
 
@@ -73,17 +64,39 @@ export default {}
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
       }
       .image {
-        margin-top: 66px;
         width: 100%;
         display: flex;
+        height: 240px;
         justify-content: center;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          border-radius: 30px 30px 0 0;
+          background: linear-gradient(
+            180deg,
+            rgba(63, 63, 63, 0) 0%,
+            rgba(63, 63, 63, 0.7) 31.25%,
+            rgba(0, 0, 0, 0.7) 100%
+          );
+        }
         img {
-          width: 165px;
-          height: 120px;
+          border-radius: 30px 30px 0 0;
+          width: 100%;
+          height: 240px;
+          object-fit: cover;
+        }
+        p {
+          position: absolute;
+          color: #fff;
+          bottom: 0;
+          right: 0;
+          margin: 20px;
         }
       }
       .text {
-        margin-top: 62px;
         padding-left: 30px;
         padding-top: 40px;
         background: #135aae;
@@ -106,22 +119,25 @@ export default {}
       }
     }
   }
-  button {
-    margin-top: 54px;
-    width: 270px;
-    height: 50px;
+  a {
     align-self: flex-end;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    font-weight: 400;
-    font-size: 24px;
-    color: #000000;
-    border: 0;
-    transition: 0.3s ease all;
-    &:hover {
-      cursor: pointer;
-      box-shadow: 0px 4px 4px #135aae;
+    button {
+      margin-top: 54px;
+      width: 270px;
+      height: 50px;
+      align-self: flex-end;
+      background: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 30px;
+      font-weight: 400;
+      font-size: 24px;
+      color: #000000;
+      border: 0;
+      transition: 0.3s ease all;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0px 4px 4px #135aae;
+      }
     }
   }
 }

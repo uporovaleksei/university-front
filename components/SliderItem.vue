@@ -1,6 +1,6 @@
 <script setup>
-import imgLink from '~~/plugins/imgLink'
-import dateFormat from '~~/plugins/dateFormat'
+import imgLink from '@/plugins/imgLink'
+import dateFormat from '@/plugins/dateFormat'
 
 const router = useRouter()
 const props = defineProps({
