@@ -14,18 +14,16 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.IP }}
-          username: ${{ secrets.USERNAME }}
+          username: user
           password: ${{ secrets.PASSWORD }}
-          port: 22
+          port: 666
           script: |
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd university-front
             npm i
-
-            # cp .env.prod .env
-            # npm run build
-            # cp .env build/
-            # pm2 stop server
-            # cd build
-            # pm2 start server.js
+            cp nuxt.config.prod.ts nuxt.config.ts
+            npm run build
+            pm2 stop index
+            cd ./.output/server
+            pm2 start index.mjs

@@ -11,7 +11,7 @@ jobs:
           host: ${{ secrets.IP }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          port: 22
+          port: 666
           script: |
             cd university-front
             git reset --hard
