@@ -14,7 +14,7 @@ onMounted(() => {
 <template>
   <MainVue>
     <div class="container">
-      <video controls src="@/assets/videos/1.mp4"></video>
+      <video controls :src="lection.path"></video>
       <h2>{{ lection.title }}</h2>
       <p>{{ lection.description['Описание'] }}</p>
     </div>

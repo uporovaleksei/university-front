@@ -1,5 +1,5 @@
 <script setup>
-import imgLink from '~~/plugins/imgLink'
+import imgLink from '@/plugins/imgLink'
 import MainVue from '@/layouts/Main.vue'
 const route = useRoute()
 const { baseURL } = useRuntimeConfig()
