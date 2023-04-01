@@ -9,7 +9,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.IP }}
-          username: ${{ secrets.USERNAME }}
+          username: user
           password: ${{ secrets.PASSWORD }}
           port: 666
           script: |
