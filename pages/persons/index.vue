@@ -1,28 +1,31 @@
 <script setup>
 import MainVue from '@/layouts/Main.vue'
 import imgLink from '~~/plugins/imgLink'
-
+const title = ref('Университет в лицах')
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/', { baseURL })
 const router = useRouter()
-const openPerson = ({ id }) => {
-  router.push('/persons/' + id)
-}
 </script>
 <template>
+  <Head>
+    <Title>{{ title }}</Title>
+    <Meta name="description" :content="title" />
+  </Head>
   <MainVue>
     <div class="container">
       <h1>Университет в лицах</h1>
       <div class="cards">
         <div class="card" v-for="item in persons" :key="item.id">
-          <div class="image" @click="openPerson(item)">
-            <div class="image-inner">
-              <span class="circle"></span>
-              <img class="img" :src="imgLink(item)" />
+          <NuxtLink :to="'/persons/' + item.id">
+            <div class="image">
+              <div class="image-inner">
+                <span class="circle"></span>
+                <img class="img" :src="imgLink(item)" />
+              </div>
             </div>
-          </div>
-          <h2>{{ item.name }}</h2>
-          <p>{{ item.description?.['Должность'] }}</p>
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description?.['Должность'] }}</p>
+          </NuxtLink>
         </div>
       </div>
     </div>

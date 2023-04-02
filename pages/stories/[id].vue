@@ -12,6 +12,10 @@ onMounted(() => {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ storie.title }}</Title>
+    <Meta name="description" :content="title" />
+  </Head>
   <MainVue>
     <div class="container">
       <video controls :src="storie.path"></video>

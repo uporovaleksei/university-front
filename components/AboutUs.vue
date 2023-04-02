@@ -7,25 +7,44 @@ export default {}
     <div class="project">
       <h1>О проекте</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate perferendis iste optio nobis autem at
-        quas perspiciatis, aliquid dolorum vero officia nam soluta laudantium earum culpa voluptatem dolores ab. Dolor
-        consequuntur, dignissimos perspiciatis laboriosam nemo, error itaque ratione temporibus deserunt sed nesciunt
-        reiciendis dolore corporis ipsum dolorum ea ab. Vero earum neque at tenetur sit laboriosam repellat asperiores
-        veniam! Eius ipsam dolorem voluptatem aperiam nihil perferendis assumenda. A veritatis distinctio illo
-        asperiores excepturi exercitationem nemo commodi esse iusto voluptatem alias voluptatum omnis, magni ea sed
-        incidunt porro corrupti quasi!
+        Открытый университет РГППУ – это новый проект центра развития образовательных проектов Университета, который
+        представляет собой уникальную модель неформального образования для взрослых. В рамках этого проекта, Университет
+        предоставляет возможность получить качественное образование в различных областях знаний, как традиционным, так и
+        новым методами обучения.
+      </p>
+      <p>
+        Открытый университет РГППУ был создан с целью предоставления возможности для развития профессиональных и
+        личностных компетенций взрослым, которые не имеют возможности посещать традиционные учебные заведения. Он
+        предлагает широкий спектр курсов, позволяющих участникам выбрать наиболее подходящую для себя программу
+        обучения.
+      </p>
+      <p>
+        Открытый университет РГППУ - это идеальный выбор для взрослых, которые стремятся получить новые знания и умения,
+        улучшить свои профессиональные навыки или просто расширить кругозор.
       </p>
     </div>
     <div class="mission">
       <h1>Наша миссия</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate perferendis iste optio nobis autem at
-        quas perspiciatis, aliquid dolorum vero officia nam soluta laudantium earum culpa voluptatem dolores ab. Dolor
-        consequuntur, dignissimos perspiciatis laboriosam nemo, error itaque ratione temporibus deserunt sed nesciunt
-        reiciendis dolore corporis ipsum dolorum ea ab. Vero earum neque at tenetur sit laboriosam repellat asperiores
-        veniam! Eius ipsam dolorem voluptatem aperiam nihil perferendis assumenda. A veritatis distinctio illo
-        asperiores excepturi exercitationem nemo commodi esse iusto voluptatem alias voluptatum omnis, magni ea sed
-        incidunt porro corrupti quasi!
+        Миссия «Открытого Университета» заключается в улучшении процессов обучения, направленных на непрерывное
+        повышение квалификации сотрудников и формирование современных компетенций, которые необходимы для разработки и
+        реализации конкурентоспособных, высокотехнологичных образовательных продуктов.
+      </p>
+      <p>
+        Целью «Открытого Университета» является создание условий для участия в профессиональном образовании людей,
+        независимо от их места жительства, возраста и образовательного уровня. Он предоставляет доступ к широкому
+        спектру образовательных программ, разработанных с учетом современных тенденций и потребностей рынка труда.
+      </p>
+      <p>
+        Основной задачей «Открытого Университета» является обеспечение качественного обучения, используя передовые
+        методики и технологии. Для достижения этой цели, Университет привлекает высококвалифицированных преподавателей и
+        экспертов, которые имеют богатый опыт в своей области и могут передавать свои знания и навыки участникам
+        обучения.
+      </p>
+      <p>
+        Таким образом, «Открытый Университет» играет важную роль в совершенствовании системы профессионального
+        образования и повышении уровня квалификации сотрудников в различных областях. Он является идеальным выбором для
+        тех, кто стремится получить высококачественное образование и развить свои профессиональные навыки.
       </p>
     </div>
   </div>

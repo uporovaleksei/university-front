@@ -2,25 +2,24 @@
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 import imgLink from '@/plugins/imgLink'
-const { data: lections } = await useFetch('/lections/4', { baseURL })
-const openLections = ({ id }) => {
-  router.push('/lections/' + id)
-}
+const { data: lections } = await useFetch('/lections', { baseURL })
 </script>
 
 <template>
   <div class="container">
-    <h1>Видео лекции</h1>
+    <h1>Видеолекции</h1>
     <div class="cards">
-      <div class="card" v-for="item in lections" :key="item.id" @click="openLections(item)">
-        <div class="image">
-          <img class="img" :src="imgLink(item)" />
-          <p>{{ item.duration }}</p>
-        </div>
-        <div class="text">
-          <h2>{{ item.title }}</h2>
-          <p>{{ item.description['Описание'] }}</p>
-        </div>
+      <div class="card" v-for="item in lections" :key="item.id">
+        <NuxtLink :to="'/lections/' + item.id">
+          <div class="image">
+            <img class="img" :src="imgLink(item)" />
+            <p>{{ item.duration }}</p>
+          </div>
+          <div class="text">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description['Описание'] }}</p>
+          </div>
+        </NuxtLink>
       </div>
     </div>
     <NuxtLink to="/lections">
@@ -49,6 +48,7 @@ const openLections = ({ id }) => {
     align-items: center;
     justify-content: center;
     gap: 30px;
+
     .card {
       width: 370px;
       height: 415px;
@@ -63,58 +63,65 @@ const openLections = ({ id }) => {
         transform: scale(1.05);
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
       }
-      .image {
-        width: 100%;
-        display: flex;
-        height: 240px;
-        justify-content: center;
-        position: relative;
-        &::before {
-          position: absolute;
-          content: '';
-          width: 100%;
-          height: 100%;
-          border-radius: 30px 30px 0 0;
-          background: linear-gradient(
-            180deg,
-            rgba(63, 63, 63, 0) 0%,
-            rgba(63, 63, 63, 0.7) 31.25%,
-            rgba(0, 0, 0, 0.7) 100%
-          );
-        }
-        img {
-          border-radius: 30px 30px 0 0;
-          width: 100%;
-          height: 240px;
-          object-fit: cover;
-        }
-        p {
-          position: absolute;
-          color: #fff;
-          bottom: 0;
-          right: 0;
-          margin: 20px;
-        }
-      }
-      .text {
-        padding-left: 30px;
-        padding-top: 40px;
-        background: #135aae;
-        width: 100%;
+      a {
+        width: 370px;
+        height: 415px;
         display: flex;
         flex-direction: column;
-        height: 100%;
-        border-radius: 0 0 30px 30px;
-        h2 {
-          font-weight: 700;
-          font-size: 36px;
-          text-transform: uppercase;
-          color: #ffffff;
+        align-items: center;
+        .image {
+          width: 100%;
+          display: flex;
+          height: 240px;
+          justify-content: center;
+          position: relative;
+          &::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 30px 30px 0 0;
+            background: linear-gradient(
+              180deg,
+              rgba(63, 63, 63, 0) 0%,
+              rgba(63, 63, 63, 0.7) 31.25%,
+              rgba(0, 0, 0, 0.7) 100%
+            );
+          }
+          img {
+            border-radius: 30px 30px 0 0;
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+          }
+          p {
+            position: absolute;
+            color: #fff;
+            bottom: 0;
+            right: 0;
+            margin: 20px;
+          }
         }
-        p {
-          font-weight: 300;
-          font-size: 24px;
-          color: #ffffff;
+        .text {
+          padding-left: 30px;
+          padding-top: 40px;
+          background: #135aae;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          border-radius: 0 0 30px 30px;
+          h2 {
+            font-weight: 700;
+            font-size: 36px;
+            text-transform: uppercase;
+            color: #ffffff;
+          }
+          p {
+            font-weight: 300;
+            font-size: 24px;
+            color: #ffffff;
+          }
         }
       }
     }

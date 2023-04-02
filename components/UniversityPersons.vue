@@ -4,21 +4,20 @@ import imgLink from '~~/plugins/imgLink'
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/6', { baseURL })
-const openPerson = ({ id }) => {
-  router.push('/persons/' + id)
-}
 </script>
 <template>
   <div class="container">
     <h1>Университет в лицах</h1>
     <div class="cards">
       <div class="card" v-for="item in persons" :key="item.id">
-        <div class="image" @click="openPerson(item)">
-          <div class="image-inner">
-            <span class="circle"></span>
-            <img class="img" :src="imgLink(item)" />
+        <NuxtLink :to="'/persons/' + item.id">
+          <div class="image">
+            <div class="image-inner">
+              <span class="circle"></span>
+              <img class="img" :src="imgLink(item)" />
+            </div>
           </div>
-        </div>
+        </NuxtLink>
         <h2>{{ item.name }}</h2>
         <p>{{ item.description?.['Должность'] }}</p>
       </div>

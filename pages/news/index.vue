@@ -4,17 +4,19 @@ import imgLink from '@/plugins/imgLink'
 import dateFormat from '@/plugins/dateFormat'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 const router = useRouter()
+const title = ref('Новости')
 const { baseURL } = useRuntimeConfig()
 const { data: news } = await useFetch('/news', { baseURL })
-const openNews = ({ id }) => {
-  router.push('/news/' + id)
-}
 </script>
 
 <template>
+  <Head>
+    <Title>{{ title }}</Title>
+    <Meta name="description" :content="title" />
+  </Head>
   <MainVue>
     <div class="container">
-      <h1>Новости</h1>
+      <h1>{{ title }}</h1>
       <div class="filters">
         <ul>
           <li>
@@ -26,35 +28,19 @@ const openNews = ({ id }) => {
           </li>
         </ul>
       </div>
-      <div class="cards">
-        <div class="card" v-for="(item, index) in news" :key="index" @click="openNews(item)">
-          <div class="image">
-            <img class="img" :src="imgLink(item)" />
-          </div>
-          <div class="info">
-            <div class="title">
-              <h2>{{ item.title }}</h2>
-            </div>
-            <div class="text" v-if="index == 0">
-              <p>
-                {{ item.description.split(' ').slice(0, 10).join(' ') + '....' }}
-              </p>
-            </div>
-            <div class="date" v-if="index == 0">{{ dateFormat(item.date) }}</div>
-          </div>
-        </div>
-      </div>
       <div class="posts">
-        <div class="post" v-for="(item, index) in news" :key="index" @click="openNews(item)">
-          <div class="image">
-            <img class="img" :src="imgLink(item)" />
-          </div>
-          <div class="info">
-            <div class="title">
-              <h2>{{ item.title }}</h2>
+        <div class="post" v-for="(item, index) in news" :key="index">
+          <NuxtLink :to="'/news/' + item.id">
+            <div class="image">
+              <img class="img" :src="imgLink(item)" />
             </div>
-            <div class="date">{{ dateFormat(item.date) }}</div>
-          </div>
+            <div class="info">
+              <div class="title">
+                <h2>{{ item.title }}</h2>
+              </div>
+              <div class="date">{{ dateFormat(item.date) }}</div>
+            </div>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -128,88 +114,7 @@ const openNews = ({ id }) => {
       }
     }
   }
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    margin-bottom: 60px;
-    .card {
-      width: 370px;
-      display: flex;
-      height: 100px;
-      background: #e9e9e9;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s all ease;
-      &:hover {
-        opacity: 0.8;
-        scale: 0.99;
-      }
-      .image {
-        img {
-          width: 170px;
-          height: 100px;
-          border-radius: 10px 0px 0px 10px;
-          object-fit: cover;
-        }
-      }
-      .info {
-        .title {
-          h2 {
-            font-weight: 400;
-            font-size: 16px;
-            margin: 10px;
-            text-transform: lowercase;
-            color: #000000;
-          }
-        }
-      }
-      &:nth-child(1) {
-        width: 100%;
-        height: 350px;
-        margin: 40px 0;
-        background: #e9e9e9;
-        border-radius: 10px;
-        .image {
-          img {
-            width: 370px;
-            height: 350px;
-            border-radius: 10px 0px 0px 10px;
-            object-fit: cover;
-          }
-        }
-        .info {
-          margin-left: 30px;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          .title {
-            h2 {
-              font-weight: 700;
-              font-size: 24px;
-              text-transform: uppercase;
-              color: #000000;
-            }
-          }
-          .text {
-            width: 95%;
-            p {
-              font-weight: 300;
-              font-size: 16px;
-              color: #000000;
-            }
-          }
-          .date {
-            font-weight: 300;
-            font-size: 16px;
-            color: #666666;
-          }
-        }
-      }
-    }
-  }
+
   .posts {
     display: flex;
     gap: 30px;
