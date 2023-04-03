@@ -27,5 +27,4 @@ jobs:
             pm2 stop index
             npm run build
             cd ./.output/server
-            export PORT=4444
             pm2 start index.mjs
