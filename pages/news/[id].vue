@@ -6,6 +6,10 @@ const { baseURL } = useRuntimeConfig()
 const { data: news } = await useFetch('news-post/' + route.params.id, { baseURL })
 </script>
 <template>
+  <Head>
+    <Title>{{ news.title }}</Title>
+    <Meta name="description" :content="title" />
+  </Head>
   <MainVue>
     <div class="wrapper">
       <div class="container">

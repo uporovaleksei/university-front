@@ -9,10 +9,6 @@ const props = defineProps({
   index: Number,
 })
 
-const openNews = ({ id }) => {
-  router.push('/news/' + id)
-}
-
 const trimDescription = ({ description }) => description.split(' ').slice(0, 10).join(' ') + '....'
 </script>
 <template>
@@ -33,7 +29,9 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
             </p>
           </div>
           <div class="buttons">
-            <button @click="openNews(itemData)">Подробнее</button>
+            <NuxtLink :to="'/news/' + itemData.id">
+              <button>Подробнее</button>
+            </NuxtLink>
             <NuxtLink to="/news"> Все новости </NuxtLink>
           </div>
         </div>

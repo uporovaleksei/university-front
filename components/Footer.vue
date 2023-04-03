@@ -4,25 +4,25 @@
     <div class="container">
       <footer>
         <div class="icons">
-          <a href="#">
+          <NuxtLink to="https://t.me/rsvpu_inter">
             <img src="@/assets/images/Telegramm.svg" />
-          </a>
-          <a href="#">
+          </NuxtLink>
+          <NuxtLink to="https://www.youtube.com/channel/UC-y6HemC-f1Yf_9lFSnPbSw">
             <img src="@/assets/images/Yutub.svg" />
-          </a>
-          <a href="#">
+          </NuxtLink>
+          <NuxtLink to="https://vk.com/rsvpu_official">
             <img src="@/assets/images/VK.svg" />
-          </a>
+          </NuxtLink>
         </div>
         <div class="links">
           <div class="about">
-            <a href="#">О проекте</a>
-            <a href="#">Новости</a>
-            <a href="#">Партнеры</a>
+            <NuxtLink to="/about"> О проекте </NuxtLink>
+            <NuxtLink to="/news"> Новости </NuxtLink>
+            <NuxtLink to="/persons"> Партнеры </NuxtLink>
           </div>
           <div class="video">
-            <a href="#">Видео лекции</a>
-            <a href="#">Видео сюжеты</a>
+            <NuxtLink to="/lections"> Видеолекции </NuxtLink>
+            <NuxtLink to="/stories"> Видеосюжеты </NuxtLink>
           </div>
           <div class="contacts">
             <a href="#">Контакты</a>
