@@ -6,4 +6,7 @@ export default defineNuxtConfig({
       baseURL: 'http://api.bytezone.online/',
     },
   },
+  server: {
+    port: 4444,
+  }
 })
