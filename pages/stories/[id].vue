@@ -5,10 +5,6 @@ import { onMounted } from 'vue'
 const route = useRoute()
 const { baseURL } = useRuntimeConfig()
 const { data: storie } = await useFetch('storie/' + route.params.id, { baseURL })
-onMounted(() => {
-  const video = document.querySelector('video')
-  video.play()
-})
 </script>
 
 <template>
@@ -18,7 +14,7 @@ onMounted(() => {
   </Head>
   <MainVue>
     <div class="container">
-      <video controls :src="storie.path"></video>
+<iframe width="720" height="405" src="https://rutube.ru/play/embed/e49a12c61d336f2a9330080fd88900b3" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>  
       <h2>{{ storie.title }}</h2>
       <p>{{ storie.duration }}</p>
     </div>
