@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'index',
       port: '4444',
-      script: './.output/server/index.mjs'
+      script: './index.mjs'
     }
   ]
 }
