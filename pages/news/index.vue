@@ -127,7 +127,6 @@ const { data: news } = await useFetch('/news', { baseURL })
       display: flex;
       flex-direction: column;
       position: relative;
-      z-index: 100;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s all ease;

@@ -4,12 +4,12 @@ import MainVue from '@/layouts/Main.vue'
 
 <template>
   <MainVue>
-    <AboutUs/>
+    <AboutUs />
   </MainVue>
 </template>
 
 <style lang="scss" scoped>
 .container {
-    padding: 100px 0;
+  padding: 100px 0;
 }
 </style>

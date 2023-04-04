@@ -29,22 +29,28 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
           </div>
         </div>
       </div>
-              <div class="interview">
-                <div class="btn" @click="show = !show">
-                <h2>Интервью</h2>
-                <span :class="{ active: show }">&gt;</span>
-                </div>
-
-              <Transition name="slide-fade">
-                      <p v-if="show">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta distinctio, quasi libero provident ut culpa aliquam, alias aperiam architecto nihil non in tempore sed quas sit unde accusamus perspiciatis ex?
-            Veniam molestiae voluptas at quo laudantium reprehenderit ea velit ad dolores! Quas explicabo natus distinctio, repudiandae voluptatum corrupti doloremque incidunt odio accusamus nesciunt molestias aut! Dolorum labore at asperiores aliquid!
-            Minima, laborum repudiandae facere eum recusandae at expedita sequi ab, maiores ea voluptatem! Quae quisquam distinctio qui nisi molestiae ratione velit? Odit amet quidem explicabo dolorum officiis eligendi esse cum?
-            Blanditiis dolorum sapiente eum fugit sunt quisquam minus dignissimos adipisci facilis numquam ea distinctio quos placeat molestiae fugiat, asperiores quod soluta consequatur odit dolor enim! Itaque ex doloribus quam pariatur.
-            Expedita molestias qui atque, saepe nostrum at vel reiciendis delectus aut labore veritatis eligendi earum ipsam dolore sit deserunt alias dicta iusto illo voluptatibus? Exercitationem quas beatae distinctio quo libero!
-          </p>
-          </Transition>
+      <div class="interview">
+        <div class="btn" @click="show = !show">
+          <h2>Интервью</h2>
+          <span :class="{ active: show }">&gt;</span>
         </div>
+
+        <Transition name="slide-fade">
+          <p v-if="show">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta distinctio, quasi libero provident ut culpa
+            aliquam, alias aperiam architecto nihil non in tempore sed quas sit unde accusamus perspiciatis ex? Veniam
+            molestiae voluptas at quo laudantium reprehenderit ea velit ad dolores! Quas explicabo natus distinctio,
+            repudiandae voluptatum corrupti doloremque incidunt odio accusamus nesciunt molestias aut! Dolorum labore at
+            asperiores aliquid! Minima, laborum repudiandae facere eum recusandae at expedita sequi ab, maiores ea
+            voluptatem! Quae quisquam distinctio qui nisi molestiae ratione velit? Odit amet quidem explicabo dolorum
+            officiis eligendi esse cum? Blanditiis dolorum sapiente eum fugit sunt quisquam minus dignissimos adipisci
+            facilis numquam ea distinctio quos placeat molestiae fugiat, asperiores quod soluta consequatur odit dolor
+            enim! Itaque ex doloribus quam pariatur. Expedita molestias qui atque, saepe nostrum at vel reiciendis
+            delectus aut labore veritatis eligendi earum ipsam dolore sit deserunt alias dicta iusto illo voluptatibus?
+            Exercitationem quas beatae distinctio quo libero!
+          </p>
+        </Transition>
+      </div>
     </div>
   </MainVue>
 </template>
@@ -107,37 +113,37 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
       }
     }
   }
-  .interview{
+  .interview {
     padding: 80px 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    .btn{
+    .btn {
       transition: 0.3s all ease;
       display: flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      span{
+      span {
         transition: 0.3s all ease;
         font-weight: 900;
       }
-      .active{
+      .active {
         transform: rotate(90deg);
       }
-    h2{
+      h2 {
         font-weight: 700;
         font-size: 24px;
         text-transform: uppercase;
         color: #000000;
         cursor: pointer;
-    }
+      }
     }
 
-    p{
+    p {
       font-weight: 400;
-        font-size: 20px;
-        color: #000000;
+      font-size: 20px;
+      color: #000000;
     }
   }
 }
