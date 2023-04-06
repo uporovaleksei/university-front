@@ -23,8 +23,8 @@ jobs:
             cd university-front
             npm i
             cp nuxt.config.prod.ts nuxt.config.ts
-            cp ecosystem.config.js ./.output/server/ecosystem.config.js
             pm2 stop index
             npm run build
+            cp ecosystem.config.js ./.output/server/ecosystem.config.js
             cd ./.output/server
             pm2 start index.mjs
