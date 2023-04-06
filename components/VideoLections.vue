@@ -7,7 +7,7 @@ const { data: lections } = await useFetch('/lections', { baseURL })
 
 <template>
   <div class="container">
-    <h1>Видеолекции</h1>
+    <h1>Лекции</h1>
     <div class="cards">
       <div class="card" v-for="item in lections" :key="item.id">
         <NuxtLink :to="'/lections/' + item.id">
@@ -105,6 +105,7 @@ const { data: lections } = await useFetch('/lections', { baseURL })
         .text {
           padding-left: 30px;
           padding-top: 40px;
+          padding-bottom: 15px;
           background: #135aae;
           width: 100%;
           display: flex;
@@ -118,8 +119,9 @@ const { data: lections } = await useFetch('/lections', { baseURL })
             color: #ffffff;
           }
           p {
+              width: 90%;
             font-weight: 300;
-            font-size: 24px;
+            font-size: 22px;
             color: #ffffff;
           }
         }

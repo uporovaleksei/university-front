@@ -35,16 +35,6 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
             <NuxtLink to="/news"> Все новости </NuxtLink>
           </div>
         </div>
-        <div class="slider">
-          <ul>
-            <li
-              v-for="(dot, index) in 3"
-              :key="index"
-              :class="{ active: index === active }"
-              @click="$emit('jump', index)"
-            ></li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -72,6 +62,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
       align-items: center;
       border-radius: 30px;
       padding: 75px 0;
+      height: 600px;
       .image {
         background: #ffffff;
         border-radius: 30px;
@@ -154,29 +145,6 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
             &:hover {
               text-decoration: var(--red) underline;
             }
-          }
-        }
-      }
-      .slider {
-        ul {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          margin-right: 40px;
-          li {
-            width: 15px;
-            height: 15px;
-            background: #d9d9d9;
-            border-radius: 100%;
-            transition: 0.2s ease all;
-            &:hover {
-              background: var(--red);
-            }
-          }
-          .active {
-            height: 30px;
-            background: var(--red);
-            border-radius: 10px;
           }
         }
       }

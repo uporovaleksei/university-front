@@ -7,7 +7,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
 
 <template>
   <div class="container">
-    <h1>Видеосюжеты</h1>
+    <h1>Истории</h1>
     <div class="cards">
       <div class="card" v-for="item in stories" :key="item.id">
         <NuxtLink :to="'/stories/' + item.id">
@@ -20,7 +20,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
       </div>
     </div>
     <NuxtLink to="/stories">
-      <button>Все сюжеты</button>
+      <button>Все истории</button>
     </NuxtLink>
   </div>
 </template>
@@ -46,10 +46,14 @@ const { data: stories } = await useFetch('/stories', { baseURL })
     justify-content: center;
     gap: 30px;
     .card {
+           flex-direction: column;
+        align-items: center;
+        justify-content: center;
       a {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         .image {
           margin-top: 66px;
           width: 100%;
@@ -103,6 +107,8 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           font-size: 36px;
           text-transform: uppercase;
           color: #000000;
+          text-align: center;
+          width: 100%;
         }
       }
     }

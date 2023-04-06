@@ -21,13 +21,11 @@
             <NuxtLink to="/persons"> Партнеры </NuxtLink>
           </div>
           <div class="video">
-            <NuxtLink to="/lections"> Видеолекции </NuxtLink>
-            <NuxtLink to="/stories"> Видеосюжеты </NuxtLink>
+            <NuxtLink to="/lections"> Лекции </NuxtLink>
+            <NuxtLink to="/stories"> Истории </NuxtLink>
           </div>
           <div class="contacts">
-            <a href="#">Контакты</a>
             <a href="#">Обратная связь</a>
-            <a href="#">Номер телефона</a>
           </div>
         </div>
       </footer>

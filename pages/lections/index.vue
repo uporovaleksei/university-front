@@ -6,7 +6,7 @@ import { onMounted } from 'vue'
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: lections } = await useFetch('/lections', { baseURL })
-const title = ref('Видеолекции')
+const title = ref('Лекции')
 </script>
 
 <template>
@@ -17,14 +17,14 @@ const title = ref('Видеолекции')
     </Head>
     <div class="container">
       <h1>{{ title }}</h1>
-      <div class="filters">
+      <!-- <div class="filters">
         <select name="" id="">
           <option selected>Институт</option>
         </select>
         <select name="" id="">
           <option value="" selected>Направление подготовки</option>
         </select>
-      </div>
+      </div> -->
       <div class="cards">
         <div class="card" v-for="(item, index) in lections" :key="index">
           <NuxtLink :to="'/lections/' + item.id">
@@ -60,32 +60,32 @@ const title = ref('Видеолекции')
     text-transform: uppercase;
     color: #000000;
   }
-  .filters {
-    margin-top: 60px;
-    display: flex;
-    gap: 30px;
-    select {
-      background: #d9d9d9;
-      border: 0;
-      border-radius: 18px;
-      padding: 2px 10px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
-      display: flex;
-      align-items: flex-end;
-      color: #000000;
-    }
-    .select_arrow {
-      position: absolute;
-      top: 17px;
-      right: 98px;
-      pointer-events: none;
-      border-style: solid;
-      border-width: 8px 5px 0px 5px;
-      border-color: #7b7b7b transparent transparent transparent;
-    }
-  }
+  // .filters {
+  //   margin-top: 60px;
+  //   display: flex;
+  //   gap: 30px;
+  //   select {
+  //     background: #d9d9d9;
+  //     border: 0;
+  //     border-radius: 18px;
+  //     padding: 2px 10px;
+  //     font-style: normal;
+  //     font-weight: 400;
+  //     font-size: 18px;
+  //     display: flex;
+  //     align-items: flex-end;
+  //     color: #000000;
+  //   }
+  //   .select_arrow {
+  //     position: absolute;
+  //     top: 17px;
+  //     right: 98px;
+  //     pointer-events: none;
+  //     border-style: solid;
+  //     border-width: 8px 5px 0px 5px;
+  //     border-color: #7b7b7b transparent transparent transparent;
+  //   }
+  // }
   .cards {
     display: flex;
     margin: 60px 0;

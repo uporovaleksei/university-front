@@ -17,7 +17,7 @@ const { data: news } = await useFetch('/news', { baseURL })
   <MainVue>
     <div class="container">
       <h1>{{ title }}</h1>
-      <div class="filters">
+      <!-- <div class="filters">
         <ul>
           <li>
             <a href="#" class="active">Все новости</a>
@@ -27,7 +27,7 @@ const { data: news } = await useFetch('/news', { baseURL })
             <a href="#">Проекты</a>
           </li>
         </ul>
-      </div>
+      </div> -->
       <div class="posts">
         <div class="post" v-for="(item, index) in news" :key="index">
           <NuxtLink :to="'/news/' + item.id">
@@ -57,69 +57,70 @@ const { data: news } = await useFetch('/news', { baseURL })
     font-size: 36px;
     text-transform: uppercase;
   }
-  .filters {
-    margin-top: 60px;
-    margin-bottom: 45px;
-    ul {
-      li {
-        display: flex;
-        gap: 40px;
-        transition: 0.3s ease all;
-        a {
-          font-weight: 400;
-          font-size: 16px;
-          color: #000000;
-          position: relative;
-          transition: 0.3s;
-          &:hover {
-            color: #ff0000;
-          }
-          &::before,
-          &::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #ff0000;
-          }
-          &:before {
-            opacity: 0;
-            transform: translateY(-18px);
-            transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
-          }
-          &:after {
-            opacity: 0;
-            transform: translateY(8px/2);
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
-          }
-          &.active,
-          &:hover,
-          &:focus {
-            color: #ff0000;
-            &:before,
-            &:after {
-              opacity: 1;
-              transform: translateY(0);
-            }
-            &:before {
-              transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
-            }
-            &:after {
-              transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s;
-            }
-          }
-        }
-      }
-    }
-  }
+  // .filters {
+  //   margin-top: 60px;
+  //   margin-bottom: 45px;
+  //   ul {
+  //     li {
+  //       display: flex;
+  //       gap: 40px;
+  //       transition: 0.3s ease all;
+  //       a {
+  //         font-weight: 400;
+  //         font-size: 16px;
+  //         color: #000000;
+  //         position: relative;
+  //         transition: 0.3s;
+  //         &:hover {
+  //           color: #ff0000;
+  //         }
+  //         &::before,
+  //         &::after {
+  //           content: '';
+  //           position: absolute;
+  //           bottom: -2px;
+  //           left: 0;
+  //           right: 0;
+  //           height: 2px;
+  //           background-color: #ff0000;
+  //         }
+  //         &:before {
+  //           opacity: 0;
+  //           transform: translateY(-18px);
+  //           transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
+  //         }
+  //         &:after {
+  //           opacity: 0;
+  //           transform: translateY(8px/2);
+  //           transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  //         }
+  //         &.active,
+  //         &:hover,
+  //         &:focus {
+  //           color: #ff0000;
+  //           &:before,
+  //           &:after {
+  //             opacity: 1;
+  //             transform: translateY(0);
+  //           }
+  //           &:before {
+  //             transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  //           }
+  //           &:after {
+  //             transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   .posts {
+    padding-top: 60px;
     display: flex;
+    justify-content: space-between;
     gap: 30px;
     flex-wrap: wrap;
-    justify-content: center;
     margin-bottom: 80px;
     .post {
       width: 350px;

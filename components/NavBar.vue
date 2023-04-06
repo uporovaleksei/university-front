@@ -1,12 +1,12 @@
 <script>
 import { tr } from 'date-fns/locale'
-// const onScroll = () => {
-//   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-//     document.querySelector('nav').style = 'background: rgba(255, 255, 255, 0.9);'
-//   } else {
-//     document.querySelector('nav').style = 'background: transparantet;'
-//   }
-// }
+const onScroll = () => {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.querySelector('nav').classList.add('scroll')
+  } else {
+   document.querySelector('nav').classList.remove('scroll')
+  }
+}
 
 export default {
   data() {
@@ -25,23 +25,23 @@ export default {
           path: '/lections',
         },
         {
-          label: 'Сюжеты',
+          label: 'Истории',
           path: '/stories',
         },
         {
-          label: 'ОУ в лицах',
+          label: 'Наставники',
           path: '/persons',
         },
       ],
       menuIsOpen: false
     }
   },
-  // mounted() {
-
-  // },
-  // beforeUnmount() {
-  //   window.removeEventListener('scroll', onScroll)
-  // },
+  mounted() {
+  window.addEventListener('scroll', onScroll)
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', onScroll)
+  },
   computed: {
     path() {
       return this.$route.path
@@ -58,6 +58,11 @@ export default {
 <template>
   <nav :class=" {'active': menuIsOpen}">
     <div class="content" :class=" {'active': menuIsOpen}">
+        <div class="menu__icon" @click="menuIsOpen = !menuIsOpen;lock()"
+   :class=" {'open': menuIsOpen}"
+   >
+    <span></span>
+  </div>
       <NuxtLink to="/">
         <img src="@/assets/images/logo.png" />
       </NuxtLink>
@@ -70,11 +75,7 @@ export default {
           </li>
         </ul>
       </div>
-  <div class="menu__icon" @click="menuIsOpen = !menuIsOpen;lock()"
-   :class=" {'open': menuIsOpen}"
-   >
-    <span></span>
-  </div>
+
     </div>
   </nav>
 </template>
@@ -86,6 +87,7 @@ nav {
   height: 80px;
   position: fixed;
   z-index: 100;
+  background: transparent;
   transition: background 0.3s ease-in-out;
   .content {
     width: fit-content;
@@ -155,25 +157,30 @@ nav {
               }
             }
           }
+
         }
       }
     }
 
   }
 }
+.scroll{
+  background: #fff;
+}
 @media  (max-width: 769px) {
   nav{
-
+    width: 100%;
+    background: #fff;
     .content{
-      width: 80%;
+      width: 60%;
       padding-top: 20px;
       justify-content: space-between;
       align-items: flex-start;
       display: flex;
-          overflow: hidden;
       .links{
         display: none;
         margin-left: 0
+      
       }
       .active{
         height: 100%;
@@ -181,13 +188,13 @@ nav {
         flex-direction: column;
         align-items: center;
         overflow: hidden;
+        
         ul{
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           align-items: flex-start;
           li{
-            
           }
         }
         
@@ -199,6 +206,9 @@ nav {
     width: 100%;
     background: #fff;
     overflow: hidden;
+    a{
+      order: 3;
+    }
   }
   .menu__icon{
     cursor: pointer;

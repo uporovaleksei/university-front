@@ -3,7 +3,7 @@ import MainVue from '@/layouts/Main.vue'
 import imgLink from '@/plugins/imgLink'
 import dateFormat from '@/plugins/dateFormat'
 import { onMounted } from 'vue'
-const title = ref('Видеосюжеты')
+const title = ref('Истории')
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: stories } = await useFetch('/stories', { baseURL })
@@ -87,14 +87,15 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           border-radius: 0 0 30px 30px;
           .title {
             padding-top: 25px;
+            padding-bottom: 15px;
+            padding-right: 15px;
+            padding-left: 15px;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-around;
             h2 {
               font-weight: 700;
-              font-size: 24px;
-              line-height: 0%;
               text-transform: uppercase;
               color: #ffffff;
             }
