@@ -27,4 +27,4 @@ jobs:
             npm run build
             cp ecosystem.config.js ./.output/server/ecosystem.config.js
             cd ./.output/server
-            pm2 start index.mjs
+            pm2 start
