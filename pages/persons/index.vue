@@ -1,7 +1,7 @@
 <script setup>
 import MainVue from '@/layouts/Main.vue'
 import imgLink from '~~/plugins/imgLink'
-const title = ref('Университет в лицах')
+const title = ref('Наши наставники')
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/', { baseURL })
 const router = useRouter()
@@ -13,7 +13,7 @@ const router = useRouter()
   </Head>
   <MainVue>
     <div class="container">
-      <h1>Университет в лицах</h1>
+      <h1>Наши наставники</h1>
       <div class="cards">
         <div class="card" v-for="item in persons" :key="item.id">
           <NuxtLink :to="'/persons/' + item.id">
