@@ -1,6 +1,6 @@
 <script setup>
 import MainVue from '@/layouts/Main.vue'
-const title = ref('Открытый унвиерситет')
+const title = ref('Открытый университет')
 </script>
 
 <template>
@@ -15,6 +15,7 @@ const title = ref('Открытый унвиерситет')
     <VideoLections />
     <VideoStories />
     <UniversityPersons />
+
   </MainVue>
 </template>
 <style lang="scss"></style>

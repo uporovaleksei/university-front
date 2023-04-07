@@ -7,7 +7,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
 </script>
 <template>
   <div class="container">
-    <h1>Университет в лицах</h1>
+    <h1>Наши наставники</h1>
     <div class="cards">
       <div class="card" v-for="item in persons" :key="item.id">
         <NuxtLink :to="'/persons/' + item.id">

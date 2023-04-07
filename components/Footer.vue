@@ -1,4 +1,6 @@
-<script></script>
+<script setup>
+const  showModal = ref(false)
+</script>
 <template>
   <div class="wrapper">
     <div class="container">
@@ -25,8 +27,17 @@
             <NuxtLink to="/stories"> Истории </NuxtLink>
           </div>
           <div class="contacts">
-            <a href="#">Обратная связь</a>
+            <a @click="showModal = true">Обратная связь</a>
           </div>
+           <ModalWindow v-if="showModal" @close="showModal = false">
+            <div class="modal">
+              <div class="header">
+                <h1>Обратная связь</h1>
+              </div>
+              <input type="text" placeholder="Введите ваше имя"> 
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+          </ModalWindow >
         </div>
       </footer>
     </div>
@@ -34,6 +45,17 @@
 </template>
 
 <style lang="scss" scoped>
+.modal{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  input{
+    width: 300px;
+  }
+  textarea{
+    resize: none;
+  }
+}
 .wrapper {
   width: 100%;
   height: 260px;
@@ -96,6 +118,7 @@
           line-height: 27px;
           a {
             color: #fff;
+            cursor: pointer;
           }
         }
       }
