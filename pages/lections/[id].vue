@@ -14,16 +14,7 @@ const { data: lection } = await useFetch('lection/' + route.params.id, { baseURL
   </Head>
   <MainVue>
     <div class="container">
-      <iframe
-        width="720"
-        height="405"
-        src="https://rutube.ru/play/embed/05535e77baa4fa8d8a78959b0e084476"
-        frameBorder="0"
-        allow="clipboard-write; autoplay"
-        webkitAllowFullScreen
-        mozallowfullscreen
-        allowFullScreen
-      ></iframe>
+<video :src= lection.path controls></video>
       <h2>{{ lection.title }}</h2>
       <p>{{ lection.description['Описание'] }}</p>
     </div>
@@ -36,7 +27,7 @@ const { data: lection } = await useFetch('lection/' + route.params.id, { baseURL
   height: 100%;
   margin: 0 auto;
   padding: 120px 0;
-  iframe {
+  video {
     width: 100%;
     height: 600px;
   }

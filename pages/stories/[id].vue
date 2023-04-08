@@ -14,16 +14,7 @@ const { data: storie } = await useFetch('storie/' + route.params.id, { baseURL }
   </Head>
   <MainVue>
     <div class="container">
-      <iframe
-        width="720"
-        height="405"
-        src="https://rutube.ru/play/embed/e49a12c61d336f2a9330080fd88900b3"
-        frameBorder="0"
-        allow="clipboard-write; autoplay"
-        webkitAllowFullScreen
-        mozallowfullscreen
-        allowFullScreen
-      ></iframe>
+     <video :src= storie.path controls></video>
       <h2>{{ storie.title }}</h2>
       <p>{{ storie.duration }}</p>
     </div>
