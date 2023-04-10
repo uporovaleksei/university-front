@@ -257,4 +257,23 @@ nav {
   }
 
 }
+@media  (min-width: 2559px) {
+nav{
+  height: 100px;
+  .content{
+    img{
+      scale: 1.3;
+    }
+    .links{
+      ul{
+        li{
+          a{
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+  }
 </style>

@@ -24,12 +24,10 @@ const { data: lection } = await useFetch('lection/' + route.params.id, { baseURL
 <style lang="scss" scoped>
 .container {
   width: 60%;
-  height: 100%;
   margin: 0 auto;
-  padding: 120px 0;
+  padding: 100px 0;
   video {
     width: 100%;
-    height: 600px;
   }
 }
 </style>

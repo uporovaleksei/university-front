@@ -14,17 +14,10 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   <MainVue>
     <div class="container">
       <div class="card">
-        <div class="image">
           <img class="img" :src="imgLink(person)" />
-          <div class="contacts">
-            <a :href="'mailto::' + person.email">{{ person.email }}</a>
-            <a :href="'tel:' + person.phone">{{ person.phone }}</a>
-          </div>
-        </div>
         <div class="info">
           <h2>{{ person.name }}</h2>
           <div v-for="(key, headers) in person.description" :key="headers">
-            <h3>{{ headers }}</h3>
             <p>{{ key }}</p>
           </div>
         </div>
@@ -32,23 +25,14 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
       <div class="interview">
         <div class="btn" @click="show = !show">
           <h2>Интервью</h2>
-          <span :class="{ active: show }">&gt;</span>
+          <img src="@/assets/images/arrow.svg" :class="{ active: show }">
         </div>
 
         <Transition name="slide-fade">
-          <p v-if="show">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta distinctio, quasi libero provident ut culpa
-            aliquam, alias aperiam architecto nihil non in tempore sed quas sit unde accusamus perspiciatis ex? Veniam
-            molestiae voluptas at quo laudantium reprehenderit ea velit ad dolores! Quas explicabo natus distinctio,
-            repudiandae voluptatum corrupti doloremque incidunt odio accusamus nesciunt molestias aut! Dolorum labore at
-            asperiores aliquid! Minima, laborum repudiandae facere eum recusandae at expedita sequi ab, maiores ea
-            voluptatem! Quae quisquam distinctio qui nisi molestiae ratione velit? Odit amet quidem explicabo dolorum
-            officiis eligendi esse cum? Blanditiis dolorum sapiente eum fugit sunt quisquam minus dignissimos adipisci
-            facilis numquam ea distinctio quos placeat molestiae fugiat, asperiores quod soluta consequatur odit dolor
-            enim! Itaque ex doloribus quam pariatur. Expedita molestias qui atque, saepe nostrum at vel reiciendis
-            delectus aut labore veritatis eligendi earum ipsam dolore sit deserunt alias dicta iusto illo voluptatibus?
-            Exercitationem quas beatae distinctio quo libero!
-          </p>
+          <div class="text" v-if="show"
+          v-html="person.interview"
+          >
+          </div>
         </Transition>
       </div>
     </div>
@@ -65,51 +49,43 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   .card {
     display: flex;
     gap: 40px;
-    .image {
-      border-radius: 50%;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      user-select: none;
-      position: relative;
-      .contacts {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        user-select: text;
-      }
+    transition: 0.3s all ease;
       img {
-        background: linear-gradient(0deg, rgb(24, 80, 145), rgb(116, 180, 255));
-        box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        &:hover {
-          scale: 1.05;
-        }
+        width: 370px;
+        height: 450px;
+        object-fit: contain;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        background: linear-gradient(211.09deg, #e3ceef 6.04%, #e4fbfd 84.05%);
+        transition: 0.3s all ease;  
       }
-    }
     .info {
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 15px;
       h2 {
-        text-align: center;
+        font-family: 'Mulish';
+        font-style: normal;
         font-weight: 700;
-        font-size: 24px;
+        font-size: 36px;
         text-transform: uppercase;
         color: #000000;
-        text-align: center;
       }
       h3 {
+        margin-top: 60px;
         font-weight: 700;
         font-size: 18px;
         text-transform: uppercase;
         color: #000000;
       }
       p {
-        font-weight: 400;
-        font-size: 20px;
-        color: #000000;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      color: #000000;
+
       }
     }
   }
@@ -124,27 +100,52 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      span {
+      img{
         transition: 0.3s all ease;
-        font-weight: 900;
+        width: 40px;
       }
       .active {
         transform: rotate(90deg);
       }
       h2 {
         font-weight: 700;
-        font-size: 24px;
+        font-size: 36px;
         text-transform: uppercase;
         color: #000000;
         cursor: pointer;
       }
     }
-
-    p {
-      font-weight: 400;
-      font-size: 20px;
+    .text{
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      :deep(h1){
+      font-family: 'Mulish';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
       color: #000000;
+      }
+      :deep(h2){
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        color: #000000;
+      }
+      :deep(p){
+        font-family: 'Merriweather';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 24px;
+        color: #000000;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        padding: 20px;
+      }
     }
+
   }
 }
 .slide-fade-enter-active {

@@ -11,15 +11,14 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     <div class="cards">
       <div class="card" v-for="item in persons" :key="item.id">
         <NuxtLink :to="'/persons/' + item.id">
-          <div class="image">
-            <div class="image-inner">
-              <span class="circle"></span>
-              <img class="img" :src="imgLink(item)" />
-            </div>
-          </div>
-        </NuxtLink>
+        <div class="image">
+        <img class="img" :src="imgLink(item)" />
+        </div>
+        <div class="text">
         <h2>{{ item.name }}</h2>
         <p>{{ item.description?.['Должность'] }}</p>
+        </div>
+        </NuxtLink>
       </div>
     </div>
     <NuxtLink to="/persons">
@@ -49,72 +48,88 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     gap: 75px;
     flex-wrap: wrap;
     .card {
+      width: 400px;
+      height: 540px;
+      border-radius: 10px;
+      border: 1px solid #000000;
+      background: #fff;
+      position: relative;
+      transition: 0.3s all ease-in-out;
+      img{
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        align-self: center;
+        background: linear-gradient(211.09deg, #FFA621 6.04%, #DBA3D2 84.05%);
+        border-radius: 10px 10px 0px 0px;
+        border-bottom: 1px solid #000000;
+      
+      }
+      &:nth-child(2n) img{
+        background: conic-gradient(from 188.78deg at 55.54% 64.13%, #2B4ABA -103.92deg, #CFB8EC 132.9deg, #2B4ABA 256.08deg, #CFB8EC 492.9deg);
+      }
+      &:nth-child(3n) img{
+        background: linear-gradient(59deg, #938AFF 13.28%, #68FFB7 87.42%);
+      }
+      &::after{
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 0px;
+        content: '';
+        width: 400px;
+        height: 540px;
+        background: #fff;
+        filter: drop-shadow(2px 4px 4px #FF006B);
+        border-radius: 10px;
+        opacity: 0;
+        transition: 0.3s all ease;
+      }
+        &:hover::after{
+          opacity: 1;
+          top: 10px;
+          left: 10px;
+        }
+      &:nth-child(2n):after{
+         filter: drop-shadow(2px 4px 4px #0500FF);
+      }
+      &:nth-child(3n):after{
+         filter: drop-shadow(2px 4px 4px #00FFD1);
+    }
+    
+    .text{ 
+      z-index: 5;
+      display: flex;
       flex-direction: column;
       align-items: center;
-      width: 400px;
-      height: 640px;
-
-      .image {
-        border-radius: 50%;
-        -webkit-tap-highlight-color: transparent;
-        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        width: 100%;
-        user-select: none;
-        &:hover {
-          transform: scale(1.04);
-        }
-        .image-inner {
-          clip-path: path(
-            'M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z'
-          );
-          position: relative;
-          top: -280px;
-          .circle {
-            width: 376px;
-            height: 376px;
-            background-color: #5e6ad3;
-            border-radius: 50%;
-            cursor: pointer;
-            left: 11px;
-            pointer-events: none;
-            position: absolute;
-            top: 221px;
-          }
-          .img {
-            pointer-events: none;
-            position: relative;
-            transform: translateY(20px) scale(1.15);
-            transform-origin: 50% bottom;
-            transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            left: 40px;
-            top: 240px;
-            height: 400px;
-            width: 310px;
-          }
-        }
-      }
-      .image:hover .img {
-        transform: translateY(-20px) scale(1.15);
-      }
-    }
-    h2 {
-      text-align: center;
+      h2 {
+      width: 90%;
+      font-family: 'Unbounded';
+      font-style: normal;
       font-weight: 700;
-      font-size: 24px;
+      font-size: 20px;
+      text-align: center;
       text-transform: uppercase;
       color: #000000;
-      text-align: center;
+      margin: 10px 0;
     }
     p {
+      width: 80%;
+      font-family: 'Open Sans';
+      font-style: normal;
       font-weight: 400;
-      font-size: 24px;
-      color: #000000;
+      font-size: 16px;
       text-align: center;
+      color: #000000;
     }
+    }
+    } 
   }
   a {
+    padding: 60px 0;
     align-self: flex-end;
     button {
+      cursor: pointer;
       width: 270px;
       height: 50px;
       border: 0;
@@ -130,5 +145,49 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       }
     }
   }
+}
+@media  (min-width: 2559px) {
+.container {
+  width: 80%;
+  h1 {
+    font-size: 4rem;
+  }
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+    flex-wrap: wrap;
+    .card {
+      height: 100%;
+      min-height: 100px;
+      width: 550px;
+      border-radius: 10px;
+      border: 1px solid #000000;
+      background: #fff;
+      position: relative;
+      transition: 0.3s all ease-in-out;
+      img{
+        width: 100%;
+        height: 100%;        
+      } 
+    .text{ 
+      h2 {
+        font-size: 2rem;
+    }
+    p {
+      font-size: 2rem;
+    }
+    }
+    } 
+  }
+  a {
+    button {
+      width: 370px;
+      height: 80px;
+      font-size: 2.5rem;
+    }
+  }
+}
 }
 </style>

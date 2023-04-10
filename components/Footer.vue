@@ -29,6 +29,10 @@ const  showModal = ref(false)
           <div class="contacts">
             <a @click="showModal = true">Обратная связь</a>
           </div>
+                    <p>
+            ФГАОУ ВО «Российский государственный
+профессионально-педагогический университет»
+          </p>
            <ModalWindow v-if="showModal" @close="showModal = false">
             <div class="modal">
               <div class="header">
@@ -83,7 +87,7 @@ const  showModal = ref(false)
       display: flex;
       height: 100%;
       width: 100%;
-      gap: 330px;
+      // gap: 330px;
       padding-top: 60px;
       .icons {
         width: 100%;
@@ -102,7 +106,7 @@ const  showModal = ref(false)
         justify-content: center;
         height: 100%;
         width: 100%;
-        gap: 100px;
+        // gap: 100px;
         .about,
         .video,
         .contacts {
@@ -121,6 +125,13 @@ const  showModal = ref(false)
             cursor: pointer;
           }
         }
+      }
+      p{
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #FFFFFF;
       }
     }
   }

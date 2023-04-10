@@ -57,45 +57,48 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
       color: #000000;
     }
     .card {
-      background: var(--blue);
+      width: 100%;
+      background: #185091;
       display: flex;
       align-items: center;
-      border-radius: 30px;
-      padding: 75px 0;
-      height: 600px;
+      border-radius: 10px;
+      min-height: 500px;
+      max-height: 500px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       .image {
         background: #ffffff;
-        border-radius: 30px;
-        transform: translateX(-100px);
-        min-width: 400px;
-        max-width: 400px;
-        height: 400px;
+        border-radius: 10px 0px 0px 10px;
+        min-width: 40%;
+        max-width: 41%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        position: relative;
         &::before {
           content: '';
           z-index: 55;
           position: absolute;
           width: 100%;
           height: 100%;
-          border-radius: 30px;
+          border-radius: 10px 0px 0px 10px;
           background: #00000038;
         }
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          border-radius: 30px;
+         border-radius: 10px 0px 0px 10px;
           position: relative;
           z-index: 14;
         }
       }
       .info {
         display: flex;
+        margin-left: 30px;
         flex-direction: column;
-        gap: 40px;
+        gap: 60px;
+        justify-content: flex-start;
         .date {
           color: #ffffff;
           font-weight: 300;
@@ -103,6 +106,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
           text-transform: capitalize;
         }
         .title {
+                  width: 90%;
           h2 {
             font-weight: 700;
             font-size: 40px;
@@ -123,17 +127,22 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
           align-items: center;
           gap: 70px;
           button {
-            width: 270px;
-            height: 50px;
-            font-weight: 400;
-            font-size: 24px;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          width: 170px;
+          height: 40px;
+            border: 2px solid #FFFFFF;
+            border-radius: 20px;
+            background: transparent;
+            color: #fff;
             border-radius: 30px;
-            border: 0;
             cursor: pointer;
             transition: 0.2s ease all;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
             &:hover {
-              box-shadow: 0px 0px 1px 3px var(--red);
+              background: #fff;
+              color: #000000;
             }
           }
           a {
@@ -150,5 +159,40 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
       }
     }
   }
+}
+@media  (min-width: 2559px) {
+.wrapper{
+    .container {
+    .card {
+      min-height: 700px;
+      .info {
+        .date {
+          font-size: 2rem;
+        }
+        .title {
+          h2 {
+            font-size: 3rem;
+          }
+        }
+        .text {
+          p {
+            font-size: 2.5rem;
+          }
+        }
+        .buttons {
+          button {
+            width: 300px;
+            height: 60px;
+            font-size: 2.3rem;
+            border: 3px solid #FFFFFF;
+          }
+          a {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}
 }
 </style>

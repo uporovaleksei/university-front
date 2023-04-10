@@ -52,7 +52,7 @@ export default {}
 
 <style lang="scss" scoped>
 .container {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -76,5 +76,18 @@ export default {}
       font-size: 32px;
     }
   }
+}
+@media  (min-width: 2559px) {
+.container {
+  .project,
+  .mission {
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 2.5rem;
+    }
+  }
+}
 }
 </style>

@@ -27,7 +27,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
 
 <style lang="scss" scoped>
 .container {
-  width: 1170px;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -134,5 +134,35 @@ const { data: stories } = await useFetch('/stories', { baseURL })
       }
     }
   }
+}
+@media  (min-width: 2559px) {
+.container {
+  h1 {
+    font-size: 4rem;
+  }
+  .cards {
+    .card {
+      a {
+        .image {
+          width: 675px;
+          height: 450px;
+          p {
+            font-size: 2rem;
+          }
+        }
+        h2 {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+    a {
+    button {
+      width: 370px;
+      height: 80px;
+      font-size: 2.5rem;
+    }
+  }
+}
 }
 </style>
