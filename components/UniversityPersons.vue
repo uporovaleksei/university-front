@@ -195,4 +195,48 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     }
   }
 }
+@media (max-width: 425px) {
+  .container {
+    width: 80%;
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 75px;
+      flex-wrap: wrap;
+      .card {
+        height: 100%;
+        min-height: 1100px;
+        width: 80%;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
 </style>
