@@ -14,7 +14,7 @@ const { data: storie } = await useFetch('storie/' + route.params.id, { baseURL }
   </Head>
   <MainVue>
     <div class="container">
-     <video :src= storie.path controls></video>
+      <video :src="storie.path" controls></video>
       <h2>{{ storie.title }}</h2>
       <p>{{ storie.duration }}</p>
     </div>

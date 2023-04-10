@@ -38,28 +38,28 @@ export default {}
     margin-left: 30px;
   }
 }
-@media  (min-width: 2559px) {
-.container {
-  width: 100%;
-  height: 100vh;
-  background: url('@/assets/images/gradient.png');
-  background-size: 100vw;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  img {
-    scale: 2;
+@media (min-width: 2559px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    background: url('@/assets/images/gradient.png');
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    img {
+      scale: 2;
+    }
+    span {
+      height: 600px;
+      margin-left: 150px;
+      width: 6px;
+    }
+    h1 {
+      font-size: 7rem;
+    }
   }
-  span {
-    height: 600px;
-    margin-left: 150px;
-    width: 6px;
-  }
-  h1 {
-    font-size: 7rem;
-  }
-}
 }
 </style>

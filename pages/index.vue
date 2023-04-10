@@ -15,7 +15,6 @@ const title = ref('Открытый университет')
     <VideoLections />
     <VideoStories />
     <UniversityPersons />
-
   </MainVue>
 </template>
 <style lang="scss"></style>

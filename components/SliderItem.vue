@@ -88,7 +88,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
           width: 100%;
           height: 100%;
           object-fit: cover;
-         border-radius: 10px 0px 0px 10px;
+          border-radius: 10px 0px 0px 10px;
           position: relative;
           z-index: 14;
         }
@@ -106,7 +106,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
           text-transform: capitalize;
         }
         .title {
-                  width: 90%;
+          width: 90%;
           h2 {
             font-weight: 700;
             font-size: 40px;
@@ -127,9 +127,9 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
           align-items: center;
           gap: 70px;
           button {
-          width: 170px;
-          height: 40px;
-            border: 2px solid #FFFFFF;
+            width: 170px;
+            height: 40px;
+            border: 2px solid #ffffff;
             border-radius: 20px;
             background: transparent;
             color: #fff;
@@ -160,39 +160,39 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
     }
   }
 }
-@media  (min-width: 2559px) {
-.wrapper{
+@media (min-width: 2559px) {
+  .wrapper {
     .container {
-    .card {
-      min-height: 700px;
-      .info {
-        .date {
-          font-size: 2rem;
-        }
-        .title {
-          h2 {
-            font-size: 3rem;
+      .card {
+        min-height: 700px;
+        .info {
+          .date {
+            font-size: 2rem;
           }
-        }
-        .text {
-          p {
-            font-size: 2.5rem;
+          .title {
+            h2 {
+              font-size: 3rem;
+            }
           }
-        }
-        .buttons {
-          button {
-            width: 300px;
-            height: 60px;
-            font-size: 2.3rem;
-            border: 3px solid #FFFFFF;
+          .text {
+            p {
+              font-size: 2.5rem;
+            }
           }
-          a {
-            font-size: 2.5rem;
+          .buttons {
+            button {
+              width: 300px;
+              height: 60px;
+              font-size: 2.3rem;
+              border: 3px solid #ffffff;
+            }
+            a {
+              font-size: 2.5rem;
+            }
           }
         }
       }
     }
   }
-}
 }
 </style>

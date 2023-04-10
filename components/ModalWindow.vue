@@ -1,26 +1,22 @@
-
 <script setup>
-const closeModal = ()=>{
-	document.querySelector('.modal-mask').classList.add('close')
+const closeModal = () => {
+  document.querySelector('.modal-mask').classList.add('close')
 }
 </script>
 <template>
-	 <transition name="modal" >
-        <div class="modal-mask">
-          <div class="modal-wrapper">
-            <div class="modal-container">
-							<slot></slot>
-                  <button class="modal-default-button" @click="$emit('close')">
-                    OK
-                  </button>
-            </div>
-          </div>
+  <transition name="modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <slot></slot>
+          <button class="modal-default-button" @click="$emit('close')">OK</button>
         </div>
-      </transition>
+      </div>
+    </div>
+  </transition>
 </template>
 
-
-<style> 
+<style>
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -32,8 +28,8 @@ const closeModal = ()=>{
   display: table;
   transition: opacity 0.3s ease;
 }
-.close{
-	display: none;
+.close {
+  display: none;
 }
 
 .modal-wrapper {
@@ -46,7 +42,7 @@ const closeModal = ()=>{
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-	border: 2px solid #185091;
+  border: 2px solid #185091;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
@@ -63,7 +59,7 @@ const closeModal = ()=>{
 }
 
 .modal-default-button {
-	margin: 10px;
+  margin: 10px;
 }
 
 .modal-enter {
@@ -80,5 +76,6 @@ const closeModal = ()=>{
   transform: scale(1.1);
 }
 
-button{}
+button {
+}
 </style>

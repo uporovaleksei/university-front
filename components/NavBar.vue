@@ -4,7 +4,7 @@ const onScroll = () => {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.querySelector('nav').classList.add('scroll')
   } else {
-   document.querySelector('nav').classList.remove('scroll')
+    document.querySelector('nav').classList.remove('scroll')
   }
 }
 
@@ -33,11 +33,11 @@ export default {
           path: '/persons',
         },
       ],
-      menuIsOpen: false
+      menuIsOpen: false,
     }
   },
   mounted() {
-  window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll)
   },
   beforeUnmount() {
     window.removeEventListener('scroll', onScroll)
@@ -47,26 +47,31 @@ export default {
       return this.$route.path
     },
   },
-  methods:{
-    lock(){
-    this.menuIsOpen? document.body.style = 'overflow: hidden;': document.body.style = 'overflow: scroll;' 
-    }
-  }
+  methods: {
+    lock() {
+      this.menuIsOpen ? (document.body.style = 'overflow: hidden;') : (document.body.style = 'overflow: scroll;')
+    },
+  },
 }
 </script>
 
 <template>
-  <nav :class=" {'active': menuIsOpen}">
-    <div class="content" :class=" {'active': menuIsOpen}">
-        <div class="menu__icon" @click="menuIsOpen = !menuIsOpen;lock()"
-   :class=" {'open': menuIsOpen}"
-   >
-    <span></span>
-  </div>
+  <nav :class="{ active: menuIsOpen }">
+    <div class="content" :class="{ active: menuIsOpen }">
+      <div
+        class="menu__icon"
+        @click="
+          menuIsOpen = !menuIsOpen
+          lock()
+        "
+        :class="{ open: menuIsOpen }"
+      >
+        <span></span>
+      </div>
       <NuxtLink to="/">
         <img src="@/assets/images/logo.png" />
       </NuxtLink>
-      <div :class="['links', {'active': menuIsOpen}]" >
+      <div :class="['links', { active: menuIsOpen }]">
         <ul>
           <li v-for="item in paths" :key="item.path">
             <NuxtLink :to="item.path" :class="{ active: item.path === path }" class="link">
@@ -75,13 +80,11 @@ export default {
           </li>
         </ul>
       </div>
-
     </div>
   </nav>
 </template>
 
 <style lang="scss" scoped>
-
 nav {
   width: 100%;
   height: 80px;
@@ -157,60 +160,56 @@ nav {
               }
             }
           }
-
         }
       }
     }
-
   }
 }
-.scroll{
+.scroll {
   background: #fff;
 }
-@media  (max-width: 769px) {
-  nav{
+@media (max-width: 769px) {
+  nav {
     width: 100%;
     background: #fff;
-    .content{
+    .content {
       width: 60%;
       padding-top: 20px;
       justify-content: space-between;
       align-items: flex-start;
       display: flex;
-      .links{
+      .links {
         display: none;
-        margin-left: 0
-      
+        margin-left: 0;
       }
-      .active{
+      .active {
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-        
-        ul{
+
+        ul {
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           align-items: flex-start;
-          li{
+          li {
           }
         }
-        
       }
     }
   }
-.active{
+  .active {
     height: 100%;
     width: 100%;
     background: #fff;
     overflow: hidden;
-    a{
+    a {
       order: 3;
     }
   }
-  .menu__icon{
+  .menu__icon {
     cursor: pointer;
     height: 18px;
     width: 30px;
@@ -219,61 +218,59 @@ nav {
     z-index: 5;
     span,
     &::before,
-    &::after{
-        position: absolute;
-        height: 15%;
-        width: 100%;
-        transition: 0.3s ease;
-        background: #031312;
+    &::after {
+      position: absolute;
+      height: 15%;
+      width: 100%;
+      transition: 0.3s ease;
+      background: #031312;
     }
     &::before,
-    &::after{
-        content: "";
+    &::after {
+      content: '';
     }
-    &::after{
-        bottom: 0;
+    &::after {
+      bottom: 0;
     }
-    &::before{
-        top: 0;
+    &::before {
+      top: 0;
     }
-    span{
-        top: 45%;
-        transform: translate(0px -50%);
-    }
-    
-  }
-  .open{
-    &::after{
-        bottom: 50%;
-        transform: rotate(45deg) translate(0px, 50%);
-    }
-    &::before{
-         top:50%;
-        transform: rotate(-45deg) translate(0px, -50%);;
-    }
-    span{
-         transform: scale(0);
+    span {
+      top: 45%;
+      transform: translate(0px -50%);
     }
   }
-
+  .open {
+    &::after {
+      bottom: 50%;
+      transform: rotate(45deg) translate(0px, 50%);
+    }
+    &::before {
+      top: 50%;
+      transform: rotate(-45deg) translate(0px, -50%);
+    }
+    span {
+      transform: scale(0);
+    }
+  }
 }
-@media  (min-width: 2559px) {
-nav{
-  height: 100px;
-  .content{
-    img{
-      scale: 1.3;
-    }
-    .links{
-      ul{
-        li{
-          a{
-            font-size: 2.5rem;
+@media (min-width: 2559px) {
+  nav {
+    height: 100px;
+    .content {
+      img {
+        scale: 1.3;
+      }
+      .links {
+        ul {
+          li {
+            a {
+              font-size: 2.5rem;
+            }
           }
         }
       }
     }
   }
 }
-  }
 </style>

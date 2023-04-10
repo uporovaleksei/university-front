@@ -119,7 +119,7 @@ const { data: lections } = await useFetch('/lections', { baseURL })
             color: #ffffff;
           }
           p {
-              width: 90%;
+            width: 90%;
             font-weight: 300;
             font-size: 22px;
             color: #ffffff;
@@ -150,61 +150,59 @@ const { data: lections } = await useFetch('/lections', { baseURL })
     }
   }
 }
-@media  (min-width: 2559px) {
-.container {
-
-  h1 {
-    font-size: 4rem;
-  }
-  .cards {
-    .card {
-      width: 670px;
-      height: 600px;
-      background: #d9d9d9;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 30px;
-      transition: 0.3s ease all;
-      a {
-        width: 100%;
-        height: 100%;
+@media (min-width: 2559px) {
+  .container {
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      .card {
+        width: 670px;
+        height: 600px;
+        background: #d9d9d9;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
         display: flex;
         flex-direction: column;
         align-items: center;
-        .image {
+        border-radius: 30px;
+        transition: 0.3s ease all;
+        a {
           width: 100%;
-          display: flex;
           height: 100%;
-          justify-content: center;
-          position: relative;
-          img{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .image {
+            width: 100%;
+            display: flex;
             height: 100%;
+            justify-content: center;
+            position: relative;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
           }
-          p {
-            font-size: 2rem;
-          }
-        }
-        .text {
-          h2 {
-            font-size: 3rem;
-          }
-          p {
-            font-size: 2.5rem;
+          .text {
+            h2 {
+              font-size: 3rem;
+            }
+            p {
+              font-size: 2.5rem;
+            }
           }
         }
       }
     }
-  }
-  a {
-    button {
-      width: 370px;
-      height: 80px;
-      font-size: 2.5rem;
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
     }
   }
 }
-}
-
 </style>

@@ -181,40 +181,39 @@ const { data: news } = await useFetch('/news', { baseURL })
     }
   }
 }
-@media  (min-width: 2559px) {
-.container {
-  padding-top: 180px;
-  width: 80%;
-  margin: 0 auto;
-  h1 {
-    font-size: 3rem;
-  }
-  .posts {
-    .post {
-      width: 30%;
-      height: 430px;
-      .image {
-        img {
-          width: 100%;  
-          height: 100%;
-        }
-      }
-      a{
-        
-      }
-      .info {
-        height: 100%;
-        .title {
-          h2 {
-            font-size: 3rem;
+@media (min-width: 2559px) {
+  .container {
+    padding-top: 180px;
+    width: 80%;
+    margin: 0 auto;
+    h1 {
+      font-size: 3rem;
+    }
+    .posts {
+      .post {
+        width: 30%;
+        height: 430px;
+        .image {
+          img {
+            width: 100%;
+            height: 100%;
           }
         }
-        .date {
-          font-size: 2rem;
+        a {
+        }
+        .info {
+          height: 100%;
+          .title {
+            h2 {
+              font-size: 3rem;
+            }
+          }
+          .date {
+            font-size: 2rem;
+          }
         }
       }
     }
   }
-}
 }
 </style>

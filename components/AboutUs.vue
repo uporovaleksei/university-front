@@ -77,17 +77,17 @@ export default {}
     }
   }
 }
-@media  (min-width: 2559px) {
-.container {
-  .project,
-  .mission {
-    h1 {
-      font-size: 4rem;
-    }
-    p {
-      font-size: 2.5rem;
+@media (min-width: 2559px) {
+  .container {
+    .project,
+    .mission {
+      h1 {
+        font-size: 4rem;
+      }
+      p {
+        font-size: 2.5rem;
+      }
     }
   }
-}
 }
 </style>

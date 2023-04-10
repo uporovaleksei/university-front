@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="wrapper">
-      <h1>Новости</h1>
+    <h1>Новости</h1>
     <div class="container">
       <Slider :sliderData="news" :active="active" @jump="jump" />
     </div>
@@ -44,29 +44,28 @@ onBeforeUnmount(() => {
   padding: 10px 0;
   padding-top: 80px;
   min-height: 30vh;
-  padding-bottom: 90px; 
-      h1 {
-        width: 80%;
-      margin: 0 auto;
-      padding-bottom: 90px;
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 48px;
-      text-transform: uppercase;
-      color: #000000;
-    }
+  padding-bottom: 90px;
+  h1 {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 90px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: #000000;
+  }
   .container {
     width: 90%;
     margin: 0 auto;
   }
 }
-@media  (min-width: 2559px) {
-.wrapper {
-      h1 {
-        font-size: 4rem;
+@media (min-width: 2559px) {
+  .wrapper {
+    h1 {
+      font-size: 4rem;
     }
+  }
 }
-}
-
 </style>

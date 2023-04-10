@@ -14,7 +14,7 @@ const { data: lection } = await useFetch('lection/' + route.params.id, { baseURL
   </Head>
   <MainVue>
     <div class="container">
-<video :src= lection.path controls></video>
+      <video :src="lection.path" controls></video>
       <h2>{{ lection.title }}</h2>
       <p>{{ lection.description['Описание'] }}</p>
     </div>

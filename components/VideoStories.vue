@@ -46,9 +46,9 @@ const { data: stories } = await useFetch('/stories', { baseURL })
     justify-content: center;
     gap: 30px;
     .card {
-           flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       a {
         display: flex;
         flex-direction: column;
@@ -135,34 +135,34 @@ const { data: stories } = await useFetch('/stories', { baseURL })
     }
   }
 }
-@media  (min-width: 2559px) {
-.container {
-  h1 {
-    font-size: 4rem;
-  }
-  .cards {
-    .card {
-      a {
-        .image {
-          width: 675px;
-          height: 450px;
-          p {
-            font-size: 2rem;
+@media (min-width: 2559px) {
+  .container {
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      .card {
+        a {
+          .image {
+            width: 675px;
+            height: 450px;
+            p {
+              font-size: 2rem;
+            }
           }
-        }
-        h2 {
-          font-size: 3rem;
+          h2 {
+            font-size: 3rem;
+          }
         }
       }
     }
-  }
     a {
-    button {
-      width: 370px;
-      height: 80px;
-      font-size: 2.5rem;
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
     }
   }
-}
 }
 </style>

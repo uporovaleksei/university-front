@@ -1,5 +1,5 @@
 <script setup>
-const  showModal = ref(false)
+const showModal = ref(false)
 </script>
 <template>
   <div class="wrapper">
@@ -29,19 +29,16 @@ const  showModal = ref(false)
           <div class="contacts">
             <a @click="showModal = true">Обратная связь</a>
           </div>
-                    <p>
-            ФГАОУ ВО «Российский государственный
-профессионально-педагогический университет»
-          </p>
-           <ModalWindow v-if="showModal" @close="showModal = false">
+          <p>ФГАОУ ВО «Российский государственный профессионально-педагогический университет»</p>
+          <ModalWindow v-if="showModal" @close="showModal = false">
             <div class="modal">
               <div class="header">
                 <h1>Обратная связь</h1>
               </div>
-              <input type="text" placeholder="Введите ваше имя"> 
+              <input type="text" placeholder="Введите ваше имя" />
               <textarea name="" id="" cols="30" rows="10"></textarea>
             </div>
-          </ModalWindow >
+          </ModalWindow>
         </div>
       </footer>
     </div>
@@ -49,14 +46,14 @@ const  showModal = ref(false)
 </template>
 
 <style lang="scss" scoped>
-.modal{
+.modal {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  input{
+  input {
     width: 300px;
   }
-  textarea{
+  textarea {
     resize: none;
   }
 }
@@ -126,12 +123,12 @@ const  showModal = ref(false)
           }
         }
       }
-      p{
+      p {
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
-        color: #FFFFFF;
+        color: #ffffff;
       }
     }
   }

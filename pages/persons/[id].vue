@@ -14,7 +14,7 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   <MainVue>
     <div class="container">
       <div class="card">
-          <img class="img" :src="imgLink(person)" />
+        <img class="img" :src="imgLink(person)" />
         <div class="info">
           <h2>{{ person.name }}</h2>
           <div v-for="(key, headers) in person.description" :key="headers">
@@ -25,14 +25,11 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
       <div class="interview">
         <div class="btn" @click="show = !show">
           <h2>Интервью</h2>
-          <img src="@/assets/images/arrow.svg" :class="{ active: show }">
+          <img src="@/assets/images/arrow.svg" :class="{ active: show }" />
         </div>
 
         <Transition name="slide-fade">
-          <div class="text" v-if="show"
-          v-html="person.interview"
-          >
-          </div>
+          <div class="text" v-if="show" v-html="person.interview"></div>
         </Transition>
       </div>
     </div>
@@ -50,15 +47,15 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
     display: flex;
     gap: 40px;
     transition: 0.3s all ease;
-      img {
-        width: 370px;
-        height: 450px;
-        object-fit: contain;
-        border: 1px solid #000000;
-        border-radius: 10px;
-        background: linear-gradient(211.09deg, #e3ceef 6.04%, #e4fbfd 84.05%);
-        transition: 0.3s all ease;  
-      }
+    img {
+      width: 370px;
+      height: 450px;
+      object-fit: contain;
+      border: 1px solid #000000;
+      border-radius: 10px;
+      background: linear-gradient(211.09deg, #e3ceef 6.04%, #e4fbfd 84.05%);
+      transition: 0.3s all ease;
+    }
     .info {
       width: 100%;
       display: flex;
@@ -80,12 +77,11 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         color: #000000;
       }
       p {
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      color: #000000;
-
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        color: #000000;
       }
     }
   }
@@ -100,7 +96,7 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      img{
+      img {
         transition: 0.3s all ease;
         width: 40px;
       }
@@ -115,37 +111,36 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         cursor: pointer;
       }
     }
-    .text{
+    .text {
       display: flex;
       flex-direction: column;
       gap: 60px;
-      :deep(h1){
-      font-family: 'Mulish';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 36px;
-      color: #000000;
+      :deep(h1) {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        color: #000000;
       }
-      :deep(h2){
+      :deep(h2) {
         font-family: 'Merriweather';
         font-style: normal;
         font-weight: 700;
         font-size: 24px;
         color: #000000;
       }
-      :deep(p){
+      :deep(p) {
         font-family: 'Merriweather';
         font-style: italic;
         font-weight: 400;
         font-size: 24px;
         color: #000000;
-        background: #FFFFFF;
+        background: #ffffff;
         border: 1px solid #000000;
         border-radius: 10px;
         padding: 20px;
       }
     }
-
   }
 }
 .slide-fade-enter-active {
