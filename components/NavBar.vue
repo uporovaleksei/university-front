@@ -61,7 +61,7 @@ export default {
       <div
         class="menu__icon"
         @click="
-          menuIsOpen = !menuIsOpen
+          menuIsOpen = !menuIsOpen,
           lock()
         "
         :class="{ open: menuIsOpen }"
