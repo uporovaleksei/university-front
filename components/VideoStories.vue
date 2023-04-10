@@ -163,6 +163,6 @@ const { data: stories } = await useFetch('/stories', { baseURL })
         font-size: 2.5rem;
       }
     }
-  }
+  } 
 }
 </style>
