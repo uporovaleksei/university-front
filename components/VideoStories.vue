@@ -35,7 +35,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
   h1 {
     margin-top: 40px;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 36px;
     text-transform: uppercase;
     color: #000000;
   }

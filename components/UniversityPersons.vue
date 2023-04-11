@@ -37,7 +37,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     margin-top: 90px;
     margin-bottom: 120px;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 36px;
     text-transform: uppercase;
     color: #000000;
   }

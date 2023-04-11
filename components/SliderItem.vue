@@ -52,7 +52,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
       font-family: 'Open Sans';
       font-style: normal;
       font-weight: 700;
-      font-size: 48px;
+      font-size: 36px;
       text-transform: uppercase;
       color: #000000;
     }

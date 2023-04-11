@@ -38,7 +38,7 @@ const { data: lections } = await useFetch('/lections', { baseURL })
   h1 {
     margin-top: 40px;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 36px;
     text-transform: uppercase;
     color: #000000;
   }
