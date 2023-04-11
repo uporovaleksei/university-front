@@ -58,14 +58,7 @@ export default {
 <template>
   <nav :class="{ active: menuIsOpen }">
     <div class="content" :class="{ active: menuIsOpen }">
-      <div
-        class="menu__icon"
-        @click="
-          menuIsOpen = !menuIsOpen,
-          lock()
-        "
-        :class="{ open: menuIsOpen }"
-      >
+      <div class="menu__icon" @click=";(menuIsOpen = !menuIsOpen), lock()" :class="{ open: menuIsOpen }">
         <span></span>
       </div>
       <NuxtLink to="/">
@@ -83,8 +76,7 @@ export default {
     </div>
   </nav>
 </template>
- 
- 
+
 <style lang="scss" scoped>
 nav {
   width: 100%;

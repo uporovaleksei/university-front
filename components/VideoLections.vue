@@ -114,14 +114,14 @@ const { data: lections } = await useFetch('/lections', { baseURL })
           border-radius: 0 0 30px 30px;
           h2 {
             font-weight: 700;
-            font-size: 36px;
+            font-size: 24px;
             text-transform: uppercase;
             color: #ffffff;
           }
           p {
             width: 90%;
             font-weight: 300;
-            font-size: 22px;
+            font-size: 20px;
             color: #ffffff;
           }
         }

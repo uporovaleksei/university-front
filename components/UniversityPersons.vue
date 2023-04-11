@@ -60,21 +60,15 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         height: 400px;
         object-fit: cover;
         align-self: center;
-        background: linear-gradient(211.09deg, #ffa621 6.04%, #dba3d2 84.05%);
+        background: linear-gradient(291.45deg, #D1FFF4 11.63%, #F0DCFF 92.9%);
         border-radius: 10px 10px 0px 0px;
         border-bottom: 1px solid #000000;
       }
       &:nth-child(2n) img {
-        background: conic-gradient(
-          from 188.78deg at 55.54% 64.13%,
-          #2b4aba -103.92deg,
-          #cfb8ec 132.9deg,
-          #2b4aba 256.08deg,
-          #cfb8ec 492.9deg
-        );
+        background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
       }
       &:nth-child(3n) img {
-        background: linear-gradient(59deg, #938aff 13.28%, #68ffb7 87.42%);
+        background: linear-gradient(59deg, #e6eaf1 13.28%, #b2d7fc 87.42%);
       }
       &::after {
         position: absolute;
@@ -85,7 +79,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         width: 400px;
         height: 540px;
         background: #fff;
-        filter: drop-shadow(2px 4px 4px #ff006b);
+        filter: drop-shadow(2px 4px 4px #185091);
         border-radius: 10px;
         opacity: 0;
         transition: 0.3s all ease;
@@ -95,13 +89,6 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         top: 10px;
         left: 10px;
       }
-      &:nth-child(2n):after {
-        filter: drop-shadow(2px 4px 4px #0500ff);
-      }
-      &:nth-child(3n):after {
-        filter: drop-shadow(2px 4px 4px #00ffd1);
-      }
-
       .text {
         z-index: 5;
         display: flex;

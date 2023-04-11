@@ -54,6 +54,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 400px;
         .image {
           margin-top: 66px;
           width: 100%;
@@ -103,8 +104,10 @@ const { data: stories } = await useFetch('/stories', { baseURL })
         }
         h2 {
           margin-top: 20px;
+          font-family: 'Open Sans';
+          font-style: normal;
           font-weight: 700;
-          font-size: 36px;
+          font-size: 24px;
           text-transform: uppercase;
           color: #000000;
           text-align: center;

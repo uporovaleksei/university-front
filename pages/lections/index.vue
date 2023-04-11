@@ -53,6 +53,7 @@ const title = ref('Лекции')
 .container {
   width: 60%;
   margin: 0 auto;
+  padding-bottom: 400px;
   h1 {
     padding-top: 120px;
     font-weight: 700;
@@ -147,28 +148,27 @@ const title = ref('Лекции')
           width: 100%;
           height: 100%;
           background: #185091;
+          padding: 30px;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
           border-radius: 0 0 10px 10px;
           .title {
-            padding-top: 30px;
-            padding-left: 30px;
             h2 {
               font-weight: 700;
-              font-size: 24px;
-              line-height: 0%;
+              font-size: 22px;
               text-transform: uppercase;
               color: #ffffff;
             }
           }
           .text {
-            padding-top: 30px;
-            padding-left: 30px;
             width: 100%;
             display: flex;
             flex-direction: column;
             height: 100%;
             p {
               font-weight: 300;
-              font-size: 24px;
+              font-size: 20px;
               color: #ffffff;
             }
           }

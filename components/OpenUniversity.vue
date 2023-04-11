@@ -1,10 +1,10 @@
-<script>
-export default {}
+<script setup>
+
 </script>
 <template>
   <div class="container">
     <img src="@/assets/images/second_logo.png" />
-    <span></span>
+    <span id="stick"></span>
     <h1>Открытый Университет</h1>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {}
   display: flex;
   align-items: center;
   justify-content: center;
+
   img {
     width: 225px;
     height: 200px;
