@@ -9,7 +9,7 @@ const closeModal = () => {
       <div class="modal-wrapper">
         <div class="modal-container">
           <slot></slot>
-          <button class="modal-default-button" @click="$emit('close')">OK</button>
+          <button class="modal-default-button" @click="$emit('close')">Отправить</button>
         </div>
       </div>
     </div>
@@ -42,11 +42,12 @@ const closeModal = () => {
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border: 2px solid #185091;
+  border: 3px solid #185091;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header h3 {
@@ -59,7 +60,23 @@ const closeModal = () => {
 }
 
 .modal-default-button {
-  margin: 10px;
+  align-self: flex-end;
+  margin: 10px 0;
+  width: 130px;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px solid #185091;
+  background: transparent;
+  color: #185091;
+  transition: 0.3s ease all;
+}
+.modal-default-button:hover {
+  background: #185091;
+  color: #fff;
+    box-shadow: 0px 0px 4px #185091;
+}
+.modal-default-button:active {
+scale: 0.9;
 }
 
 .modal-enter {

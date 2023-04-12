@@ -1,11 +1,18 @@
 <script setup>
 import imgLink from '@/plugins/imgLink'
 import MainVue from '@/layouts/Main.vue'
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 const route = useRoute()
 const { baseURL } = useRuntimeConfig()
 const { data: storie } = await useFetch('storie/' + route.params.id, { baseURL })
 const { data: stories } = await useFetch('stories/', { baseURL })
+
+const filteredStories = computed(() => {
+  if (!stories.value || !storie.value) {
+    return []
+  }
+  return stories.value.filter(item => item.id !== storie.value.id);
+});
 </script>
 
 <template>
@@ -21,7 +28,7 @@ const { data: stories } = await useFetch('stories/', { baseURL })
       </div>
       <div class="more__videos">
       <div class="cards">
-        <div class="card" v-for="(item, index) in stories" :key="index">
+        <div class="card" v-for="(item, index) in filteredStories" :key="index">
           <NuxtLink :to="'/stories/' + item.id">
             <div class="image">
               <img class="img" :src="imgLink(item)" />

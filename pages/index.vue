@@ -11,7 +11,7 @@ const title = ref('Открытый университет')
   <MainVue>
     <OpenUniversity />
     <AboutUs />
-    <News />
+    <!-- <News /> -->
     <VideoLections />
     <VideoStories />
     <UniversityPersons />

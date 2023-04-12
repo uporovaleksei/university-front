@@ -16,10 +16,10 @@ export default {
           label: 'О проекте',
           path: '/about',
         },
-        {
-          label: 'Новости',
-          path: '/news',
-        },
+        // {
+        //   label: 'Новости',
+        //   path: '/news',
+        // },
         {
           label: 'Лекции',
           path: '/lections',

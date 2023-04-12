@@ -2,13 +2,21 @@
 import imgLink from '@/plugins/imgLink'
 import MainVue from '@/layouts/Main.vue'
 import { onMounted,computed } from 'vue'
+import { useRoute } from 'vue-router'
 const route = useRoute()
 const { baseURL } = useRuntimeConfig()
 const { data: lection } = await useFetch('lection/' + route.params.id, { baseURL })
 const { data: lections } = await useFetch('lections/', { baseURL })
 
-</script>
 
+const filteredLections = computed(() => {
+  if (!lections.value || !lection.value) {
+    return []
+  }
+  return lections.value.filter(item => item.id !== lection.value.id);
+});
+</script>
+  
 <template>
   <Head>
     <Title>{{ lection.title }}</Title>
@@ -23,7 +31,7 @@ const { data: lections } = await useFetch('lections/', { baseURL })
       </div>
       <div class="more__videos">
       <div class="cards">
-        <div class="card" v-for="(item, index) in lections" :key="index">
+        <div class="card" v-for="(item, index) in filteredLections" :key="index">
           <NuxtLink :to="'/lections/' + item.id">
             <div class="image">
               <img class="img" :src="imgLink(item)" />

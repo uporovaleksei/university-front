@@ -136,7 +136,6 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         font-size: 24px;
         color: #000000;
         background: #ffffff;
-        border: 1px solid #000000;
         border-radius: 10px;
         padding: 20px;
       }
