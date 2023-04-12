@@ -61,11 +61,11 @@ const filteredStories = computed(() => {
   }
 } 
 .more__videos{
-  width: 30%;
+  width: 35%;
   .cards{
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 15px;
     .card {
       display: flex;
       flex-direction: column;
@@ -78,10 +78,12 @@ const filteredStories = computed(() => {
       a {
         width: 100%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        gap: 15px;
+        align-items: flex-start;
         .image {
-          width: 100%;
+          width: 168px;
+          
+          height: 94px;
           display: flex;
           justify-content: center;
           position: relative;
@@ -101,7 +103,8 @@ const filteredStories = computed(() => {
           img {
             border-radius: 10px;
             width: 100%;
-            height: 240px;
+            min-width: 168px;
+            height: 94px;
             object-fit: cover;
           }
           p {
@@ -109,7 +112,7 @@ const filteredStories = computed(() => {
             color: #fff;
             bottom: 0;
             right: 0;
-            margin: 20px;
+            margin: 8px;
           }
         }
         .info {
@@ -121,7 +124,6 @@ const filteredStories = computed(() => {
             h2 {
               font-weight: 700;
               font-size: 18px;
-              text-transform: uppercase;
               color: #000000;
             }
           }
