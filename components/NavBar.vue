@@ -4,7 +4,7 @@ const onScroll = () => {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.querySelector('nav').classList.add('scroll')
   } else {
-   document.querySelector('nav').classList.remove('scroll')
+    document.querySelector('nav').classList.remove('scroll')
   }
 }
 
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <template>
-  <nav :class=" {'active': menuIsOpen}">
+  <nav :class="{'active': menuIsOpen, main: path === '/'}">
     <div class="content" :class=" {'active': menuIsOpen}">
         <div class="menu__icon" @click="menuIsOpen = !menuIsOpen;lock()"
    :class=" {'open': menuIsOpen}"
@@ -164,7 +164,7 @@ nav {
 
   }
 }
-.scroll{
+.scroll.main{
   background: #fff;
 }
 @media  (max-width: 769px) {
