@@ -27,7 +27,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
 
 <style lang="scss" scoped>
 .container {
-  width: 1170px;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
   h1 {
     margin-top: 40px;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 36px;
     text-transform: uppercase;
     color: #000000;
   }
@@ -46,14 +46,15 @@ const { data: stories } = await useFetch('/stories', { baseURL })
     justify-content: center;
     gap: 30px;
     .card {
-           flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       a {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 400px;
         .image {
           margin-top: 66px;
           width: 100%;
@@ -103,8 +104,10 @@ const { data: stories } = await useFetch('/stories', { baseURL })
         }
         h2 {
           margin-top: 20px;
+          font-family: 'Open Sans';
+          font-style: normal;
           font-weight: 700;
-          font-size: 36px;
+          font-size: 24px;
           text-transform: uppercase;
           color: #000000;
           text-align: center;
@@ -131,6 +134,36 @@ const { data: stories } = await useFetch('/stories', { baseURL })
       &:hover {
         cursor: pointer;
         box-shadow: 0px 4px 4px #135aae;
+      }
+    }
+  }
+}
+@media (min-width: 2559px) {
+  .container {
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      .card {
+        a {
+          .image {
+            width: 675px;
+            height: 450px;
+            p {
+              font-size: 2rem;
+            }
+          }
+          h2 {
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
       }
     }
   }

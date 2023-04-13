@@ -30,7 +30,7 @@ const { data: lections } = await useFetch('/lections', { baseURL })
 
 <style lang="scss" scoped>
 .container {
-  width: 1170px;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ const { data: lections } = await useFetch('/lections', { baseURL })
   h1 {
     margin-top: 40px;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 36px;
     text-transform: uppercase;
     color: #000000;
   }
@@ -114,14 +114,14 @@ const { data: lections } = await useFetch('/lections', { baseURL })
           border-radius: 0 0 30px 30px;
           h2 {
             font-weight: 700;
-            font-size: 36px;
+            font-size: 24px;
             text-transform: uppercase;
             color: #ffffff;
           }
           p {
-              width: 90%;
+            width: 90%;
             font-weight: 300;
-            font-size: 22px;
+            font-size: 20px;
             color: #ffffff;
           }
         }
@@ -146,6 +146,61 @@ const { data: lections } = await useFetch('/lections', { baseURL })
       &:hover {
         cursor: pointer;
         box-shadow: 0px 4px 4px #135aae;
+      }
+    }
+  }
+}
+@media (min-width: 2559px) {
+  .container {
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      .card {
+        width: 670px;
+        height: 600px;
+        background: #d9d9d9;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 30px;
+        transition: 0.3s ease all;
+        a {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .image {
+            width: 100%;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            position: relative;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 3rem;
+            }
+            p {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
       }
     }
   }

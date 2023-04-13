@@ -12,14 +12,13 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       <div class="card" v-for="item in persons" :key="item.id">
         <NuxtLink :to="'/persons/' + item.id">
           <div class="image">
-            <div class="image-inner">
-              <span class="circle"></span>
-              <img class="img" :src="imgLink(item)" />
-            </div>
+            <img class="img" :src="imgLink(item)" />
+          </div>
+          <div class="text">
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description?.['Должность'] }}</p>
           </div>
         </NuxtLink>
-        <h2>{{ item.name }}</h2>
-        <p>{{ item.description?.['Должность'] }}</p>
       </div>
     </div>
     <NuxtLink to="/persons">
@@ -38,7 +37,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     margin-top: 90px;
     margin-bottom: 120px;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 36px;
     text-transform: uppercase;
     color: #000000;
   }
@@ -49,72 +48,80 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     gap: 75px;
     flex-wrap: wrap;
     .card {
-      flex-direction: column;
-      align-items: center;
       width: 400px;
-      height: 640px;
-
-      .image {
-        border-radius: 50%;
-        -webkit-tap-highlight-color: transparent;
-        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      height: 540px;
+      border-radius: 10px;
+      border: 1px solid #000000;
+      background: #fff;
+      position: relative;
+      transition: 0.3s all ease-in-out;
+      img {
         width: 100%;
-        user-select: none;
-        &:hover {
-          transform: scale(1.04);
+        height: 400px;
+        object-fit: cover;
+        align-self: center;
+        background: linear-gradient(291.45deg, #D1FFF4 11.63%, #F0DCFF 92.9%);
+        border-radius: 10px 10px 0px 0px;
+        border-bottom: 1px solid #000000;
+      }
+      &:nth-child(2n) img {
+        background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
+      }
+      &:nth-child(3n) img {
+        background: linear-gradient(59deg, #e6eaf1 13.28%, #b2d7fc 87.42%);
+      }
+      &::after {
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 0px;
+        content: '';
+        width: 400px;
+        height: 540px;
+        background: #fff;
+        filter: drop-shadow(2px 4px 4px #185091);
+        border-radius: 10px;
+        opacity: 0;
+        transition: 0.3s all ease;
+      }
+      &:hover::after {
+        opacity: 1;
+        top: 10px;
+        left: 10px;
+      }
+      .text {
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          width: 90%;
+          font-family: 'Unbounded';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 20px;
+          text-align: center;
+          text-transform: uppercase;
+          color: #000000;
+          margin: 10px 0;
         }
-        .image-inner {
-          clip-path: path(
-            'M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z'
-          );
-          position: relative;
-          top: -280px;
-          .circle {
-            width: 376px;
-            height: 376px;
-            background-color: #5e6ad3;
-            border-radius: 50%;
-            cursor: pointer;
-            left: 11px;
-            pointer-events: none;
-            position: absolute;
-            top: 221px;
-          }
-          .img {
-            pointer-events: none;
-            position: relative;
-            transform: translateY(20px) scale(1.15);
-            transform-origin: 50% bottom;
-            transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            left: 40px;
-            top: 240px;
-            height: 400px;
-            width: 310px;
-          }
+        p {
+          width: 80%;
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          text-align: center;
+          color: #000000;
         }
       }
-      .image:hover .img {
-        transform: translateY(-20px) scale(1.15);
-      }
-    }
-    h2 {
-      text-align: center;
-      font-weight: 700;
-      font-size: 24px;
-      text-transform: uppercase;
-      color: #000000;
-      text-align: center;
-    }
-    p {
-      font-weight: 400;
-      font-size: 24px;
-      color: #000000;
-      text-align: center;
     }
   }
   a {
+    padding: 60px 0;
     align-self: flex-end;
     button {
+      cursor: pointer;
       width: 270px;
       height: 50px;
       border: 0;
@@ -127,6 +134,94 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       transition: 0.3s ease all;
       &:hover {
         box-shadow: 0px 4px 4px #5e6ad3;
+      }
+    }
+  }
+}
+@media (min-width: 2559px) {
+  .container {
+    width: 80%;
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 75px;
+      flex-wrap: wrap;
+      .card {
+        height: 100%;
+        min-height: 1100px;
+        width: 550px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    width: 80%;
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 75px;
+      flex-wrap: wrap;
+      .card {
+        height: 100%;
+        min-height: 1100px;
+        width: 80%;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
       }
     }
   }

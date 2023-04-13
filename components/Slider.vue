@@ -15,16 +15,16 @@ const props = defineProps({
       :itemData="item"
       @jump="v => $emit('jump', v)"
     />
-            <div class="slider">
-          <ul>
-            <li
-              v-for="(dot, index) in 3"
-              :key="index"
-              :class="{ active: index === active }"
-              @click="$emit('jump', index)"
-            ></li>
-          </ul>
-        </div>
+    <div class="slider">
+      <ul>
+        <li
+          v-for="(dot, index) in 3"
+          :key="index"
+          :class="{ active: index === active }"
+          @click="$emit('jump', index)"
+        ></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -35,29 +35,29 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
-        .slider {
-          transform: translateX(-40px);
-        ul {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          margin-right: 40px;
-          li {
-            width: 15px;
-            height: 15px;
-            background: #d9d9d9;
-            border-radius: 100%;
-            transition: 0.2s ease all;
-            &:hover {
-              background: var(--red);
-            }
-          }
-          .active {
-            height: 30px;
-            background: var(--red);
-            border-radius: 10px;
-          }
+  .slider {
+    transform: translateX(-40px);
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-right: 40px;
+      li {
+        width: 15px;
+        height: 15px;
+        background: #d9d9d9;
+        border-radius: 100%;
+        transition: 0.2s ease all;
+        &:hover {
+          background: var(--red);
         }
       }
+      .active {
+        height: 30px;
+        background: var(--red);
+        border-radius: 10px;
+      }
+    }
+  }
 }
 </style>

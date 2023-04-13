@@ -96,6 +96,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
             justify-content: space-around;
             h2 {
               font-weight: 700;
+              font-size: 20px;
               text-transform: uppercase;
               color: #ffffff;
             }
@@ -114,7 +115,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
             height: 100%;
             p {
               font-weight: 300;
-              font-size: 24px;
+              font-size: 20px;
               color: #ffffff;
             }
           }

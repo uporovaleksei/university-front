@@ -1,5 +1,6 @@
 <script setup>
-const  showModal = ref(false)
+const showModal = ref(false)
+
 </script>
 <template>
   <div class="wrapper">
@@ -29,15 +30,17 @@ const  showModal = ref(false)
           <div class="contacts">
             <a @click="showModal = true">Обратная связь</a>
           </div>
-           <ModalWindow v-if="showModal" @close="showModal = false">
+          <p>ФГАОУ ВО «Российский государственный профессионально-педагогический университет»</p>
+          <ModalWindow v-if="showModal" @close="showModal = false">
             <div class="modal">
               <div class="header">
+                <button  @click="showModal = !showModal">X</button>
                 <h1>Обратная связь</h1>
               </div>
-              <input type="text" placeholder="Введите ваше имя"> 
+              <input type="text" placeholder="Введите ваше имя" />
               <textarea name="" id="" cols="30" rows="10"></textarea>
             </div>
-          </ModalWindow >
+          </ModalWindow>
         </div>
       </footer>
     </div>
@@ -45,15 +48,54 @@ const  showModal = ref(false)
 </template>
 
 <style lang="scss" scoped>
-.modal{
+.modal {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  input{
-    width: 300px;
+  .header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    button{
+      align-self: flex-end;
+      border: none;
+      width: 30px;
+      height: 30px;
+      background: rgb(223, 35, 35);
+      color: #fff;
+      border-radius: 100%;
+      transition: 0.3s all ease;
+      font-weight: 900;
+      cursor: pointer;
+      &:hover{
+        opacity: 0.6;
+      }
+      &:active{
+        scale: 0.6;
+      }
+    }
   }
-  textarea{
+  input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #185091;
+    transition: 0.3s ease all;
+    &:focus{
+        border: 1px solid var(--red);
+      }
+  }
+  textarea {
     resize: none;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #185091;
+    transition: 0.3s ease all;
+    &:focus{
+        border: 1px solid var(--red);
+      }
   }
 }
 .wrapper {
@@ -83,7 +125,7 @@ const  showModal = ref(false)
       display: flex;
       height: 100%;
       width: 100%;
-      gap: 330px;
+      // gap: 330px;
       padding-top: 60px;
       .icons {
         width: 100%;
@@ -102,7 +144,7 @@ const  showModal = ref(false)
         justify-content: center;
         height: 100%;
         width: 100%;
-        gap: 100px;
+        // gap: 100px;
         .about,
         .video,
         .contacts {
@@ -121,6 +163,13 @@ const  showModal = ref(false)
             cursor: pointer;
           }
         }
+      }
+      p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #ffffff;
       }
     }
   }
