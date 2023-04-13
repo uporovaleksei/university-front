@@ -56,11 +56,13 @@ export default {
 </script>
 
 <template>
-  <nav :class="{ active: menuIsOpen }">
-    <div class="content" :class="{ active: menuIsOpen }">
-      <div class="menu__icon" @click=";(menuIsOpen = !menuIsOpen), lock()" :class="{ open: menuIsOpen }">
-        <span></span>
-      </div>
+  <nav :class="{'active': menuIsOpen, main: path === '/'}">
+    <div class="content" :class=" {'active': menuIsOpen}">
+        <div class="menu__icon" @click="menuIsOpen = !menuIsOpen;lock()"
+   :class=" {'open': menuIsOpen}"
+   >
+    <span></span>
+  </div>
       <NuxtLink to="/">
         <img src="@/assets/images/logo.png" />
       </NuxtLink>
@@ -162,7 +164,7 @@ nav {
     }
   }
 }
-.scroll {
+.scroll.main{
   background: #fff;
 }
 @media (max-width: 769px) {
