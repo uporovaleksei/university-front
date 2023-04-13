@@ -16,7 +16,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
           </div>
           <div class="text">
             <h2>{{ item.name }}</h2>
-            <p>{{ item.description?.['Должность'] }}</p>
+            <!-- <p>{{ item.description?.['Должность'] }}</p> -->
           </div>
         </NuxtLink>
       </div>
@@ -30,12 +30,12 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
 <style lang="scss" scoped>
 .container {
   width: 80%;
-  margin: 90px auto;
+  margin: 60px auto;
   display: flex;
   flex-direction: column;
   h1 {
     margin-top: 90px;
-    margin-bottom: 120px;
+    margin-bottom: 60px;
     font-weight: 700;
     font-size: 36px;
     text-transform: uppercase;
@@ -49,7 +49,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     flex-wrap: wrap;
     .card {
       width: 400px;
-      height: 540px;
+      height: 100%;
       border-radius: 10px;
       border: 1px solid #000000;
       background: #fff;
@@ -57,7 +57,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       transition: 0.3s all ease-in-out;
       img {
         width: 100%;
-        height: 400px;
+        height: 480px;
         object-fit: cover;
         align-self: center;
         background: linear-gradient(291.45deg, #D1FFF4 11.63%, #F0DCFF 92.9%);
@@ -77,7 +77,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         left: 0px;
         content: '';
         width: 400px;
-        height: 540px;
+        height: 100%;
         background: #fff;
         filter: drop-shadow(2px 4px 4px #185091);
         border-radius: 10px;
@@ -151,9 +151,8 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       gap: 75px;
       flex-wrap: wrap;
       .card {
-        height: 100%;
-        min-height: 1100px;
         width: 550px;
+        min-height: 900px;
         border-radius: 10px;
         border: 1px solid #000000;
         background: #fff;
@@ -163,6 +162,11 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
           width: 100%;
           height: 100%;
         }
+          &::after {
+        width: 100%;
+        height: 100%;
+      }
+
         .text {
           h2 {
             font-size: 2rem;
@@ -178,6 +182,73 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         width: 370px;
         height: 80px;
         font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (max-width: 1690px) {
+  .container {
+    .cards {
+      gap: 50px;
+      .card {
+        width: 30%;
+        height: 100%;
+        min-height: 600px;
+        a{
+          img {
+          }
+        }
+        &::after{
+          width: 100%;
+        height: 100%;
+        }
+        .text {
+          h2 {
+          }
+          p {
+          }
+        }
+      }
+    }
+    a {
+      button {
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    h1{
+      font-size: 24px;
+    }
+    .cards {
+      justify-content: space-between;
+      .card {
+        width: 29%;
+        height: 100%;
+        min-height: 400px;
+        a{
+          height: 200px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &::after{
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+          h2 {
+            font-size: 14px;
+          }
+          p {
+          }
+        }
+      }
+    }
+    a {
+      button {
       }
     }
   }

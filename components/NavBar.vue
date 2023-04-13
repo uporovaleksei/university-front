@@ -96,6 +96,10 @@ nav {
       width: 70px;
       height: 50px;
       cursor: pointer;
+      transition: 0.3s ease all;
+      &:hover{
+        filter: drop-shadow(0 0 10px #fff);
+      }
     }
     .links {
       margin-left: 130px;
@@ -165,8 +169,9 @@ nav {
   nav {
     width: 100%;
     background: #fff;
+    transition: 0.3s ;
     .content {
-      width: 60%;
+      width: 80%;
       padding-top: 20px;
       justify-content: space-between;
       align-items: flex-start;
@@ -181,13 +186,24 @@ nav {
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-
         ul {
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           align-items: flex-start;
+          width: 60%;
           li {
+            width: 100%;
+          a{
+            width: 100%;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 35px;
+          border: 2px solid #135aae;
+            font-size: 36px;
+          } 
           }
         }
       }
@@ -206,9 +222,11 @@ nav {
     cursor: pointer;
     height: 18px;
     width: 30px;
+    align-self: center;
     position: relative;
     display: block;
     z-index: 5;
+    transition: 0.6s;
     span,
     &::before,
     &::after {
@@ -234,6 +252,7 @@ nav {
     }
   }
   .open {
+    align-self: flex-start;
     &::after {
       bottom: 50%;
       transform: rotate(45deg) translate(0px, 50%);

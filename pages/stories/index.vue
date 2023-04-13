@@ -25,7 +25,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
             </div>
             <div class="info">
               <div class="title">
-                <h2>{{ item.title }}</h2>
+                <h2>{{ item.title.split(' ').slice(0, 8).join(' ') + '....' }}</h2>
                 <p>{{ item.duration }}</p>
               </div>
             </div>

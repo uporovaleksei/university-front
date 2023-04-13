@@ -34,11 +34,11 @@ const title = ref('Лекции')
             </div>
             <div class="info">
               <div class="title">
-                <h2>{{ item.title }}</h2>
+                <h2>{{ item.title.split(' ').slice(0, 3).join(' ') + '....' }}</h2>
               </div>
               <div class="text">
                 <p>
-                  {{ item.description?.['Описание'] }}
+                  {{ item.description?.['Описание'].split(' ').slice(0,5).join(' ') + '....' }}
                 </p>
               </div>
             </div>
@@ -50,6 +50,9 @@ const title = ref('Лекции')
 </template>
 
 <style lang="scss" scoped>
+.scroll{
+  background: red;
+}
 .container {
   width: 60%;
   margin: 0 auto;
@@ -148,10 +151,10 @@ const title = ref('Лекции')
           width: 100%;
           height: 100%;
           background: #185091;
-          padding: 30px;
+          padding: 20px;
           display: flex;
           flex-direction: column;
-          gap: 30px;
+          gap: 20px;
           border-radius: 0 0 10px 10px;
           .title {
             h2 {

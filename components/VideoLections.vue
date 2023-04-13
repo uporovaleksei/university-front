@@ -3,6 +3,7 @@ const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 import imgLink from '@/plugins/imgLink'
 const { data: lections } = await useFetch('/lections', { baseURL })
+const trimDescription = ({ description }) => description.split(' ').slice(0, 2).join(' ') + '....'
 </script>
 
 <template>
@@ -16,8 +17,8 @@ const { data: lections } = await useFetch('/lections', { baseURL })
             <p>{{ item.duration }}</p>
           </div>
           <div class="text">
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.description['Описание'] }}</p>
+            <h2>{{ item.title.split(' ').slice(0, 3).join(' ') + '....' }}</h2>
+            <p>{{ item.description['Описание'].split(' ').slice(0, 4).join(' ') + '....' }}</p>
           </div>
         </NuxtLink>
       </div>
@@ -46,12 +47,12 @@ const { data: lections } = await useFetch('/lections', { baseURL })
     display: flex;
     margin-top: 90px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 30px;
 
     .card {
       width: 370px;
-      height: 415px;
+
       background: #d9d9d9;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       display: flex;
@@ -103,8 +104,8 @@ const { data: lections } = await useFetch('/lections', { baseURL })
           }
         }
         .text {
-          padding-left: 30px;
-          padding-top: 40px;
+          padding-left: 20px;
+          padding-top: 20px;
           padding-bottom: 15px;
           background: #135aae;
           width: 100%;
@@ -156,9 +157,10 @@ const { data: lections } = await useFetch('/lections', { baseURL })
       font-size: 4rem;
     }
     .cards {
+      gap: 50px;
       .card {
-        width: 670px;
-        height: 600px;
+        width: 700px;
+        height: 745px;
         background: #d9d9d9;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
         display: flex;
@@ -178,6 +180,92 @@ const { data: lections } = await useFetch('/lections', { baseURL })
             height: 100%;
             justify-content: center;
             position: relative;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 3rem;
+            }
+            p {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    h1 {
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      .card {
+        width: 80%;
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 3rem;
+            }
+            p {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    width: 80%;
+    h1 {
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      .card {
+        width: 100%;
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
             img {
               height: 100%;
             }

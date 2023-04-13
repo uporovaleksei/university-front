@@ -13,9 +13,8 @@
 .container {
   width: 100%;
   height: 100vh;
-  background: url('@/assets/images/gradient.png');
-  background-size: 100vw;
-  background-repeat: no-repeat;
+  background: linear-gradient(to right bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,15 +40,7 @@
 }
 @media (min-width: 2559px) {
   .container {
-    width: 100%;
-    height: 100vh;
-    background: url('@/assets/images/gradient.png');
-    background-size: 100vw;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
+
     img {
       scale: 2;
     }

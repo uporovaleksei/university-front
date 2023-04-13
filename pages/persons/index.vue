@@ -20,7 +20,7 @@ const router = useRouter()
             <img class="img" :src="imgLink(item)" />
             <div class="text">
               <h2>{{ item.name }}</h2>
-              <p>{{ item.description?.['Должность'] }}</p>
+              <!-- <p>{{ item.description?.['Должность'] }}</p> -->
             </div>
           </NuxtLink>
         </div>

@@ -15,7 +15,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
             <img class="img" :src="imgLink(item)" />
             <p>{{ item.duration }}</p>
           </div>
-          <h2>{{ item.title }}</h2>
+          <h2>{{ item.title.split(' ').slice(0, 4).join(' ') + '....' }}</h2>
         </NuxtLink>
       </div>
     </div>
@@ -43,9 +43,10 @@ const { data: stories } = await useFetch('/stories', { baseURL })
     display: flex;
     margin-top: 90px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 30px;
     .card {
+      width: 370px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -54,14 +55,14 @@ const { data: stories } = await useFetch('/stories', { baseURL })
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 400px;
+        width: 100%;
+        min-height: 450px;
         .image {
           margin-top: 66px;
           width: 100%;
+          height: 250px;
           display: flex;
           justify-content: center;
-          width: 370px;
-          height: 250px;
           background: #d9d9d9;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
           flex-direction: column;
@@ -107,7 +108,8 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           font-family: 'Open Sans';
           font-style: normal;
           font-weight: 700;
-          font-size: 24px;
+          font-size: 22px;
+          word-wrap: break-word;
           text-transform: uppercase;
           color: #000000;
           text-align: center;
@@ -145,6 +147,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
     }
     .cards {
       .card {
+        flex: 33% 1 1;
         a {
           .image {
             width: 675px;
@@ -156,6 +159,88 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           h2 {
             font-size: 3rem;
           }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    h1 {
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      .card {
+        width: 80%;
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 3rem;
+            }
+            p {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    width: 80%;
+    h1 {
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      .card {
+        width: 100%;
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
+          }
+              h2{
+              font-size: 32px;
+            }
+
         }
       }
     }

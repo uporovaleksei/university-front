@@ -93,6 +93,4 @@ scale: 0.9;
   transform: scale(1.1);
 }
 
-button {
-}
 </style>

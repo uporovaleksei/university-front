@@ -125,7 +125,7 @@ const showModal = ref(false)
       display: flex;
       height: 100%;
       width: 100%;
-      // gap: 330px;
+      gap: 20px;
       padding-top: 60px;
       .icons {
         width: 100%;
@@ -157,7 +157,6 @@ const showModal = ref(false)
           font-style: normal;
           font-weight: 400;
           font-size: 20px;
-          line-height: 27px;
           a {
             color: #fff;
             cursor: pointer;
@@ -173,5 +172,240 @@ const showModal = ref(false)
       }
     }
   }
+}
+@media (max-width: 1024px) {
+.wrapper {
+  width: 100%;
+  height: 260px;
+  margin: 0 auto;
+  background: #185091;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  &::before {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    background-image: url('@/assets/images/pattern.png');
+    background-size: 456px;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    left: -250px;
+    width: 100%;
+    height: 100%;
+  }
+  .container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    footer {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      gap: 30px;
+      padding-top: 60px;
+      .icons {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        a {
+          img {
+            width: 50px;
+          }
+        }
+      }
+      .links {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        // gap: 100px;
+        .about,
+        .video,
+        .contacts {
+          display: flex;
+          width: 100%;
+          gap: 10px;
+          min-width: 200px;
+          flex-direction: column;
+          justify-content: center;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          a {
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+      }
+      p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #ffffff;
+      }
+    }
+  }
+}
+}
+@media (max-width: 768px) {
+.wrapper {
+  width: 100%;
+  height: 260px;
+  margin: 0 auto;
+  background: #185091;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  &::before {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    background-image: url('@/assets/images/pattern.png');
+    background-size: 456px;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    left: -250px;
+    width: 100%;
+    height: 100%;
+  }
+  .container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    footer {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      gap: 30px;
+      padding-top: 60px;
+      .icons {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        a {
+          img {
+            width: 50px;
+          }
+        }
+      }
+      .links {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        // gap: 100px;
+        .about,
+        .video,
+        .contacts {
+          display: flex;
+          width: 100%;
+          gap: 10px;
+          min-width: 200px;
+          flex-direction: column;
+          justify-content: center;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          a {
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+      }
+      p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #ffffff;
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 425px) {
+.wrapper {
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+  background: #185091;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  &::before {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    background-image: url('@/assets/images/pattern.png');
+    background-size: 456px;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    left: -300px;
+    width: 100%;
+    height: 100%;
+  }
+  .container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    footer {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      gap: 30px;
+      padding-top: 60px;
+      .icons {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        order: 2;
+        gap: 10px;
+        a {
+          img {
+            width: 50px;
+          }
+        }
+      }
+      .links {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        height: 150px;
+        width: 100%;
+        order: 1;
+        // gap: 100px;
+        .about,
+        .video,
+        .contacts {
+          display: flex;
+          width: 100%;
+          gap: 10px;
+          min-width: 200px;
+          flex-direction: column;
+          justify-content: center;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          a {
+            color: #fff;
+            cursor: pointer;
+            font-size: 24px;
+          }
+        }
+      }
+      p {
+font-size: 24px;
+      }
+    }
+  }
+}
 }
 </style>
