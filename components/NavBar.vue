@@ -2,9 +2,15 @@
 import { tr } from 'date-fns/locale'
 const onScroll = () => {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.querySelector('nav').classList.add('scroll')
-  } else {
     document.querySelector('nav').classList.remove('scroll')
+    document.querySelectorAll('.main').forEach(e=>{
+      e.classList.remove('scroll')
+    })
+  } else {
+    document.querySelector('nav').classList.add('scroll')
+    document.querySelectorAll('.main').forEach(e=>{
+      e.classList.add('scroll')
+    })
   }
 }
 
@@ -69,7 +75,7 @@ export default {
       <div :class="['links', { active: menuIsOpen }]">
         <ul>
           <li v-for="item in paths" :key="item.path">
-            <NuxtLink :to="item.path" :class="{ active: item.path === path }" class="link">
+            <NuxtLink :to="item.path" :class="{ active: item.path === path, main: path === '/' }">
               {{ item.label }}
             </NuxtLink>
           </li>
@@ -85,7 +91,7 @@ nav {
   height: 80px;
   position: fixed;
   z-index: 100;
-  background: transparent;
+  background: #fff;
   transition: background 0.3s ease-in-out;
   .content {
     width: fit-content;
@@ -159,13 +165,16 @@ nav {
               }
             }
           }
+          .scroll{
+              color: #fff;
+            }
         }
       }
     }
   }
 }
 .scroll.main{
-  background: #fff;
+  background: transparent;
 }
 @media (max-width: 769px) {
   nav {

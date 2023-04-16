@@ -2,7 +2,10 @@
 import imgLink from '@/plugins/imgLink'
 import MainVue from '@/layouts/Main.vue'
 import { onMounted,computed } from 'vue'
+import Plyr from 'plyr';
+
 import { useRoute } from 'vue-router'
+const player = new Plyr('#player');
 const route = useRoute()
 const { baseURL } = useRuntimeConfig()
 const { data: lection } = await useFetch('lection/' + route.params.id, { baseURL })

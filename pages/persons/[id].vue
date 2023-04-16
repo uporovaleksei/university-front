@@ -12,16 +12,22 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
     <Meta name="description" :content="title" />
   </Head>
   <MainVue>
-    <div class="container">
-      <div class="card">
-        <img class="img" :src="imgLink(person)" />
+    <div class="card__wrapper">
+      <div class="card__container">
+        <div class="card">
+        
         <div class="info">
           <h2>{{ person.name }}</h2>
           <div v-for="(key, headers) in person.description" :key="headers">
             <p>{{ key }}</p>
           </div>
         </div>
+        <img class="img" :src="imgLink(person)" />
       </div>
+      </div>
+    </div>
+
+    <div class="container">
       <div class="interview">
         <div class="btn" @click="show = !show">
           <h2>Интервью</h2>
@@ -37,54 +43,69 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
 </template>
 
 <style lang="scss" scoped>
-.container {
-  width: 60%;
+.card__wrapper {
+  width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 180px 0;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
-  .card {
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  .card__container{
+    width: 60%;
+    margin: 0 auto;
+    height: 100%;
+    .card {
     display: flex;
+    width: 90%;
     gap: 40px;
     transition: 0.3s all ease;
     img {
-      width: 370px;
-      height: 450px;
       object-fit: contain;
-      border: 1px solid #000000;
+      width: 100%;
       border-radius: 10px;
-      background: linear-gradient(211.09deg, #e3ceef 6.04%, #e4fbfd 84.05%);
       transition: 0.3s all ease;
     }
     .info {
       width: 100%;
+      padding-top: 80px;
       display: flex;
       flex-direction: column;
       gap: 15px;
+      color:#ffffff;
       h2 {
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 700;
         font-size: 36px;
         text-transform: uppercase;
-        color: #000000;
       }
       h3 {
         margin-top: 60px;
         font-weight: 700;
         font-size: 18px;
         text-transform: uppercase;
-        color: #000000;
       }
       p {
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
-        color: #000000;
       }
     }
   }
+  }
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 180px 0;
+  display: flex;
+  flex-direction: column;
+
   .interview {
     padding: 80px 0;
     display: flex;

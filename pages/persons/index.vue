@@ -30,15 +30,16 @@ const router = useRouter()
 </template>
 
 <style lang="scss" scoped>
+
 .container {
+  padding: 80px 0;
   width: 80%;
   margin: 0 auto;
-  padding: 40px 0;
   display: flex;
   flex-direction: column;
   h1 {
-    margin-top: 90px;
-    margin-bottom: 120px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     font-weight: 700;
     font-size: 36px;
     text-transform: uppercase;
@@ -46,12 +47,13 @@ const router = useRouter()
   }
   .cards {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
     flex-wrap: wrap;
     .card {
       width: 400px;
-      height: 540px;
+      height: 100%;
       border-radius: 10px;
       border: 1px solid #000000;
       background: #fff;
@@ -59,7 +61,7 @@ const router = useRouter()
       transition: 0.3s all ease-in-out;
       img {
         width: 100%;
-        height: 400px;
+        height: 480px;
         object-fit: cover;
         align-self: center;
         background: linear-gradient(291.45deg, #D1FFF4 11.63%, #F0DCFF 92.9%);
@@ -79,7 +81,7 @@ const router = useRouter()
         left: 0px;
         content: '';
         width: 400px;
-        height: 540px;
+        height: 100%;
         background: #fff;
         filter: drop-shadow(2px 4px 4px #185091);
         border-radius: 10px;
@@ -118,33 +120,179 @@ const router = useRouter()
         }
       }
     }
-
-    .text {
-      z-index: 4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      h2 {
-        width: 90%;
-        font-family: 'Unbounded';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-        text-align: center;
-        text-transform: uppercase;
-        color: #000000;
-        margin: 15px 0;
+  }
+  a {
+    padding: 60px 0;
+    align-self: flex-end;
+    button {
+      cursor: pointer;
+      width: 270px;
+      height: 50px;
+      border: 0;
+      background: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 30px;
+      font-weight: 400;
+      font-size: 24px;
+      color: #000000;
+      transition: 0.3s ease all;
+      &:hover {
+        box-shadow: 0px 4px 4px #5e6ad3;
       }
-      p {
+    }
+  }
+}
+@media (min-width: 2559px) {
+  .container {
+    width: 80%;
+    h1 {
+      font-size: 4rem;
+    }
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 75px;
+      flex-wrap: wrap;
+      .card {
+        width: 550px;
+        min-height: 900px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+          &::after {
+        width: 100%;
+        height: 100%;
+      }
+
+        .text {
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+@media (max-width: 1690px) {
+  .container {
+    .cards {
+      gap: 50px;
+      .card {
+        width: 30%;
+        height: 100%;
+        min-height: 600px;
+        a{
+          img {
+          }
+        }
+        &::after{
+          width: 100%;
+        height: 100%;
+        }
+        .text {
+          h2 {
+          }
+          p {
+          }
+        }
+      }
+    }
+    a {
+      button {
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    
+    .cards {
+      justify-content: space-between;
+      .card {
+        width: 29%;
+        height: 100%;
+        min-height: 400px;
+        a{
+          height: 200px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &::after{
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+         
+        }
+      }
+    }
+    a {
+      button {
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    width: 80%;
+    h1 {
+    }
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 75px;
+      flex-wrap: wrap;
+      .card {
+        height: 100%;
+        min-height: 1100px;
         width: 80%;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        text-align: center;
-        color: #000000;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
       }
     }
   }
 }
 </style>
+
