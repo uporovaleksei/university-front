@@ -38,7 +38,7 @@ const title = ref('Лекции')
               </div>
               <div class="text">
                 <p>
-                  {{ item.description?.['Описание'].split(' ').slice(0,5).join(' ') + '....' }}
+                  {{ item.description?.['Описание'].split(' ').slice(0, 5).join(' ') + '....' }}
                 </p>
               </div>
             </div>
@@ -50,7 +50,7 @@ const title = ref('Лекции')
 </template>
 
 <style lang="scss" scoped>
-.scroll{
+.scroll {
   background: red;
 }
 .container {
@@ -102,7 +102,7 @@ const title = ref('Лекции')
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-radius: 30px;
+      border-radius: 10px;
       transition: 0.3s ease all;
       &:hover {
         transform: scale(1.05);

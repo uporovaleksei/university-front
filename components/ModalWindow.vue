@@ -73,10 +73,10 @@ const closeModal = () => {
 .modal-default-button:hover {
   background: #185091;
   color: #fff;
-    box-shadow: 0px 0px 4px #185091;
+  box-shadow: 0px 0px 4px #185091;
 }
 .modal-default-button:active {
-scale: 0.9;
+  scale: 0.9;
 }
 
 .modal-enter {
@@ -92,5 +92,4 @@ scale: 0.9;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-
 </style>

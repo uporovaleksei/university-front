@@ -1,22 +1,24 @@
 <script setup>
 import imgLink from '@/plugins/imgLink'
 import MainVue from '@/layouts/Main.vue'
-import { onMounted,computed } from 'vue'
+import VideoPlayer from '@/components/VideoPlayer.vue'
+import videojs from 'video.js';
+import 'videojs-contrib-quality-levels';
+import { onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
 const { baseURL } = useRuntimeConfig()
 const { data: lection } = await useFetch('lection/' + route.params.id, { baseURL })
 const { data: lections } = await useFetch('lections/', { baseURL })
 
-
 const filteredLections = computed(() => {
   if (!lections.value || !lection.value) {
     return []
   }
-  return lections.value.filter(item => item.id !== lection.value.id);
-});
+  return lections.value.filter(item => item.id !== lection.value.id)
+})
 </script>
-  
+
 <template>
   <Head>
     <Title>{{ lection.title }}</Title>
@@ -25,26 +27,28 @@ const filteredLections = computed(() => {
   <MainVue>
     <div class="container">
       <div class="video">
-      <video :src="lection.path" controls></video>
-      <h2>{{ lection.title }}</h2>
-      <p>{{ lection.description['Описание'] }}</p>
+        <VideoPlayer
+          :url="lection.path"
+         />
+        <h2>{{ lection.title }}</h2>
+        <p>{{ lection.description['Описание'] }}</p>
       </div>
       <div class="more__videos">
-      <div class="cards">
-        <div class="card" v-for="(item, index) in filteredLections" :key="index">
-          <NuxtLink :to="'/lections/' + item.id">
-            <div class="image">
-              <img class="img" :src="imgLink(item)" />
-              <p>{{ item.duration }}</p>
-            </div>
-            <div class="info">
-              <div class="title">
-                <h2>{{ item.title.split(' ').slice(0, 3).join(' ') + '....'}}</h2>
+        <div class="cards">
+          <div class="card" v-for="(item, index) in filteredLections" :key="index">
+            <NuxtLink :to="'/lections/' + item.id">
+              <div class="image">
+                <img class="img" :src="imgLink(item)" />
+                <p>{{ item.duration }}</p>
               </div>
-            </div>
-          </NuxtLink>
+              <div class="info">
+                <div class="title">
+                  <h2>{{ item.title.split(' ').slice(0, 3).join(' ') + '....' }}</h2>
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </MainVue>
@@ -57,83 +61,83 @@ const filteredLections = computed(() => {
   display: flex;
   gap: 60px;
   padding: 100px 0;
-.video{
-  width: 70%;
-  video{
-    width: 100%;
+  .video {
+    width: 70%;
+    video {
+      width: 100%;
+    }
   }
-} 
-.more__videos{
-  width: 35%;
-  .cards{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    .card {
+  .more__videos {
+    width: 35%;
+    .cards {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      border-radius: 30px;
-      transition: 0.3s ease all;
-      &:hover {
-        transform: scale(1.05);
-      }
-      a {
-        width: 100%;
+      gap: 15px;
+      .card {
         display: flex;
-        gap: 15px;
-        align-items: flex-start;
-        .image {
-          width: 168px;
-          
-          height: 94px;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        transition: 0.3s ease all;
+        &:hover {
+          transform: scale(1.05);
+        }
+        a {
+          width: 100%;
           display: flex;
-          justify-content: center;
-          position: relative;
-          &::before {
-            position: absolute;
-            content: '';
+          gap: 15px;
+          align-items: flex-start;
+          .image {
+            width: 168px;
+
+            height: 94px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            &::before {
+              position: absolute;
+              content: '';
+              width: 100%;
+              height: 100%;
+              border-radius: 10px;
+              background: linear-gradient(
+                180deg,
+                rgba(63, 63, 63, 0) 0%,
+                rgba(63, 63, 63, 0.7) 31.25%,
+                rgba(0, 0, 0, 0.7) 100%
+              );
+            }
+            img {
+              border-radius: 10px;
+              width: 100%;
+              min-width: 168px;
+              height: 94px;
+              object-fit: cover;
+            }
+            p {
+              position: absolute;
+              color: #fff;
+              bottom: 0;
+              right: 0;
+              margin: 8px;
+            }
+          }
+          .info {
             width: 100%;
             height: 100%;
-            border-radius: 10px;
-            background: linear-gradient(
-              180deg,
-              rgba(63, 63, 63, 0) 0%,
-              rgba(63, 63, 63, 0.7) 31.25%,
-              rgba(0, 0, 0, 0.7) 100%
-            );
-          }
-          img {
-            border-radius: 10px;
-            width: 100%;
-            min-width: 168px;
-            height: 94px;
-            object-fit: cover;
-          }
-          p {
-            position: absolute;
-            color: #fff;
-            bottom: 0;
-            right: 0;
-            margin: 8px;
-          }
-        }
-        .info {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          .title {
-            h2 {
-              font-weight: 700;
-              font-size: 18px;
-              color: #000000;
+            display: flex;
+            flex-direction: column;
+            .title {
+              h2 {
+                font-weight: 700;
+                font-size: 18px;
+                color: #000000;
+              }
             }
           }
         }
       }
     }
   }
-}
 }
 </style>

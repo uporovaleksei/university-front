@@ -130,10 +130,9 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
             width: 170px;
             height: 40px;
             border: 2px solid #ffffff;
-            border-radius: 20px;
             background: transparent;
             color: #fff;
-            border-radius: 30px;
+            border-radius: 10px;
             cursor: pointer;
             transition: 0.2s ease all;
             font-family: 'Open Sans';

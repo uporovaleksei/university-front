@@ -58,7 +58,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-radius: 30px;
+      border-radius: 10px;
       transition: 0.3s ease all;
       &:hover {
         transform: scale(1.05);
@@ -81,7 +81,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
             content: '';
             width: 100%;
             height: 100%;
-            border-radius: 30px 30px 0 0;
+            border-radius: 10px 10px 0 0;
             background: linear-gradient(
               180deg,
               rgba(63, 63, 63, 0) 0%,
@@ -90,7 +90,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
             );
           }
           img {
-            border-radius: 30px 30px 0 0;
+            border-radius: 10px 10px 0 0;
             width: 100%;
             height: 240px;
             object-fit: cover;
@@ -112,7 +112,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
           display: flex;
           flex-direction: column;
           height: 100%;
-          border-radius: 0 0 30px 30px;
+          border-radius: 0 0 10px 10px;
           h2 {
             font-weight: 700;
             font-size: 24px;
@@ -166,7 +166,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: 30px;
+        border-radius: 10px;
         transition: 0.3s ease all;
         a {
           width: 100%;

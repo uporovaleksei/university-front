@@ -3,12 +3,12 @@ import { tr } from 'date-fns/locale'
 const onScroll = () => {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.querySelector('nav').classList.remove('scroll')
-    document.querySelectorAll('.main').forEach(e=>{
+    document.querySelectorAll('.main').forEach(e => {
       e.classList.remove('scroll')
     })
   } else {
     document.querySelector('nav').classList.add('scroll')
-    document.querySelectorAll('.main').forEach(e=>{
+    document.querySelectorAll('.main').forEach(e => {
       e.classList.add('scroll')
     })
   }
@@ -62,13 +62,18 @@ export default {
 </script>
 
 <template>
-  <nav :class="{'active': menuIsOpen, main: path === '/'}">
-    <div class="content" :class=" {'active': menuIsOpen}">
-        <div class="menu__icon" @click="menuIsOpen = !menuIsOpen;lock()"
-   :class=" {'open': menuIsOpen}"
-   >
-    <span></span>
-  </div>
+  <nav :class="{ active: menuIsOpen, main: path === '/' }">
+    <div class="content" :class="{ active: menuIsOpen }">
+      <div
+        class="menu__icon"
+        @click="
+          menuIsOpen = !menuIsOpen,
+          lock()
+        "
+        :class="{ open: menuIsOpen }"
+      >
+        <span></span>
+      </div>
       <NuxtLink to="/">
         <img src="@/assets/images/logo.png" />
       </NuxtLink>
@@ -94,18 +99,18 @@ nav {
   background: #fff;
   transition: background 0.3s ease-in-out;
   .content {
-    width: fit-content;
+    width: 80%;
     height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     img {
       width: 70px;
       height: 50px;
       cursor: pointer;
       transition: 0.3s ease all;
-      &:hover{
+      &:hover {
         filter: drop-shadow(0 0 10px #fff);
       }
     }
@@ -165,22 +170,25 @@ nav {
               }
             }
           }
-          .scroll{
-              color: #fff;
-            }
+          .scroll {
+            color: #fff;
+          }
         }
       }
     }
+    .menu__icon{
+      display: none;
+    }
   }
 }
-.scroll.main{
+.scroll.main {
   background: transparent;
 }
 @media (max-width: 769px) {
   nav {
     width: 100%;
     background: #fff;
-    transition: 0.3s ;
+    transition: 0.3s;
     .content {
       width: 80%;
       padding-top: 20px;
@@ -205,16 +213,16 @@ nav {
           width: 60%;
           li {
             width: 100%;
-          a{
-            width: 100%;
-          height: 70px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 35px;
-          border: 2px solid #135aae;
-            font-size: 36px;
-          } 
+            a {
+              width: 100%;
+              height: 70px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 35px;
+              border: 2px solid #135aae;
+              font-size: 36px;
+            }
           }
         }
       }

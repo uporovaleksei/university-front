@@ -14,16 +14,16 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   <MainVue>
     <div class="card__wrapper">
       <div class="card__container">
+        <span v-if="person.id == 8"></span>
         <div class="card">
-        
-        <div class="info">
-          <h2>{{ person.name }}</h2>
-          <div v-for="(key, headers) in person.description" :key="headers">
-            <p>{{ key }}</p>
+          <div class="info">
+            <h2>{{ person.name }}</h2>
+            <div v-for="(key, headers) in person.description" :key="headers">
+              <p>{{ key }}</p>
+            </div>
           </div>
+          <img class="img" :src="imgLink(person)" />
         </div>
-        <img class="img" :src="imgLink(person)" />
-      </div>
       </div>
     </div>
 
@@ -52,55 +52,79 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-  .card__container{
-    width: 60%;
+  background:url('@/assets/images/фон.jpg');
+  position: relative;
+  span{
+  &::after{
+    position: absolute;
+    content: '';
+    width: 35%;
+    height:35%;
+    bottom: 0;
+    right: 0;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    z-index: 2;
+    background: linear-gradient(180.4deg, #C2BDFF 0.35%, #135AAE 99.65%);
+    filter: blur(1px);
+  }
+  }
+
+  .card__container {
+    width: 80%;
     margin: 0 auto;
     height: 100%;
+    min-height: 600px;
     .card {
-    display: flex;
-    width: 90%;
-    gap: 40px;
-    transition: 0.3s all ease;
-    img {
-      object-fit: contain;
-      width: 100%;
-      border-radius: 10px;
-      transition: 0.3s all ease;
-    }
-    .info {
-      width: 100%;
-      padding-top: 80px;
       display: flex;
-      flex-direction: column;
-      gap: 15px;
-      color:#ffffff;
-      h2 {
-        font-family: 'Mulish';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 36px;
-        text-transform: uppercase;
+      align-items: flex-start;
+      width: 45%;
+      height: 100%;
+      gap: 40px;
+      transition: 0.3s all ease;
+      img {
+        z-index: 1;
+        position: absolute;
+        bottom: 0;
+        right: 15%;
+        object-fit: contain;
+        width: 35%;
+        border-radius: 10px;
+        transition: 0.3s all ease;
+
       }
-      h3 {
-        margin-top: 60px;
-        font-weight: 700;
-        font-size: 18px;
-        text-transform: uppercase;
-      }
-      p {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
+      .info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        color: #ffffff;
+        h2 {
+          font-family: 'Mulish';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 36px;
+          text-transform: uppercase;
+        }
+        h3 {
+          margin-top: 60px;
+          font-weight: 700;
+          font-size: 18px;
+          text-transform: uppercase;
+        }
+        p {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+        }
       }
     }
-  }
   }
 }
 
 .container {
-  width: 60%;
+  z-index: 20;
+  width: 80%;
   margin: 0 auto;
   padding: 180px 0;
   display: flex;
@@ -157,8 +181,6 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         font-size: 24px;
         color: #000000;
         background: #ffffff;
-        border-radius: 10px;
-        padding: 20px;
       }
     }
   }

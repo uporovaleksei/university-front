@@ -60,7 +60,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         height: 480px;
         object-fit: cover;
         align-self: center;
-        background: linear-gradient(291.45deg, #D1FFF4 11.63%, #F0DCFF 92.9%);
+        background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
         border-radius: 10px 10px 0px 0px;
         border-bottom: 1px solid #000000;
       }
@@ -127,7 +127,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       border: 0;
       background: #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 30px;
+      border-radius: 10px;
       font-weight: 400;
       font-size: 24px;
       color: #000000;
@@ -151,10 +151,10 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
           width: 100%;
           height: 100%;
         }
-          &::after {
-        width: 100%;
-        height: 100%;
-      }
+        &::after {
+          width: 100%;
+          height: 100%;
+        }
         .text {
           h2 {
             font-size: 2rem;
@@ -182,9 +182,9 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         width: 30%;
         height: 100%;
         min-height: 600px;
-        &::after{
+        &::after {
           width: 100%;
-        height: 100%;
+          height: 100%;
         }
       }
     }
@@ -198,14 +198,14 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         width: 29%;
         height: 100%;
         min-height: 400px;
-        a{
+        a {
           height: 200px;
           img {
             width: 100%;
             height: 100%;
           }
         }
-        &::after{
+        &::after {
           width: 100%;
           height: 100%;
         }
@@ -218,7 +218,6 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     width: 80%;
 
     .cards {
-
       .card {
         height: 100%;
         min-height: 1100px;

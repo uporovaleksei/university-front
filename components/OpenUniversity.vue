@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 <template>
   <div class="container">
     <img src="@/assets/images/second_logo.png" />
@@ -13,7 +11,21 @@
 .container {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to right bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background: linear-gradient(
+    to right bottom,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
 
   display: flex;
   align-items: center;
@@ -40,7 +52,6 @@
 }
 @media (min-width: 2559px) {
   .container {
-
     img {
       scale: 2;
     }

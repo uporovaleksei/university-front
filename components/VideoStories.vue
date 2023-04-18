@@ -67,7 +67,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
           flex-direction: column;
           align-items: center;
-          border-radius: 30px;
+          border-radius: 10px;
           transition: 0.3s ease all;
           position: relative;
           &::after {
@@ -78,7 +78,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
               rgba(63, 63, 63, 0.7) 31.25%,
               rgba(0, 0, 0, 0.7) 100%
             );
-            border-radius: 30px;
+            border-radius: 10px;
             content: '';
             width: 100%;
             height: 100%;
@@ -97,7 +97,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           }
           img {
             position: relative;
-            border-radius: 30px;
+            border-radius: 10px;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -237,10 +237,9 @@ const { data: stories } = await useFetch('/stories', { baseURL })
               font-size: 2rem;
             }
           }
-              h2{
-              font-size: 32px;
-            }
-
+          h2 {
+            font-size: 32px;
+          }
         }
       }
     }

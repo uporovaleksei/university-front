@@ -56,7 +56,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
       background: #d9d9d9;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 
-      border-radius: 30px;
+      border-radius: 10px;
       transition: 0.3s ease all;
       &:hover {
         transform: scale(1.05);
@@ -74,7 +74,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           height: 240px;
           justify-content: center;
           img {
-            border-radius: 30px 30px 0 0;
+            border-radius: 10px 10px 0 0;
             width: 100%;
             height: 240px;
             object-fit: cover;
@@ -84,7 +84,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
           width: 100%;
           height: 100%;
           background: #185091;
-          border-radius: 0 0 30px 30px;
+          border-radius: 0 0 10px 10px;
           .title {
             padding-top: 25px;
             padding-bottom: 15px;

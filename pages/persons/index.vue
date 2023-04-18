@@ -17,7 +17,10 @@ const router = useRouter()
       <div class="cards">
         <div class="card" v-for="item in persons" :key="item.id">
           <NuxtLink :to="'/persons/' + item.id">
+          <div class="image">
+
             <img class="img" :src="imgLink(item)" />
+          </div>
             <div class="text">
               <h2>{{ item.name }}</h2>
               <!-- <p>{{ item.description?.['Должность'] }}</p> -->
@@ -30,7 +33,6 @@ const router = useRouter()
 </template>
 
 <style lang="scss" scoped>
-
 .container {
   padding: 80px 0;
   width: 80%;
@@ -48,7 +50,7 @@ const router = useRouter()
   .cards {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 75px;
     flex-wrap: wrap;
     .card {
@@ -59,15 +61,19 @@ const router = useRouter()
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
+      .image{
       img {
         width: 100%;
         height: 480px;
         object-fit: cover;
         align-self: center;
-        background: linear-gradient(291.45deg, #D1FFF4 11.63%, #F0DCFF 92.9%);
+        background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
         border-radius: 10px 10px 0px 0px;
         border-bottom: 1px solid #000000;
       }
+      }
+
+      
       &:nth-child(2n) img {
         background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
       }
@@ -94,7 +100,7 @@ const router = useRouter()
         left: 10px;
       }
       .text {
-        z-index: 5;
+        z-index: 51;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -155,8 +161,8 @@ const router = useRouter()
       gap: 75px;
       flex-wrap: wrap;
       .card {
-        width: 550px;
-        min-height: 900px;
+        
+        min-height: 640px;
         border-radius: 10px;
         border: 1px solid #000000;
         background: #fff;
@@ -166,10 +172,10 @@ const router = useRouter()
           width: 100%;
           height: 100%;
         }
-          &::after {
-        width: 100%;
-        height: 100%;
-      }
+        &::after {
+          width: 100%;
+          height: 100%;
+        }
 
         .text {
           h2 {
@@ -198,13 +204,13 @@ const router = useRouter()
         width: 30%;
         height: 100%;
         min-height: 600px;
-        a{
+        a {
           img {
           }
         }
-        &::after{
+        &::after {
           width: 100%;
-        height: 100%;
+          height: 100%;
         }
         .text {
           h2 {
@@ -222,26 +228,24 @@ const router = useRouter()
 }
 @media (max-width: 1024px) {
   .container {
-    
     .cards {
       justify-content: space-between;
       .card {
         width: 29%;
         height: 100%;
         min-height: 400px;
-        a{
+        a {
           height: 200px;
           img {
             width: 100%;
             height: 100%;
           }
         }
-        &::after{
+        &::after {
           width: 100%;
           height: 100%;
         }
         .text {
-         
         }
       }
     }
@@ -264,7 +268,6 @@ const router = useRouter()
       flex-wrap: wrap;
       .card {
         height: 100%;
-        min-height: 1100px;
         width: 80%;
         border-radius: 10px;
         border: 1px solid #000000;
@@ -273,7 +276,7 @@ const router = useRouter()
         transition: 0.3s all ease-in-out;
         img {
           width: 100%;
-          height: 100%;
+          height: 100% !important;
         }
         .text {
           h2 {
@@ -295,4 +298,3 @@ const router = useRouter()
   }
 }
 </style>
-
