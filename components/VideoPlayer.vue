@@ -112,9 +112,17 @@ background-image: url('@/assets/images/settings.svg');
 #settings:focus #settings:hover {
 filter: drop-shadow(0 0 0px #fff);
 } 
+video{
+
+}
+.video-js[tabindex="-1"] {
+    outline: none;
+    width: 100%;
+    height: 0;
+  padding-bottom: 56.25%;
+}
 .video-js{
-    width: 802px;
-    height: 451px;
+
 }
 .vjs-default-skin {
   color: #fff;

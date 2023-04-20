@@ -211,11 +211,13 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
   .container {
     width: 80%;
     h1 {
+      font-size: 3rem;
     }
     .cards {
       display: flex;
       flex-direction: column;
       gap: 50px;
+    justify-content: center;
       .card {
         width: 80%;
         a {
@@ -250,7 +252,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
     }
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .container {
     width: 80%;
     h1 {
@@ -258,6 +260,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
     .cards {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 50px;
       .card {
         width: 100%;

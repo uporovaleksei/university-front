@@ -80,7 +80,7 @@ export default {
       <div :class="['links', { active: menuIsOpen }]">
         <ul>
           <li v-for="item in paths" :key="item.path">
-            <NuxtLink :to="item.path" :class="{ active: item.path === path, main: path === '/' }">
+            <NuxtLink :to="item.path" :class="{ active: menuIsOpen, main: path === '/' }">
               {{ item.label }}
             </NuxtLink>
           </li>
