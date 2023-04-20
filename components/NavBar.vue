@@ -177,7 +177,7 @@ nav {
       }
     }
     .menu__icon{
-      display: none;
+      
     }
   }
 }

@@ -30,6 +30,7 @@ const router = useRouter()
       </div>
     </div>
   </MainVue>
+
 </template>
 
 <style lang="scss" scoped>

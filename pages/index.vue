@@ -5,6 +5,7 @@ const title = ref('Открытый университет')
 
 <template>
   <Head>
+    
     <Title>{{ title }}</Title>
     <Meta name="description" :content="title" />
   </Head>

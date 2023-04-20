@@ -1,13 +1,12 @@
 <template>
   <div>
-    <video controls ref="videoPlayer" class="video-js"></video>
-    <div>
-      <select v-model="selectedQuality" @change="setQuality">
+    <video controls ref="videoPlayer" class="video-js">
+        <select id="settings" v-model="selectedQuality" @change="setQuality">
         <option v-for="(source, index) in sources" :value="index" :key="index">
           {{ source.label }}
         </option>
-      </select>
-    </div>
+      </select> 
+    </video>
   </div>
 </template>
 
@@ -49,7 +48,9 @@ export default {
     };
   },
   mounted() {
-		console.log(this.url.replace(/\.mp4$/, '1080.mp4').toString());
+    const picInpic = document.querySelector('.vjs-control-bar')
+    const settings = document.querySelector('#settings')
+		console.log(picInpic);
     const options = {
       qualitySelector: false,
       sources: [this.sources[this.selectedQuality]],
@@ -58,9 +59,18 @@ export default {
       preload: 'auto'
     };
     const player = videojs(this.$refs.videoPlayer, options);
+    if (player){
+    const settings = document.querySelector('#settings')
+    const bar = document.querySelector('.vjs-control-bar')
+    const pip = document.querySelector('.vjs-fullscreen-control')
+      bar.appendChild(settings)
+      pip.before(settings)
+      	console.log(picInpic);
+    }
     player.qualityLevels(); 
   },
   methods: {
+    
 setQuality() {
   const player = videojs(this.$refs.videoPlayer);
   const selectedSource = this.sources[this.selectedQuality];
@@ -75,9 +85,36 @@ setQuality() {
 };
 </script>
 <style>
+#settings option{
+background-image: url('@/assets/images/settings.svg');
+}
+.vjs-control-bar{
+}
+#settings {
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  outline: none;
+  align-items: center;
+  -webkit-appearance: none;
+  transition: 0.3s all ease;
+}
+#settings:focus  {
+  color: #fff;
+  background: #2B333F;
+  border: 0;
+  outline: none;
+} 
+#settings:focus #settings:hover {
+filter: drop-shadow(0 0 0px #fff);
+} 
 .video-js{
-	width: 800px;
-	height: 600px;
+    width: 802px;
+    height: 451px;
 }
 .vjs-default-skin {
   color: #fff;
