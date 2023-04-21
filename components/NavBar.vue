@@ -44,8 +44,10 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', onScroll)
+    document.body.style = 'overflow-y: scroll;'
   },
   beforeUnmount() {
+    addEventListener
     window.removeEventListener('scroll', onScroll)
   },
   computed: {
@@ -55,7 +57,7 @@ export default {
   },
   methods: {
     lock() {
-      this.menuIsOpen ? (document.body.style = 'overflow: hidden;') : (document.body.style = 'overflow: scroll;')
+      this.menuIsOpen ? (document.body.style = 'overflow-y: hidden;') : (document.body.style = 'overflow-y: scroll;')
     },
   },
 }
@@ -80,7 +82,7 @@ export default {
       <div :class="['links', { active: menuIsOpen }]">
         <ul>
           <li v-for="item in paths" :key="item.path">
-            <NuxtLink :to="item.path" :class="{ active: item.path === path, main: path === '/' }">
+            <NuxtLink :to="item.path" :class="{ 'active__links': menuIsOpen, main: path === '/' }">
               {{ item.label }}
             </NuxtLink>
           </li>
@@ -124,6 +126,9 @@ nav {
         li {
           line-height: 33px;
           transition: 0.3s ease all;
+                  .active__links{
+          color: #000;
+        }
           a {
             font-style: normal;
             font-weight: 600;
@@ -177,7 +182,7 @@ nav {
       }
     }
     .menu__icon{
-      
+      display: none;
     }
   }
 }
@@ -226,6 +231,9 @@ nav {
           }
         }
       }
+        .menu__icon {
+          display: block;
+  }
     }
   }
   .active {

@@ -44,7 +44,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
   .cards {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 75px;
     flex-wrap: wrap;
     .card {
@@ -218,6 +218,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     width: 80%;
 
     .cards {
+      justify-content: center;
       .card {
         height: 100%;
         min-height: 1100px;
