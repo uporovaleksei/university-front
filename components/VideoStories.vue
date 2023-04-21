@@ -175,6 +175,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
   .container {
     width: 80%;
     h1 {
+      font-size: 3rem;
     }
     .cards {
       display: flex;

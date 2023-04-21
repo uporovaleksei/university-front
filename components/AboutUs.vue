@@ -133,4 +133,20 @@ export default {}
     }
   }
 }
+@media (max-width: 425px) {
+  .container {
+    h1 {
+      font-size: 3rem;
+    }
+    .project,
+    .mission {
+      h1 {
+        font-size: 4rem;
+      }
+      p {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
 </style>
