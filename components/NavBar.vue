@@ -1,5 +1,4 @@
 <script>
-import { tr } from 'date-fns/locale'
 const onScroll = () => {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.querySelector('nav').classList.remove('scroll')
@@ -13,6 +12,7 @@ const onScroll = () => {
     })
   }
 }
+onScroll()
 
 export default {
   data() {
