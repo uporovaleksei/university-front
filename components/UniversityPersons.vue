@@ -48,7 +48,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     gap: 75px;
     flex-wrap: wrap;
     .card {
-      width: calc(30.0% - 10px);
+      width: calc(30% - 10px);
       height: 100%;
       border-radius: 10px;
       border: 1px solid #000000;

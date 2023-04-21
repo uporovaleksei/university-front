@@ -52,21 +52,21 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background:url('@/assets/images/фон.jpg');
+  background: url('@/assets/images/фон.jpg');
   position: relative;
-  span{
-  &::after{
-    position: absolute;
-    content: '';
-    width: 35%;
-    height:35%;
-    bottom: 0;
-    right: 0;
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    z-index: 2;
-    background: linear-gradient(180.4deg, #C2BDFF 0.35%, #135AAE 99.65%);
-    filter: blur(1px);
-  }
+  span {
+    &::after {
+      position: absolute;
+      content: '';
+      width: 35%;
+      height: 35%;
+      bottom: 0;
+      right: 0;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      z-index: 2;
+      background: linear-gradient(180.4deg, #c2bdff 0.35%, #135aae 99.65%);
+      filter: blur(1px);
+    }
   }
 
   .card__container {
@@ -90,7 +90,6 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         width: 35%;
         border-radius: 10px;
         transition: 0.3s all ease;
-
       }
       .info {
         width: 100%;

@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
 @media (min-width: 2559px) {
   .wrapper {
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
     }
   }
 }

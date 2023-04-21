@@ -87,7 +87,6 @@ export default {}
       </p>
     </div>
   </div>
-
 </template>
 
 <style lang="scss" scoped>

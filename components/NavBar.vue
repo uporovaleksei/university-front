@@ -57,6 +57,7 @@ export default {
   },
   methods: {
     lock() {
+      this.menuIsOpen = !this.menuIsOpen
       this.menuIsOpen ? (document.body.style = 'overflow-y: hidden;') : (document.body.style = 'overflow-y: scroll;')
     },
   },
@@ -66,14 +67,7 @@ export default {
 <template>
   <nav :class="{ active: menuIsOpen, main: path === '/' }">
     <div class="content" :class="{ active: menuIsOpen }">
-      <div
-        class="menu__icon"
-        @click="
-          menuIsOpen = !menuIsOpen,
-          lock()
-        "
-        :class="{ open: menuIsOpen }"
-      >
+      <div class="menu__icon" @click="lock" :class="{ open: menuIsOpen }">
         <span></span>
       </div>
       <NuxtLink to="/">
@@ -126,9 +120,9 @@ nav {
         li {
           line-height: 33px;
           transition: 0.3s ease all;
-                  .active__links{
-          color: #000;
-        }
+          .active__links {
+            color: #000;
+          }
           a {
             font-style: normal;
             font-weight: 600;
@@ -181,7 +175,7 @@ nav {
         }
       }
     }
-    .menu__icon{
+    .menu__icon {
       display: none;
     }
   }
@@ -231,9 +225,9 @@ nav {
           }
         }
       }
-        .menu__icon {
-          display: block;
-  }
+      .menu__icon {
+        display: block;
+      }
     }
   }
   .active {
@@ -304,7 +298,7 @@ nav {
         ul {
           li {
             a {
-              font-size: 2.5rem;
+              font-size: 2.3rem;
             }
           }
         }

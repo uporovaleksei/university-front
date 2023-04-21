@@ -17,10 +17,9 @@ const router = useRouter()
       <div class="cards">
         <div class="card" v-for="item in persons" :key="item.id">
           <NuxtLink :to="'/persons/' + item.id">
-          <div class="image">
-
-            <img class="img" :src="imgLink(item)" />
-          </div>
+            <div class="image">
+              <img class="img" :src="imgLink(item)" />
+            </div>
             <div class="text">
               <h2>{{ item.name }}</h2>
               <!-- <p>{{ item.description?.['Должность'] }}</p> -->
@@ -30,7 +29,6 @@ const router = useRouter()
       </div>
     </div>
   </MainVue>
-
 </template>
 
 <style lang="scss" scoped>
@@ -55,7 +53,7 @@ const router = useRouter()
     gap: 75px;
     flex-wrap: wrap;
     .card {
-            width: calc(30.0% - 10px);
+      width: calc(30% - 10px);
 
       height: 100%;
       border-radius: 10px;
@@ -63,19 +61,18 @@ const router = useRouter()
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
-      .image{
-      img {
-        width: 100%;
-        height: 480px;
-        object-fit: cover;
-        align-self: center;
-        background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
-        border-radius: 10px 10px 0px 0px;
-        border-bottom: 1px solid #000000;
-      }
+      .image {
+        img {
+          width: 100%;
+          height: 480px;
+          object-fit: cover;
+          align-self: center;
+          background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
+          border-radius: 10px 10px 0px 0px;
+          border-bottom: 1px solid #000000;
+        }
       }
 
-      
       &:nth-child(2n) img {
         background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
       }
@@ -163,7 +160,6 @@ const router = useRouter()
       gap: 75px;
       flex-wrap: wrap;
       .card {
-        
         min-height: 640px;
         border-radius: 10px;
         border: 1px solid #000000;
@@ -230,7 +226,6 @@ const router = useRouter()
 }
 @media (max-width: 1024px) {
   .container {
-  
     .cards {
       width: 100%;
       justify-content: space-between;

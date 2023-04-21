@@ -170,12 +170,12 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 10)
           }
           .title {
             h2 {
-              font-size: 3rem;
+              font-size: 2.5rem;
             }
           }
           .text {
             p {
-              font-size: 2.5rem;
+              font-size: 2rem;
             }
           }
           .buttons {

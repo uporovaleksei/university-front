@@ -7,22 +7,20 @@ const showModal = ref(false)
       <footer>
         <div class="icons">
           <div class="actions">
-          <NuxtLink to="https://t.me/rsvpu_inter" target="_blank">
-            <img src="@/assets/images/Telegramm.svg" />
-          </NuxtLink>
-          <NuxtLink to="https://www.youtube.com/channel/UC-y6HemC-f1Yf_9lFSnPbSw" target="_blank">
-            <img src="@/assets/images/Yutub.svg" />
-          </NuxtLink>
-          <NuxtLink to="https://vk.com/rsvpu_official" target="_blank">
-            <img src="@/assets/images/VK.svg" />
-          </NuxtLink>
+            <NuxtLink to="https://t.me/rsvpu_inter" target="_blank">
+              <img src="@/assets/images/Telegramm.svg" />
+            </NuxtLink>
+            <NuxtLink to="https://www.youtube.com/channel/UC-y6HemC-f1Yf_9lFSnPbSw" target="_blank">
+              <img src="@/assets/images/Yutub.svg" />
+            </NuxtLink>
+            <NuxtLink to="https://vk.com/rsvpu_official" target="_blank">
+              <img src="@/assets/images/VK.svg" />
+            </NuxtLink>
           </div>
           <div class="mobile__app">
-          <img src="@/assets/images/phone.svg" alt="">
-          <a href="#" target="_blank">
-            Скачать мобильное приложение  
-          </a>  
-      </div>
+            <img src="@/assets/images/phone.svg" alt="" />
+            <a href="#" target="_blank"> Скачать мобильное приложение </a>
+          </div>
         </div>
         <div class="links">
           <div class="about">
@@ -48,10 +46,8 @@ const showModal = ref(false)
             </div>
           </ModalWindow>
         </div>
-        
       </footer>
-          <p>ФГАОУ ВО «Российский государственный профессионально-педагогический университет»</p>
-
+      <p>ФГАОУ ВО «Российский государственный профессионально-педагогический университет»</p>
     </div>
   </div>
 </template>
@@ -126,7 +122,7 @@ const showModal = ref(false)
     width: 100%;
     height: 100%;
   }
-  
+
   .container {
     width: 60%;
     height: 100%;
@@ -148,28 +144,28 @@ const showModal = ref(false)
             width: 50px;
           }
         }
-        .actions{
-        width: 100%;
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
+        .actions {
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
         }
-            .mobile__app{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      align-self: flex-start;
-      gap: 10px;
-      img{
-        width: 48px;
-      }
-      a{
-        color: #fff;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-      }
-    }
+        .mobile__app {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          align-self: flex-start;
+          gap: 10px;
+          img {
+            width: 48px;
+          }
+          a {
+            color: #fff;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+          }
+        }
       }
       .links {
         display: flex;
@@ -204,17 +200,16 @@ const showModal = ref(false)
         color: #ffffff;
       }
     }
-      p{
-    width: 387px;
-    margin-top: 25px;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: #FFFFFF;
+    p {
+      width: 387px;
+      margin-top: 25px;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #ffffff;
     }
   }
-
 }
 @media (max-width: 1024px) {
   .wrapper {
@@ -289,7 +284,8 @@ const showModal = ref(false)
           color: #ffffff;
         }
       }
-      p{}
+      p {
+      }
     }
   }
 }
@@ -306,11 +302,11 @@ const showModal = ref(false)
               width: 75px;
             }
           }
-          .mobile__app{
-            a{
-               font-size: 24px;
+          .mobile__app {
+            a {
+              font-size: 24px;
             }
-            img{
+            img {
               width: 75px;
             }
           }
@@ -339,9 +335,9 @@ const showModal = ref(false)
           font-size: 28px;
         }
       }
-      p{
-         font-size: 28px;
-         width: 600px;
+      p {
+        font-size: 28px;
+        width: 600px;
       }
     }
   }

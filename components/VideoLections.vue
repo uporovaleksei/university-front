@@ -215,7 +215,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
       display: flex;
       flex-direction: column;
       gap: 50px;
-    justify-content: center;
+      justify-content: center;
       .card {
         width: 80%;
         a {

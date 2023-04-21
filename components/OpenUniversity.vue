@@ -53,7 +53,7 @@
 @media (min-width: 2559px) {
   .container {
     img {
-      scale: 2;
+      scale: 2.5;
     }
     span {
       height: 600px;
