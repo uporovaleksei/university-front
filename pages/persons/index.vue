@@ -55,7 +55,8 @@ const router = useRouter()
     gap: 75px;
     flex-wrap: wrap;
     .card {
-      width: 400px;
+            width: calc(30.0% - 10px);
+
       height: 100%;
       border-radius: 10px;
       border: 1px solid #000000;
@@ -87,7 +88,7 @@ const router = useRouter()
         top: 0px;
         left: 0px;
         content: '';
-        width: 400px;
+        width: 100%;
         height: 100%;
         background: #fff;
         filter: drop-shadow(2px 4px 4px #185091);
@@ -229,12 +230,14 @@ const router = useRouter()
 }
 @media (max-width: 1024px) {
   .container {
+  
     .cards {
+      width: 100%;
       justify-content: space-between;
       .card {
         width: 29%;
         height: 100%;
-        min-height: 400px;
+        min-height: 600px;
         a {
           height: 200px;
           img {

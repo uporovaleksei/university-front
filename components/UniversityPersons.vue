@@ -30,12 +30,12 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
 <style lang="scss" scoped>
 .container {
   width: 80%;
-  margin: 60px auto;
+  margin: 0px auto;
   display: flex;
   flex-direction: column;
   h1 {
-    margin-top: 90px;
-    margin-bottom: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     font-weight: 700;
     font-size: 36px;
     text-transform: uppercase;
@@ -48,7 +48,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     gap: 75px;
     flex-wrap: wrap;
     .card {
-      width: 400px;
+      width: calc(30.0% - 10px);
       height: 100%;
       border-radius: 10px;
       border: 1px solid #000000;
@@ -76,7 +76,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         top: 0px;
         left: 0px;
         content: '';
-        width: 400px;
+        width: 100%;
         height: 100%;
         background: #fff;
         filter: drop-shadow(2px 4px 4px #185091);
@@ -197,7 +197,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       .card {
         width: 29%;
         height: 100%;
-        min-height: 400px;
+        min-height: 420px;
         a {
           height: 200px;
           img {
@@ -220,9 +220,9 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       font-size: 3rem;
     }
     .cards {
+      justify-content: center;
       .card {
         height: 100%;
-        min-height: 1100px;
         width: 80%;
         img {
           width: 100%;
@@ -250,7 +250,6 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       justify-content: center;
       .card {
         height: 100%;
-        min-height: 1100px;
         width: 80%;
         img {
           width: 100%;

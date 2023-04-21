@@ -35,9 +35,8 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 90px 0;
+  padding: 40px 0;
   h1 {
-    margin-top: 40px;
     font-weight: 700;
     font-size: 36px;
     text-transform: uppercase;
@@ -45,14 +44,13 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
   }
   .cards {
     display: flex;
-    margin-top: 90px;
+    margin-top: 40px;
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
 
     .card {
       width: 370px;
-
       background: #d9d9d9;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       display: flex;

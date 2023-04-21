@@ -6,15 +6,23 @@ const showModal = ref(false)
     <div class="container">
       <footer>
         <div class="icons">
-          <NuxtLink to="https://t.me/rsvpu_inter">
+          <div class="actions">
+          <NuxtLink to="https://t.me/rsvpu_inter" target="_blank">
             <img src="@/assets/images/Telegramm.svg" />
           </NuxtLink>
-          <NuxtLink to="https://www.youtube.com/channel/UC-y6HemC-f1Yf_9lFSnPbSw">
+          <NuxtLink to="https://www.youtube.com/channel/UC-y6HemC-f1Yf_9lFSnPbSw" target="_blank">
             <img src="@/assets/images/Yutub.svg" />
           </NuxtLink>
-          <NuxtLink to="https://vk.com/rsvpu_official">
+          <NuxtLink to="https://vk.com/rsvpu_official" target="_blank">
             <img src="@/assets/images/VK.svg" />
           </NuxtLink>
+          </div>
+          <div class="mobile__app">
+          <img src="@/assets/images/phone.svg" alt="">
+          <a href="#" target="_blank">
+            Скачать мобильное приложение  
+          </a>  
+      </div>
         </div>
         <div class="links">
           <div class="about">
@@ -29,7 +37,6 @@ const showModal = ref(false)
           <div class="contacts">
             <a @click="showModal = true">Обратная связь</a>
           </div>
-          <p>ФГАОУ ВО «Российский государственный профессионально-педагогический университет»</p>
           <ModalWindow v-if="showModal" @close="showModal = false">
             <div class="modal">
               <div class="header">
@@ -41,7 +48,10 @@ const showModal = ref(false)
             </div>
           </ModalWindow>
         </div>
+        
       </footer>
+          <p>ФГАОУ ВО «Российский государственный профессионально-педагогический университет»</p>
+
     </div>
   </div>
 </template>
@@ -99,7 +109,6 @@ const showModal = ref(false)
 }
 .wrapper {
   width: 100%;
-  height: 260px;
   margin: 0 auto;
   background: #185091;
   position: relative;
@@ -109,6 +118,7 @@ const showModal = ref(false)
     z-index: -1;
     position: absolute;
     content: '';
+    top: 10%;
     background-image: url('@/assets/images/pattern.png');
     background-size: 456px;
     background-repeat: no-repeat;
@@ -116,19 +126,21 @@ const showModal = ref(false)
     width: 100%;
     height: 100%;
   }
+  
   .container {
     width: 60%;
     height: 100%;
     margin: 0 auto;
+    padding: 60px 0;
     footer {
       display: flex;
       height: 100%;
       width: 100%;
       gap: 20px;
-      padding-top: 60px;
       .icons {
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: flex-start;
         gap: 10px;
         a {
@@ -136,6 +148,28 @@ const showModal = ref(false)
             width: 50px;
           }
         }
+        .actions{
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        }
+            .mobile__app{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      gap: 10px;
+      img{
+        width: 48px;
+      }
+      a{
+        color: #fff;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+      }
+    }
       }
       .links {
         display: flex;
@@ -170,12 +204,21 @@ const showModal = ref(false)
         color: #ffffff;
       }
     }
+      p{
+    width: 387px;
+    margin-top: 25px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+    }
   }
+
 }
 @media (max-width: 1024px) {
   .wrapper {
     width: 100%;
-    height: 260px;
     margin: 0 auto;
     background: #185091;
     position: relative;
@@ -202,7 +245,6 @@ const showModal = ref(false)
         height: 100%;
         width: 100%;
         gap: 30px;
-        padding-top: 60px;
         .icons {
           width: 100%;
           display: flex;
@@ -247,58 +289,33 @@ const showModal = ref(false)
           color: #ffffff;
         }
       }
+      p{}
     }
   }
 }
 @media (max-width: 768px) {
   .wrapper {
-    width: 100%;
-    height: 260px;
-    margin: 0 auto;
-    background: #185091;
-    position: relative;
-    z-index: 10;
-    overflow: hidden;
     &::before {
-      z-index: -1;
-      position: absolute;
-      content: '';
-      background-image: url('@/assets/images/pattern.png');
-      background-size: 456px;
-      background-repeat: no-repeat;
-      opacity: 0.5;
-      left: -250px;
-      width: 100%;
-      height: 100%;
     }
     .container {
       width: 80%;
-      height: 100%;
-      margin: 0 auto;
       footer {
-        display: flex;
-        height: 100%;
-        width: 100%;
-        gap: 30px;
-        padding-top: 60px;
         .icons {
-          width: 100%;
-          display: flex;
-          align-items: flex-start;
-          gap: 10px;
           a {
             img {
-              width: 50px;
+              width: 75px;
+            }
+          }
+          .mobile__app{
+            a{
+               font-size: 24px;
+            }
+            img{
+              width: 75px;
             }
           }
         }
         .links {
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
-          height: 100%;
-          width: 100%;
-          // gap: 100px;
           .about,
           .video,
           .contacts {
@@ -310,77 +327,40 @@ const showModal = ref(false)
             justify-content: center;
             font-style: normal;
             font-weight: 400;
-            font-size: 20px;
+            font-size: 24px;
             a {
               color: #fff;
               cursor: pointer;
+              font-size: 28px;
             }
           }
         }
         p {
-          font-family: 'Open Sans';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          color: #ffffff;
+          font-size: 28px;
         }
+      }
+      p{
+         font-size: 28px;
+         width: 600px;
       }
     }
   }
 }
-
 @media (max-width: 425px) {
   .wrapper {
-    width: 100%;
-    height: 350px;
-    margin: 0 auto;
-    background: #185091;
-    position: relative;
-    z-index: 10;
-    overflow: hidden;
     &::before {
-      z-index: -1;
-      position: absolute;
-      content: '';
-      background-image: url('@/assets/images/pattern.png');
-      background-size: 456px;
-      background-repeat: no-repeat;
-      opacity: 0.5;
-      left: -300px;
-      width: 100%;
-      height: 100%;
     }
     .container {
-      width: 80%;
-      height: 100%;
-      margin: 0 auto;
+      width: 90%;
       footer {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        gap: 30px;
-        padding-top: 60px;
         .icons {
-          width: 100%;
-          display: flex;
-          align-items: flex-start;
-          order: 2;
-          gap: 10px;
           a {
             img {
-              width: 50px;
+              width: 75px;
             }
           }
         }
         .links {
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
-          height: 150px;
-          width: 100%;
-          order: 1;
-          // gap: 100px;
           .about,
           .video,
           .contacts {
@@ -392,16 +372,16 @@ const showModal = ref(false)
             justify-content: center;
             font-style: normal;
             font-weight: 400;
-            font-size: 20px;
+            font-size: 24px;
             a {
               color: #fff;
               cursor: pointer;
-              font-size: 24px;
+              font-size: 28px;
             }
           }
         }
         p {
-          font-size: 24px;
+          font-size: 28px;
         }
       }
     }

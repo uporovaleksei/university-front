@@ -31,9 +31,8 @@ const { data: stories } = await useFetch('/stories', { baseURL })
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 90px 0;
+  padding: 40px 0;
   h1 {
-    margin-top: 40px;
     font-weight: 700;
     font-size: 36px;
     text-transform: uppercase;
@@ -41,7 +40,6 @@ const { data: stories } = await useFetch('/stories', { baseURL })
   }
   .cards {
     display: flex;
-    margin-top: 90px;
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
