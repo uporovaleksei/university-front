@@ -12,7 +12,6 @@ const onScroll = () => {
     })
   }
 }
-onScroll()
 
 export default {
   data() {
@@ -45,6 +44,7 @@ export default {
   mounted() {
     window.addEventListener('scroll', onScroll)
     document.body.style = 'overflow-y: scroll;'
+    onScroll()
   },
   beforeUnmount() {
     addEventListener
