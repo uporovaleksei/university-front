@@ -57,7 +57,6 @@ const router = useRouter()
 
       height: 100%;
       border-radius: 10px;
-      border: 1px solid #000000;
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
@@ -69,7 +68,6 @@ const router = useRouter()
           align-self: center;
           background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
           border-radius: 10px 10px 0px 0px;
-          border-bottom: 1px solid #000000;
         }
       }
 
@@ -95,8 +93,7 @@ const router = useRouter()
       }
       &:hover::after {
         opacity: 1;
-        top: 10px;
-        left: 10px;
+
       }
       .text {
         z-index: 51;
@@ -162,7 +159,6 @@ const router = useRouter()
       .card {
         min-height: 640px;
         border-radius: 10px;
-        border: 1px solid #000000;
         background: #fff;
         position: relative;
         transition: 0.3s all ease-in-out;
@@ -269,7 +265,6 @@ const router = useRouter()
         height: 100%;
         width: 80%;
         border-radius: 10px;
-        border: 1px solid #000000;
         background: #fff;
         position: relative;
         transition: 0.3s all ease-in-out;

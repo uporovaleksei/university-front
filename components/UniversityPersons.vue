@@ -51,7 +51,6 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       width: calc(30% - 10px);
       height: 100%;
       border-radius: 10px;
-      border: 1px solid #000000;
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
@@ -62,7 +61,6 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         align-self: center;
         background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
         border-radius: 10px 10px 0px 0px;
-        border-bottom: 1px solid #000000;
       }
       &:nth-child(2n) img {
         background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
@@ -86,8 +84,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       }
       &:hover::after {
         opacity: 1;
-        top: 10px;
-        left: 10px;
+
       }
       .text {
         z-index: 5;
