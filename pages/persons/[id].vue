@@ -125,7 +125,6 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   z-index: 20;
   width: 80%;
   margin: 0 auto;
-  padding: 180px 0;
   display: flex;
   flex-direction: column;
 
@@ -172,6 +171,7 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         font-weight: 700;
         font-size: 24px;
         color: #000000;
+        text-align: justify;
       }
       :deep(p) {
         font-family: 'Merriweather';
@@ -180,6 +180,7 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         font-size: 24px;
         color: #000000;
         background: #ffffff;
+        text-align: justify;
       }
     }
   }

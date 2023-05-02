@@ -61,20 +61,27 @@ const router = useRouter()
       position: relative;
       transition: 0.3s all ease-in-out;
       .image {
+        position: relative;
+        width: 100%;
+        height: 480px;
+        background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
+        border-radius: 10px 10px 0px 0px;
         img {
-          width: 100%;
-          height: 480px;
-          object-fit: cover;
+          max-width: 90%;
+          height: auto;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
           align-self: center;
-          background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
-          border-radius: 10px 10px 0px 0px;
+          bottom: 0;
+          object-fit: cover;
         }
       }
 
-      &:nth-child(2n) img {
+      &:nth-child(2n) image {
         background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
       }
-      &:nth-child(3n) img {
+      &:nth-child(3n) image {
         background: linear-gradient(59deg, #e6eaf1 13.28%, #b2d7fc 87.42%);
       }
       &::after {
@@ -91,9 +98,11 @@ const router = useRouter()
         opacity: 0;
         transition: 0.3s all ease;
       }
-      &:hover::after {
-        opacity: 1;
-
+      &:hover {
+        scale: 0.98;
+        &::after{
+          opacity: 1;
+        }
       }
       .text {
         z-index: 51;
@@ -153,22 +162,25 @@ const router = useRouter()
     .cards {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: star;
       gap: 75px;
       flex-wrap: wrap;
       .card {
-        min-height: 640px;
+        min-height: 840px;
         border-radius: 10px;
         background: #fff;
         position: relative;
         transition: 0.3s all ease-in-out;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-        &::after {
-          width: 100%;
-          height: 100%;
+        .image {
+          min-height: 660px;
+          img {
+            max-width: 90%;
+            height: auto;
+          }
+          &::after {
+            width: 100%;
+            height: 100%;
+          }
         }
 
         .text {
@@ -197,9 +209,12 @@ const router = useRouter()
       .card {
         width: 30%;
         height: 100%;
-        min-height: 600px;
+        min-height: 500px;
         a {
-          img {
+          .image {
+            height: 380px;
+            img {
+            }
           }
         }
         &::after {
@@ -228,12 +243,12 @@ const router = useRouter()
       .card {
         width: 29%;
         height: 100%;
-        min-height: 600px;
+        min-height: 400px;
         a {
-          height: 200px;
-          img {
-            width: 100%;
-            height: 100%;
+          .image {
+            height: 320px;
+            img {
+            }
           }
         }
         &::after {
@@ -268,9 +283,13 @@ const router = useRouter()
         background: #fff;
         position: relative;
         transition: 0.3s all ease-in-out;
-        img {
-          width: 100%;
-          height: 100% !important;
+        .image {
+          height: 750px !important;
+
+          img {
+            height: auto;
+            width: 80%;
+          }
         }
         .text {
           h2 {

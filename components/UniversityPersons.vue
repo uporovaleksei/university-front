@@ -29,8 +29,9 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
 
 <style lang="scss" scoped>
 .container {
+  padding: 80px 0;
   width: 80%;
-  margin: 0px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   h1 {
@@ -49,23 +50,34 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     flex-wrap: wrap;
     .card {
       width: calc(30% - 10px);
+
       height: 100%;
       border-radius: 10px;
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
-      img {
+      .image {
+        position: relative;
         width: 100%;
         height: 480px;
-        object-fit: cover;
-        align-self: center;
         background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
         border-radius: 10px 10px 0px 0px;
+        img {
+          max-width: 90%;
+          height: auto;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          align-self: center;
+          bottom: 0;
+          object-fit: cover;
+        }
       }
-      &:nth-child(2n) img {
+
+      &:nth-child(2n) image {
         background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
       }
-      &:nth-child(3n) img {
+      &:nth-child(3n) image {
         background: linear-gradient(59deg, #e6eaf1 13.28%, #b2d7fc 87.42%);
       }
       &::after {
@@ -82,12 +94,14 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
         opacity: 0;
         transition: 0.3s all ease;
       }
-      &:hover::after {
-        opacity: 1;
-
+      &:hover {
+        scale: 0.98;
+        &::after{
+          opacity: 1;
+        }
       }
       .text {
-        z-index: 5;
+        z-index: 51;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -124,7 +138,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       border: 0;
       background: #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
+      border-radius: 30px;
       font-weight: 400;
       font-size: 24px;
       color: #000000;
@@ -137,21 +151,34 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
 }
 @media (min-width: 2559px) {
   .container {
+    width: 80%;
     h1 {
       font-size: 4rem;
     }
     .cards {
+      display: flex;
+      align-items: center;
+      justify-content: star;
+      gap: 75px;
+      flex-wrap: wrap;
       .card {
-        width: 550px;
-        min-height: 900px;
-        img {
-          width: 100%;
-          height: 100%;
+        min-height: 840px;
+        border-radius: 10px;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        .image {
+          min-height: 660px;
+          img {
+            max-width: 90%;
+            height: auto;
+          }
+          &::after {
+            width: 100%;
+            height: 100%;
+          }
         }
-        &::after {
-          width: 100%;
-          height: 100%;
-        }
+
         .text {
           h2 {
             font-size: 2rem;
@@ -178,11 +205,28 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       .card {
         width: 30%;
         height: 100%;
-        min-height: 600px;
+        min-height: 500px;
+        a {
+          .image {
+            height: 380px;
+            img {
+            }
+          }
+        }
         &::after {
           width: 100%;
           height: 100%;
         }
+        .text {
+          h2 {
+          }
+          p {
+          }
+        }
+      }
+    }
+    a {
+      button {
       }
     }
   }
@@ -190,49 +234,29 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
 @media (max-width: 1024px) {
   .container {
     .cards {
+      width: 100%;
       justify-content: space-between;
       .card {
         width: 29%;
         height: 100%;
-        min-height: 420px;
+        min-height: 400px;
         a {
-          height: 200px;
-          img {
-            width: 100%;
-            height: 100%;
+          .image {
+            height: 320px;
+            img {
+            }
           }
         }
         &::after {
           width: 100%;
           height: 100%;
         }
+        .text {
+        }
       }
     }
-  }
-}
-@media (max-width: 768px) {
-  .container {
-    width: 80%;
-    h1 {
-      font-size: 3rem;
-    }
-    .cards {
-      justify-content: center;
-      .card {
-        height: 100%;
-        width: 80%;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-        .text {
-          h2 {
-            font-size: 2rem;
-          }
-          p {
-            font-size: 2rem;
-          }
-        }
+    a {
+      button {
       }
     }
   }
@@ -241,16 +265,27 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
   .container {
     width: 80%;
     h1 {
-      font-size: 3rem;
     }
     .cards {
+      display: flex;
+      align-items: center;
       justify-content: center;
+      gap: 75px;
+      flex-wrap: wrap;
       .card {
         height: 100%;
         width: 80%;
-        img {
-          width: 100%;
-          height: 100%;
+        border-radius: 10px;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        .image {
+          height: 750px !important;
+
+          img {
+            height: auto;
+            width: 80%;
+          }
         }
         .text {
           h2 {
@@ -260,6 +295,13 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
             font-size: 2rem;
           }
         }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
       }
     }
   }
