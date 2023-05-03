@@ -149,7 +149,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     }
   }
 }
-@media (max-width: 2559px) {
+@media (min-width: 2559px) {
   .container {
     width: 80%;
     h1 {
@@ -158,7 +158,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     .cards {
       display: flex;
       align-items: center;
-      justify-content: star;
+      justify-content: flex-start;
       gap: 75px;
       flex-wrap: wrap;
       .card {
