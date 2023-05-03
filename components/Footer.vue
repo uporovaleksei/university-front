@@ -25,8 +25,7 @@ const showModal = ref(false)
         <div class="links">
           <div class="about">
             <NuxtLink to="/about"> О проекте </NuxtLink>
-            <NuxtLink to="/news"> Новости </NuxtLink>
-            <NuxtLink to="/persons"> Партнеры </NuxtLink>
+            <NuxtLink to="/persons"> Наставники </NuxtLink>
           </div>
           <div class="video">
             <NuxtLink to="/lections"> Лекции </NuxtLink>
@@ -37,7 +36,7 @@ const showModal = ref(false)
           </div>
           <ModalWindow v-if="showModal" @close="showModal = false">
             <div class="modal">
-              <div class="header">
+              <div class="header"> 
                 <button @click="showModal = !showModal">X</button>
                 <h1>Обратная связь</h1>
               </div>

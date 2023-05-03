@@ -147,7 +147,7 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         transform: rotate(90deg);
       }
       h2 {
-        font-weight: 700;
+        font-weight: 700; 
         font-size: 36px;
         text-transform: uppercase;
         color: #000000;

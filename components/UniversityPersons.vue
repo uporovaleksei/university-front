@@ -149,7 +149,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     }
   }
 }
-@media (min-width: 2559px) {
+@media (max-width: 2559px) {
   .container {
     width: 80%;
     h1 {
