@@ -19,7 +19,7 @@ const showModal = ref(false)
           </div>
           <div class="mobile__app">
             <img src="@/assets/images/phone.svg" alt="" />
-            <a href="#" target="_blank"> Скачать мобильное приложение </a>
+            <a href="https://apps.rustore.ru/app/com.mickey.open_university_rsvpu" target="_blank"> Скачать мобильное приложение </a>
           </div>
         </div>
         <div class="links">
