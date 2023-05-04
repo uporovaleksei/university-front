@@ -153,7 +153,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
   .container {
     width: 80%;
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
     }
     .cards {
       display: flex;
@@ -239,7 +239,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       .card {
         width: 29%;
         height: 100%;
-        min-height: 400px;
+        min-height: 450px;
         a {
           .image {
             height: 320px;

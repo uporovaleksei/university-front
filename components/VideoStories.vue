@@ -141,7 +141,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
 @media (min-width: 2559px) {
   .container {
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
     }
     .cards {
       .card {
@@ -155,7 +155,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
             }
           }
           h2 {
-            font-size: 3rem;
+            font-size: 2rem;
           }
         }
       }
@@ -164,7 +164,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
       button {
         width: 370px;
         height: 80px;
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
     }
   }

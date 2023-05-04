@@ -57,7 +57,7 @@
     }
     span {
       height: 600px;
-      margin-left: 150px;
+      margin-left: 200px;
       width: 6px;
     }
     h1 {

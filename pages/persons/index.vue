@@ -157,7 +157,7 @@ const router = useRouter()
   .container {
     width: 80%;
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
     }
     .cards {
       display: flex;

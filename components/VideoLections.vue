@@ -152,13 +152,13 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
 @media (min-width: 2559px) {
   .container {
     h1 {
-      font-size: 4rem;
+      font-size: 3em;
     }
     .cards {
       gap: 50px;
       .card {
         width: 700px;
-        height: 745px;
+        height: 600px;
         background: #d9d9d9;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
         display: flex;
@@ -187,10 +187,10 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
           }
           .text {
             h2 {
-              font-size: 3rem;
+              font-size: 2rem;
             }
             p {
-              font-size: 2.5rem;
+              font-size: 2rem;
             }
           }
         }
@@ -200,7 +200,7 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
       button {
         width: 370px;
         height: 80px;
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
     }
   }

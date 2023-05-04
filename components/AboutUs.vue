@@ -124,7 +124,7 @@ export default {}
     .project,
     .mission {
       h1 {
-        font-size: 4rem;
+        font-size: 3rem;
       }
       p {
         font-size: 2.5rem;
@@ -140,7 +140,7 @@ export default {}
     .project,
     .mission {
       h1 {
-        font-size: 4rem;
+        font-size: 3rem;
       }
       p {
         font-size: 2.5rem;
