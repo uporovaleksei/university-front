@@ -106,8 +106,12 @@ const router = useRouter()
       }
       .text {
         z-index: 51;
+        width: 90%;
         display: flex;
+        margin: 0 auto;
         flex-direction: column;
+        justify-content: center;
+        text-align: center;
         align-items: center;
         h2 {
           width: 90%;

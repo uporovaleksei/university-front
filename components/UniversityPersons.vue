@@ -50,7 +50,6 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
     flex-wrap: wrap;
     .card {
       width: calc(30% - 10px);
-
       height: 100%;
       border-radius: 10px;
       background: #fff;
@@ -102,8 +101,12 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       }
       .text {
         z-index: 51;
+        width: 90%;
         display: flex;
+        margin: 0 auto;
         flex-direction: column;
+        justify-content: center;
+        text-align: center;
         align-items: center;
         h2 {
           width: 90%;
@@ -235,7 +238,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
   .container {
     .cards {
       width: 100%;
-      justify-content: space-between;
+      justify-content: flex-start;
       .card {
         width: 29%;
         height: 100%;
