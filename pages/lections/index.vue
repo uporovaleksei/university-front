@@ -54,7 +54,7 @@ const title = ref('Лекции')
   background: red;
 }
 .container {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   padding-bottom: 400px;
   h1 {

@@ -19,7 +19,9 @@ const showModal = ref(false)
           </div>
           <div class="mobile__app">
             <img src="@/assets/images/phone.svg" alt="" />
-            <a href="https://apps.rustore.ru/app/com.mickey.open_university_rsvpu" target="_blank"> Скачать мобильное приложение </a>
+            <a href="https://apps.rustore.ru/app/com.mickey.open_university_rsvpu" target="_blank">
+              Скачать мобильное приложение
+            </a>
           </div>
         </div>
         <div class="links">
@@ -36,7 +38,7 @@ const showModal = ref(false)
           </div>
           <ModalWindow v-if="showModal" @close="showModal = false">
             <div class="modal">
-              <div class="header"> 
+              <div class="header">
                 <button @click="showModal = !showModal">X</button>
                 <h1>Обратная связь</h1>
               </div>

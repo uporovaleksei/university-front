@@ -95,7 +95,7 @@ const { data: persons } = await useFetch('persons/6', { baseURL })
       }
       &:hover {
         scale: 0.98;
-        &::after{
+        &::after {
           opacity: 1;
         }
       }

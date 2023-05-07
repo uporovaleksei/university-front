@@ -38,7 +38,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
 
 <style lang="scss" scoped>
 .container {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   h1 {
     padding-top: 120px;

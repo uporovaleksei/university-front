@@ -130,7 +130,7 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
   margin-bottom: 180px;
   .interview {
     padding: 80px 0;
-    
+
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -148,7 +148,7 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         transform: rotate(90deg);
       }
       h2 {
-        font-weight: 700; 
+        font-weight: 700;
         font-size: 36px;
         text-transform: uppercase;
         color: #000000;
@@ -175,15 +175,15 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         color: #000000;
         text-align: justify;
         &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -30px;
-        width: 10px;
-        height: 100%;
-        border-radius: 10px;
-        background: linear-gradient(180deg, rgba(255,55,88,1) 0%, rgba(193,0,32,1) 100%);
-      }
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -30px;
+          width: 10px;
+          height: 100%;
+          border-radius: 10px;
+          background: linear-gradient(180deg, rgba(255, 55, 88, 1) 0%, rgba(193, 0, 32, 1) 100%);
+        }
       }
       :deep(p) {
         font-family: 'Play', sans-serif;
@@ -196,16 +196,15 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         text-align: justify;
         &::before {
           content: '';
-        position: absolute;
-        left: -30px;
-        width: 10px;
-        height: 100%;
-        border-radius: 10px;
-        background: linear-gradient(180deg, rgba(125,184,255,1) 0%, rgba(19,90,174,1) 100%);
-      }
+          position: absolute;
+          left: -30px;
+          width: 10px;
+          height: 100%;
+          border-radius: 10px;
+          background: linear-gradient(180deg, rgba(125, 184, 255, 1) 0%, rgba(19, 90, 174, 1) 100%);
+        }
       }
     }
-    
   }
 }
 .slide-fade-enter-active {

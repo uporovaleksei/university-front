@@ -100,7 +100,7 @@ const router = useRouter()
       }
       &:hover {
         scale: 0.98;
-        &::after{
+        &::after {
           opacity: 1;
         }
       }
