@@ -145,7 +145,7 @@ const { data: stories } = await useFetch('/stories', { baseURL })
     }
     .cards {
       .card {
-        flex: 33% 1 1;
+        flex: 33% 0 1;
         a {
           .image {
             width: 675px;

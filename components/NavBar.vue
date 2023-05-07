@@ -298,7 +298,7 @@ nav {
         ul {
           li {
             a {
-              font-size: 2.3rem;
+              font-size: 2rem;
             }
           }
         }

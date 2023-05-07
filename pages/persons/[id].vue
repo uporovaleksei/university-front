@@ -123,13 +123,14 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
 
 .container {
   z-index: 20;
-  width: 80%;
   margin: 0 auto;
+  width: 60%;
   display: flex;
   flex-direction: column;
-
+  margin-bottom: 180px;
   .interview {
     padding: 80px 0;
+    
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -159,30 +160,52 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
       flex-direction: column;
       gap: 60px;
       :deep(h1) {
-        font-family: 'Mulish';
+        font-family: 'Play', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 36px;
         color: #000000;
       }
       :deep(h2) {
-        font-family: 'Merriweather';
+        font-family: 'Play', sans-serif;
         font-style: normal;
+        position: relative;
         font-weight: 700;
         font-size: 24px;
         color: #000000;
         text-align: justify;
+        &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -30px;
+        width: 10px;
+        height: 100%;
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(255,55,88,1) 0%, rgba(193,0,32,1) 100%);
+      }
       }
       :deep(p) {
-        font-family: 'Merriweather';
-        font-style: italic;
+        font-family: 'Play', sans-serif;
+        font-style: normal;
         font-weight: 400;
         font-size: 24px;
         color: #000000;
         background: #ffffff;
+        position: relative;
         text-align: justify;
+        &::before {
+          content: '';
+        position: absolute;
+        left: -30px;
+        width: 10px;
+        height: 100%;
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(125,184,255,1) 0%, rgba(19,90,174,1) 100%);
+      }
       }
     }
+    
   }
 }
 .slide-fade-enter-active {
