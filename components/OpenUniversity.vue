@@ -38,6 +38,7 @@ function handleMouseMove(event) {
   height: 300px;
 }
 .container {
+  overflow-x: hidden;
   transition: 0.3s ease all;
   width: 100%;
   height: 100vh;
@@ -50,7 +51,7 @@ function handleMouseMove(event) {
     transition: 0.3s ease all;
     width: 225px;
     height: 200px;
-    transform: translateX(-300%);
+    transform: translateX(-500%);
   }
   span {
     height: 3px;
