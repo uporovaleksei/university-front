@@ -23,23 +23,23 @@ export default {
     return {
       sources: [
         {
-          src: this.url.replace(/\.mp4$/, '1080.mp4'),
-          type: 'video/mp4',
+          src: this.url.replace(/\.mp4$/, '1080.webm'),
+          type: 'video/webm',
           label: '1080p',
         },
         {
-          src: this.url.replace(/\.mp4$/, '720.mp4'),
-          type: 'video/mp4',
+          src: this.url.replace(/\.mp4$/, '720.webm'),
+          type: 'video/webm',
           label: '720p',
         },
         {
-          src: this.url.replace(/\.mp4$/, '480.mp4'),
-          type: 'video/mp4',
+          src: this.url.replace(/\.mp4$/, '480.webm'),
+          type: 'video/webm',
           label: '480p',
         },
         {
-          src: this.url.replace(/\.mp4$/, '360.mp4'),
-          type: 'video/mp4',
+          src: this.url.replace(/\.mp4$/, '360.webm'),
+          type: 'video/webm',
           label: '360p',
         },
       ],
