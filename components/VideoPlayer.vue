@@ -86,7 +86,8 @@ export default {
 #settings option {
   background-image: url('@/assets/images/settings.svg');
 }
-.vjs-control-bar {
+.vjs-live-display{
+  display: none;
 }
 #settings {
   border-radius: 5px;
