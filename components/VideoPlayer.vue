@@ -86,7 +86,7 @@ export default {
 #settings option {
   background-image: url('@/assets/images/settings.svg');
 }
-.vjs-live-display{
+.vjs-live-display {
   display: none;
 }
 #settings {
