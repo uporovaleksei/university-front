@@ -218,10 +218,10 @@ onBeforeMount(() => {
         }
       }
 
-      &:nth-child(2n) image {
+      &:nth-child(2n) .image{
         background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
       }
-      &:nth-child(3n) image {
+      &:nth-child(3n) .image{
         background: linear-gradient(59deg, #e6eaf1 13.28%, #b2d7fc 87.42%);
       }
       &::after {
