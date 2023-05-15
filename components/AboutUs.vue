@@ -283,6 +283,5 @@ onBeforeMount(() => {
       }
     }
   }
-  
 }
 </style>

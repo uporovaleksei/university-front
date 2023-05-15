@@ -48,7 +48,7 @@ function handleMouseMove(event) {
   justify-content: center;
 
   img {
-    transition: 0.3s ease all;
+    transition: 1s ease all;
     width: 225px;
     height: 200px;
     transform: translateX(-500%);
@@ -58,7 +58,7 @@ function handleMouseMove(event) {
     margin-left: 50px;
     width: 3px;
     background: var(--white);
-    transition: 0.3s ease all;
+    transition: 1s ease all;
   }
   h1 {
     width: 470px;
@@ -67,7 +67,7 @@ function handleMouseMove(event) {
     font-size: 3.5rem;
     text-transform: uppercase;
     margin-left: 30px;
-    transition: 0.3s ease all;
+    transition: 1s ease all;
 
     transform: translateX(300%);
   }

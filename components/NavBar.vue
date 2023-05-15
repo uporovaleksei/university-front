@@ -76,7 +76,10 @@ export default {
       <div :class="['links', { active: menuIsOpen }]">
         <ul>
           <li v-for="item in paths" :key="item.path">
-            <NuxtLink :to="item.path" :class="{ active__links: menuIsOpen, main: path === '/' }">
+            <NuxtLink
+              :to="item.path"
+              :class="{ active: path == item.path, active__links: menuIsOpen, main: path === '/' }"
+            >
               {{ item.label }}
             </NuxtLink>
           </li>
@@ -93,7 +96,8 @@ nav {
   position: fixed;
   z-index: 100;
   background: #fff;
-  transition: background 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
   .content {
     width: 80%;
     height: 100%;

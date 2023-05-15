@@ -1,5 +1,30 @@
 <script setup>
+import { ref } from 'vue'
+import axios from 'axios'
+
 const showModal = ref(false)
+const name = ref('')
+const email = ref('')
+const message = ref('')
+
+const sendEmail = async () => {
+  try {
+    const response = await axios.post('/', {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    })
+    console.log('Успешно')
+
+    showModal.value = false
+    name.value = ''
+    email.value = ''
+    message.value = ''
+  } catch (error) {
+    // Обработка ошибок
+    console.error('Фэйл')
+  }
+}
 </script>
 <template>
   <div class="wrapper">
@@ -42,8 +67,10 @@ const showModal = ref(false)
                 <button @click="showModal = !showModal">X</button>
                 <h1>Обратная связь</h1>
               </div>
-              <input type="text" placeholder="Введите ваше имя" />
-              <textarea name="" id="" cols="30" rows="10"></textarea>
+              <input v-model="name" type="text" placeholder="Введите ваше имя" />
+              <input v-model="email" type="text" placeholder="Введите ваш e-mail" />
+              <textarea v-model="message" name="" id="" cols="30" rows="10"></textarea>
+              <button class="modal-default-button" @click="sendEmail">Отправить</button>
             </div>
           </ModalWindow>
         </div>
@@ -285,15 +312,11 @@ const showModal = ref(false)
           color: #ffffff;
         }
       }
-      p {
-      }
     }
   }
 }
 @media (max-width: 768px) {
   .wrapper {
-    &::before {
-    }
     .container {
       width: 80%;
       footer {
@@ -345,8 +368,6 @@ const showModal = ref(false)
 }
 @media (max-width: 425px) {
   .wrapper {
-    &::before {
-    }
     .container {
       width: 90%;
       footer {

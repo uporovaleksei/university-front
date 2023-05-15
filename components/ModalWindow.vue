@@ -9,7 +9,6 @@ const closeModal = () => {
       <div class="modal-wrapper">
         <div class="modal-container">
           <slot></slot>
-          <button class="modal-default-button" @click="$emit('close')">Отправить</button>
         </div>
       </div>
     </div>
