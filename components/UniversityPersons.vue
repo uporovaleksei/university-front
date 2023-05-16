@@ -4,23 +4,27 @@ import imgLink from '~~/plugins/imgLink'
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/6', { baseURL })
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount  } from 'vue'
 
 const handleScroll = () => {
   const element = document.querySelector('.person__wrapper svg')
-  const elementPosition = element.getBoundingClientRect().top
-  const windowHeight = window.innerHeight
+  if (element) {
+    const elementPosition = element.getBoundingClientRect().top
+    const windowHeight = window.innerHeight
 
-  if (elementPosition < windowHeight) {
-    element.classList.add('active')
-  } else if (elementPosition > windowHeight) {
-    element.classList.remove('active')
+    if (elementPosition < windowHeight) {
+      element.classList.add('active')
+    } else if (elementPosition > windowHeight) {
+      element.classList.remove('active')
+    }
   }
 }
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
 })
-onBeforeMount(() => {
+
+onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
@@ -200,6 +204,10 @@ onBeforeMount(() => {
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
+      &:hover .image img{
+        scale: 1.07;
+        transform: translateX(-47%) translateY(-14px);
+      } 
       .image {
         position: relative;
         width: 100%;
@@ -215,6 +223,7 @@ onBeforeMount(() => {
           align-self: center;
           bottom: 0;
           object-fit: cover;
+          transition:all 0.5s ease;
         }
       }
 

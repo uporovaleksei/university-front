@@ -1,3 +1,4 @@
+
 <script>
 const onScroll = () => {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -21,10 +22,28 @@ export default {
           label: 'О проекте',
           path: '/about',
         },
-        // {
-        //   label: 'Новости',
-        //   path: '/news',
-        // },
+        {
+          label: 'Лекции',
+          path: '/lections',
+        },
+        {
+          label: 'Истории',
+          path: '/stories',
+        },
+        {
+          label: 'Наставники',
+          path: '/persons',
+        },
+      ],
+      routes:[
+              {
+          label: 'Главная',
+          path: '/',
+        },
+                {
+          label: 'О проекте',
+          path: '/about',
+        },
         {
           label: 'Лекции',
           path: '/lections',

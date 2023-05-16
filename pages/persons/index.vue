@@ -60,6 +60,10 @@ const router = useRouter()
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
+            &:hover .image img{
+        scale: 1.07;
+        transform: translateX(-47%) translateY(-14px);
+      } 
       .image {
         position: relative;
         width: 100%;
@@ -75,6 +79,7 @@ const router = useRouter()
           align-self: center;
           bottom: 0;
           object-fit: cover;
+          transition: all 0.5s ease;
         }
       }
 

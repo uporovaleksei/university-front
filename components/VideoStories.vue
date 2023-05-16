@@ -7,20 +7,24 @@ import { ref, computed, onMounted } from 'vue'
 const { data: stories } = await useFetch('/stories', { baseURL })
 const handleScroll = () => {
   const element = document.querySelector('.storie__wrapper svg')
-  const elementPosition = element.getBoundingClientRect().top
-  const windowHeight = window.innerHeight
+  if (element) {
+    const elementPosition = element.getBoundingClientRect().top
+    const windowHeight = window.innerHeight
 
-  if (elementPosition < windowHeight) {
-    element.classList.add('active')
-  } else if (elementPosition > windowHeight) {
-    element.classList.remove('active')
+    if (elementPosition < windowHeight) {
+      element.classList.add('active')
+    } else if (elementPosition > windowHeight) {
+      element.classList.remove('active')
+    }
   }
 }
+
 onMounted(async () => {
   window.addEventListener('scroll', handleScroll)
 })
-onBeforeMount(() => {
-  window.removeEventListener('scroll', handleScroll)
+
+onBeforeUnmount(() => {
+window.removeEventListener('scroll', handleScroll)
 })
 </script>
 

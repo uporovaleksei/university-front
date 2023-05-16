@@ -8,19 +8,23 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
 
 const handleScroll = () => {
   const element = document.querySelector('.wrapper svg')
-  const elementPosition = element.getBoundingClientRect().top
-  const windowHeight = window.innerHeight
+  if (element) {
+    const elementPosition = element.getBoundingClientRect().top
+    const windowHeight = window.innerHeight
 
-  if (elementPosition < windowHeight) {
-    element.classList.add('active')
-  } else if (elementPosition > windowHeight) {
-    element.classList.remove('active')
+    if (elementPosition < windowHeight) {
+      element.classList.add('active')
+    } else if (elementPosition > windowHeight) {
+      element.classList.remove('active')
+    }
   }
 }
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
 })
-onBeforeMount(() => {
+
+onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>

@@ -1,30 +1,35 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeMount } from 'vue'
+
 const handleScroll = () => {
   var mission = document.querySelector('.mission')
   var principles = document.querySelector('.principles')
 
-  var missionPosition = mission.getBoundingClientRect().top
-  var windowHeight = window.innerHeight
+  if (mission && principles) {
+    var missionPosition = mission.getBoundingClientRect().top
+    var principlesPosition = principles.getBoundingClientRect().top
+    var windowHeight = window.innerHeight
 
-  var principlesPosition = principles.getBoundingClientRect().top
-  var windowHeight = window.innerHeight
-
-  if (missionPosition < windowHeight) {
-    mission.style.transform = 'translateX(0)'
-    mission.style.opacity = '1'
-  }
-  if (principlesPosition < windowHeight) {
-    principles.style.transform = 'translateX(0)'
-    principles.style.opacity = '1'
+    if (missionPosition < windowHeight) {
+      mission.style.transform = 'translateX(0)'
+      mission.style.opacity = '1'
+    }
+    if (principlesPosition < windowHeight) {
+      principles.style.transform = 'translateX(0)'
+      principles.style.opacity = '1'
+    }
   }
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  document.querySelector('.project').style.transform = 'translateX(0)'
-  document.querySelector('.project').style.opacity = '1'
+  var project = document.querySelector('.project')
+  if (project) {
+    project.style.transform = 'translateX(0)'
+    project.style.opacity = '1'
+  }
 })
+
 onBeforeMount(() => {
   window.removeEventListener('scroll', handleScroll)
 })
