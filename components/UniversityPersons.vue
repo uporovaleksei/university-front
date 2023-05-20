@@ -4,7 +4,7 @@ import imgLink from '~~/plugins/imgLink'
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/6', { baseURL })
-import { ref, computed, onMounted, onBeforeUnmount  } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
 const handleScroll = () => {
   const element = document.querySelector('.person__wrapper svg')
@@ -204,10 +204,10 @@ onBeforeUnmount(() => {
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
-      &:hover .image img{
+      &:hover .image img {
         scale: 1.07;
         transform: translateX(-47%) translateY(-14px);
-      } 
+      }
       .image {
         position: relative;
         width: 100%;
@@ -223,7 +223,7 @@ onBeforeUnmount(() => {
           align-self: center;
           bottom: 0;
           object-fit: cover;
-          transition:all 0.5s ease;
+          transition: all 0.5s ease;
         }
       }
 

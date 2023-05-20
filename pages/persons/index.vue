@@ -5,6 +5,64 @@ const title = ref('Наши наставники')
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/', { baseURL })
 const router = useRouter()
+
+const loadedItems = ref(3)
+const itemsPerLoad = 3
+const loading = ref(false)
+const showSerach = ref(false)
+
+const cardsRef = ref(null)
+
+const searchQuery = ref('');
+const showSerachInput = () => {
+  
+  showSerach.value = !showSerach.value
+  if(showSerach.value){
+  document.querySelector('.searchField').classList.add('active')
+  }else{
+    document.querySelector('.searchField').classList.remove('active')
+  }
+
+}
+const handleScroll = () => {
+  if (searchQuery.value === '') {
+    const cardsElement = cardsRef.value;
+    const windowHeight = window.innerHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (cardsElement && !loading.value) {
+      const rect = cardsElement.getBoundingClientRect();
+      if (rect.bottom <= windowHeight + scrollTop) {
+        loadMoreItems();
+      }
+    }
+  }
+};
+const filteredPersons = computed(() => {
+  if (searchQuery.value === '') {
+    return persons.value.slice(0, loadedItems.value);
+  } else {
+    return persons.value.filter((item) => {
+      return item.name.toLowerCase().includes(searchQuery.value.toLowerCase());
+    });
+  }
+});
+const loadMoreItems = () => {
+  if (loadedItems.value >= persons.length) {
+    return
+  }
+  
+  loading.value = true
+  setTimeout(() => {
+    loadedItems.value += itemsPerLoad
+    loading.value = false
+  }, 1000)
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+
 </script>
 <template>
   <Head>
@@ -14,8 +72,14 @@ const router = useRouter()
   <MainVue>
     <div class="container">
       <h1>Наши наставники</h1>
-      <div class="cards">
-        <div class="card" v-for="item in persons" :key="item.id">
+                  <div class="search">
+      <input  v-model="searchQuery" class="searchField" type="text" placeholder="Поиск..." />
+        <button @click="showSerachInput">
+          <img src="@/assets/images/search.svg" alt="">
+        </button>
+      </div>
+      <div class="cards" ref="cardsRef">
+        <div class="card" v-for="item in filteredPersons" :key="item.id">
           <NuxtLink :to="'/persons/' + item.id">
             <div class="image">
               <img class="img" :src="imgLink(item)" />
@@ -26,6 +90,8 @@ const router = useRouter()
             </div>
           </NuxtLink>
         </div>
+           <div v-if="loading && loadedItems < persons.length && searchQuery === '' " class="custom-loader"></div>
+
       </div>
     </div>
   </MainVue>
@@ -38,6 +104,48 @@ const router = useRouter()
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+    .search{
+    display: flex;
+    align-self: flex-end;
+    gap: 20px;
+    height: 50px;
+    margin: 20px 0;
+    button{
+      width: 50px;
+      border-radius: 100%;
+      outline: none;
+      border: 0;
+      background: #135aae;
+      transition: 0.3s ease all;
+      &:hover{
+        scale: 0.95;
+        filter: drop-shadow(0 0 4px #135aae);
+      }
+      &:active{
+        scale: 0.9;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 12px;
+      }
+    }
+    .searchField{
+      opacity: 0;
+      width: 0;
+      transition: all 0.5s ;
+    }
+          .active{
+      display: block;
+        width: 300px;
+        opacity: 1;
+      padding: 10px;
+        outline: none;
+        border-radius: 50px;
+        border: 1px solid var(--blue);
+      }
+  }
   h1 {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -50,24 +158,26 @@ const router = useRouter()
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 75px;
     flex-wrap: wrap;
+    gap: 30px;
     .card {
-      width: calc(30% - 10px);
+      flex-basis: calc(33.33% - 30px);
 
       height: 100%;
       border-radius: 10px;
       background: #fff;
       position: relative;
       transition: 0.3s all ease-in-out;
-            &:hover .image img{
+      &:hover .image img {
         scale: 1.07;
         transform: translateX(-47%) translateY(-14px);
-      } 
+      }
       .image {
         position: relative;
         width: 100%;
-        height: 480px;
+        height: 100%;
+              min-height: 520px;
+
         background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
         border-radius: 10px 10px 0px 0px;
         img {
@@ -141,6 +251,17 @@ const router = useRouter()
       }
     }
   }
+      .custom-loader {
+  position: relative;
+  left: 50%;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:conic-gradient(#0000 10%,#135aae);
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s3 1s infinite linear;
+  @keyframes s3 {to{transform: rotate(1turn)}}
+  }
   a {
     padding: 60px 0;
     align-self: flex-end;
@@ -172,7 +293,7 @@ const router = useRouter()
       display: flex;
       align-items: center;
       justify-content: star;
-      gap: 75px;
+      gap: 35px;
       flex-wrap: wrap;
       .card {
         min-height: 840px;
@@ -181,7 +302,7 @@ const router = useRouter()
         position: relative;
         transition: 0.3s all ease-in-out;
         .image {
-          min-height: 660px;
+          min-height: 700px;
           img {
             max-width: 90%;
             height: auto;
@@ -211,17 +332,16 @@ const router = useRouter()
     }
   }
 }
-@media (max-width: 1690px) {
+@media (max-width: 1440px) {
   .container {
     .cards {
-      gap: 50px;
       .card {
         width: 30%;
         height: 100%;
-        min-height: 500px;
+        min-height: 250px;
         a {
           .image {
-            height: 380px;
+            min-height: 400px;
             img {
             }
           }
@@ -248,14 +368,13 @@ const router = useRouter()
   .container {
     .cards {
       width: 100%;
-      justify-content: space-between;
       .card {
         width: 29%;
         height: 100%;
         min-height: 400px;
         a {
           .image {
-            height: 320px;
+            min-height: 340px;
             img {
             }
           }
@@ -274,6 +393,53 @@ const router = useRouter()
     }
   }
 }
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    h1 {
+    }
+    .cards {
+    margin: 40px auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 75px;
+      flex-wrap: wrap;
+      .card {
+        height: 80%;
+        width: 90%;
+        border-radius: 10px;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        .image {
+          min-height: 850px !important;
+          img {
+            height: auto;
+            width: 80%;
+          }
+        }
+        .text {
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
 @media (max-width: 425px) {
   .container {
     width: 80%;
@@ -283,6 +449,7 @@ const router = useRouter()
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: c;
       gap: 75px;
       flex-wrap: wrap;
       .card {

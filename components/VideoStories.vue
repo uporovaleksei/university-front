@@ -4,7 +4,7 @@ const { baseURL } = useRuntimeConfig()
 import imgLink from '@/plugins/imgLink'
 import { ref, computed, onMounted } from 'vue'
 
-const { data: stories } = await useFetch('/stories', { baseURL })
+const { data: stories } = await useFetch('/stories/4', { baseURL })
 const handleScroll = () => {
   const element = document.querySelector('.storie__wrapper svg')
   if (element) {
@@ -24,7 +24,7 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
-window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 

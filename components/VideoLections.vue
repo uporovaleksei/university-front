@@ -3,8 +3,9 @@ const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 import { ref, computed, onMounted } from 'vue'
 import imgLink from '@/plugins/imgLink'
-const { data: lections } = await useFetch('/lections', { baseURL })
+const { data: lections } = await useFetch('/lections/4', { baseURL })
 const trimDescription = ({ description }) => description.split(' ').slice(0, 2).join(' ') + '....'
+
 
 const handleScroll = () => {
   const element = document.querySelector('.wrapper svg')
@@ -170,9 +171,10 @@ onBeforeUnmount(() => {
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
+    flex-wrap: wrap;
 
     .card {
-      width: 370px;
+      flex-basis: calc(24.8% - 30px);
       background: #d9d9d9;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       display: flex;
@@ -185,7 +187,7 @@ onBeforeUnmount(() => {
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
       }
       a {
-        width: 370px;
+        width: 100%;
         height: 415px;
         display: flex;
         flex-direction: column;
@@ -292,7 +294,6 @@ onBeforeUnmount(() => {
       font-size: 3em;
     }
     .cards {
-      gap: 50px;
       .card {
         width: 700px;
         height: 600px;
@@ -338,6 +339,45 @@ onBeforeUnmount(() => {
         width: 370px;
         height: 80px;
         font-size: 2rem;
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 80%;
+    h1 {
+    }
+    .cards {
+      display: flex;
+      gap: 0;
+      .card {
+        width: 80%;
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
+            img {
+              height: 100%;
+            }
+            p {
+            }
+          }
+          .text {
+            h2 {
+            }
+            p {
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
       }
     }
   }
