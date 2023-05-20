@@ -12,11 +12,15 @@ const handleScroll = () => {
 
     if (missionPosition < windowHeight) {
       mission.style.transform = 'translateX(0)'
-      mission.style.opacity = '1'
+      setTimeout(() => {
+        mission.style.opacity = '1'
+      }, 200)
     }
     if (principlesPosition < windowHeight) {
       principles.style.transform = 'translateX(0)'
-      principles.style.opacity = '1'
+      setTimeout(() => {
+        principles.style.opacity = '1'
+      }, 200) 
     }
   }
 }
@@ -34,10 +38,9 @@ onBeforeMount(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
-
 <template>
   <div class="container">
-    <div class="project">
+    <div class="project" ref="projectRef">
       <h1>О проекте</h1>
       <div class="info">
         <div class="text">
@@ -57,16 +60,6 @@ onBeforeMount(() => {
             отдельных курсов, организуемых «Открытым университетом РГППУ», их непосредственное содержание определяются
             прежде всего интересами и запросами слушателей.
           </p>
-        </div>
-        <div class="image">
-          <img src="@/assets/images/project.jpg" alt="" />
-        </div>
-      </div>
-      <div class="info">
-        <div class="image">
-          <img src="@/assets/images/about2.jpg" alt="" />
-        </div>
-        <div class="text">
           <p>
             Идея проекта «Открытого Университета РГППУ» связана с возрождением культуры дискуссий по ключевым проблемам
             современного социально-гуманитарного знания, находящимся в центре процессов развития страны. РГППУ выступает
@@ -83,8 +76,9 @@ onBeforeMount(() => {
           </p>
         </div>
       </div>
+
     </div>
-    <div class="mission">
+    <div class="mission" ref="missionRef">
       <h1>Наша миссия</h1>
       <div class="info">
         <div class="text">
@@ -101,18 +95,11 @@ onBeforeMount(() => {
             реализации конкурентоспособных, высокотехнологичных образовательных продуктов.
           </p>
         </div>
-        <div class="image">
-          <img src="@/assets/images/about3.jpg" alt="" />
-        </div>
       </div>
     </div>
-    <div class="principles">
+    <div class="principles" ref="principlesRef">
       <h1>Принципы работы "Открытого университета"</h1>
-
       <div class="info">
-        <div class="image">
-          <img src="@/assets/images/project.jpg" alt="" />
-        </div>
         <div class="text">
           <p>
             В реализации образовательного проекта используются современные технологические, цифровые решения.
@@ -131,10 +118,6 @@ onBeforeMount(() => {
             работы и качества предлагаемых образовательных продуктов, а также для внесения предложений по
             совершенствованию деятельности «Открытого университета».
           </p>
-        </div>
-      </div>
-      <div class="info">
-        <div class="text">
           <p>
             Главная задача инициативы – рост количества преподавателей, осуществляющих инновационную образовательную
             деятельность; рост уровня профессиональной подготовки руководителей подразделений Университета к внедрению
@@ -153,45 +136,68 @@ onBeforeMount(() => {
             развитие духовно-нравственного аспекта корпоративной культуры Университета.
           </p>
         </div>
-        <div class="image">
-          <img src="@/assets/images/about2.jpg" alt="" />
-        </div>
       </div>
+
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .container {
-  width: 80%;
+  width: 100%;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   overflow-x: hidden;
+  
+  h1{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 100px;
 
-  .project {
+  }
+ .project {
     transform: translateX(-200%);
-    transition: 0.9s ease all;
+    transition: 1s ease all;
+    background: url('@/assets/images/fon1.png') no-repeat;
     opacity: 0;
   }
   .mission {
     transform: translateX(200%);
-    transition: 0.9s ease all;
+    transition: 1s ease;
     opacity: 0;
+    background: url('@/assets/images/fon2.png') no-repeat;
+
   }
   .principles {
     transform: translateX(-200%);
-    transition: 0.9s ease all;
+    transition: 1s ease;
+    background: url('@/assets/images/fon3.png') no-repeat;
     opacity: 0;
+    padding-bottom: 100px;
   }
-
   .project,
   .mission,
   .principles {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    min-height: 100vh;
+    z-index: 1;
+    width: 100vw;
+    color: #fff;
+    transition: 0.9s ease all;
+    position: relative;
+    background-size: cover;
+    &::before{
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background:  #082549e3;;
+    }
     .info {
       width: 100%;
       height: 100%;
@@ -199,7 +205,8 @@ onBeforeMount(() => {
       gap: 40px;
       align-items: flex-start;
       justify-content: center;
-      padding: 30px;
+          color: #fff;
+
       .image {
         flex: 50% 0 0;
         width: 100%;
@@ -233,10 +240,6 @@ onBeforeMount(() => {
   .project,
   .mission,
   .principles {
-    display: flex;
-    flex-direction: column;
-    margin: 45px 0;
-    gap: 40px;
     h1 {
       font-family: 'Open Sans';
       font-style: normal;
@@ -245,10 +248,12 @@ onBeforeMount(() => {
       text-transform: uppercase;
     }
     p {
+      width: 80vw;
+      margin: 0 auto;
       font-family: 'Play';
       font-style: normal;
       font-weight: 400;
-      font-size: 20px;
+      font-size: 24px;
       text-align: justify;
       word-wrap: break-word;
       text-indent: 30px;

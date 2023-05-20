@@ -2,7 +2,7 @@
 import imgLink from '~~/plugins/imgLink'
 import MainVue from '@/layouts/Main.vue'
 const route = useRoute()
-const show = ref(false)
+const show = ref(true)
 const { baseURL } = useRuntimeConfig()
 const { data: person } = await useFetch('person/' + route.params.id, { baseURL })
 </script>

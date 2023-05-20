@@ -10,6 +10,5 @@ import MainVue from '@/layouts/Main.vue'
 
 <style lang="scss" scoped>
 .container {
-  padding: 100px 0;
 }
 </style>
