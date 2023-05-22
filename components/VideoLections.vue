@@ -287,6 +287,41 @@ onBeforeUnmount(() => {
       }
     }
   }
+    .container {
+    width: 80%;
+    .cards {
+      display: flex;
+      gap: 30px;
+      .card {
+        flex-basis: calc(50% - 30px);
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
+            img {
+              height: 100%;
+            }
+            p {
+            }
+          }
+          .text {
+            h2 {
+            }
+            p {
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
 }
 @media (min-width: 2559px) {
   .container {
@@ -350,9 +385,9 @@ onBeforeUnmount(() => {
     }
     .cards {
       display: flex;
-      gap: 0;
+      gap: 30px;
       .card {
-        width: 80%;
+        flex-basis: calc(50% - 30px);
         a {
           width: 100%;
           height: 80%;

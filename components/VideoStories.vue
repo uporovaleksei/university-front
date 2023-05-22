@@ -341,7 +341,48 @@ onBeforeUnmount(() => {
       }
     }
   }
-
+        .container {
+    width: 80%;
+    h1 {
+      font-size: 3rem;
+    }
+    .cards {
+      gap: 30px;
+      flex-wrap: wrap;
+      .card {
+        flex-basis: calc(50% - 30px);
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 3rem;
+            }
+            p {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
   @media (max-width: 1024px) {
     .storie__wrapper {
       svg {
@@ -355,8 +396,48 @@ onBeforeUnmount(() => {
         }
       }
     }
+      .container {
+    width: 80%;
+    h1 {
+      font-size: 3rem;
+    }
+    .cards {
+      gap: 30px;
+      flex-wrap: wrap;
+      .card {
+        flex-basis: calc(50% - 30px);
+        a {
+          width: 100%;
+          height: 80%;
+          .image {
+            height: 100%;
+            img {
+              height: 100%;
+            }
+            p {
+              font-size: 2rem;
+            }
+          }
+          .text {
+            h2 {
+              font-size: 3rem;
+            }
+            p {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+    a {
+      button {
+        width: 370px;
+        height: 80px;
+        font-size: 2.5rem;
+      }
+    }
   }
-}
+  }
 @media (max-width: 768px) {
   .storie__wrapper {
     svg {

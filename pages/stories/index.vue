@@ -166,7 +166,7 @@ onMounted(() => {
       background: #d9d9d9;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       flex-basis: calc(24.8% - 20px);
-      height: 340px;
+      min-height: 340px;
       border-radius: 10px;
       transition: 0.3s ease all;
       &:hover {
