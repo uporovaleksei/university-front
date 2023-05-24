@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/root.scss', '@/assets/styles/animation.css'],
   runtimeConfig: {
     public: {
-      baseURL: 'http://127.0.0.1:3333/',
+      baseURL: 'https://127.0.0.1:3333/',
     },
   },
   head: {
