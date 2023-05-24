@@ -128,9 +128,11 @@ onBeforeUnmount(() => {
           </NuxtLink>
         </div>
       </div>
+
       <NuxtLink to="/lections">
         <button>Все лекции</button>
       </NuxtLink>
+      
     </div>
   </div>
 </template>
