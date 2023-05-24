@@ -52,6 +52,8 @@ function handleMouseMove(event) {
     width: 225px;
     height: 200px;
     transform: translateX(-500%);
+    pointer-events: none;
+    user-select: none;
   }
   span {
     height: 3px;
@@ -59,6 +61,7 @@ function handleMouseMove(event) {
     width: 3px;
     background: var(--white);
     transition: 1s ease all;
+    pointer-events: none;
   }
   h1 {
     width: 470px;
@@ -68,8 +71,9 @@ function handleMouseMove(event) {
     text-transform: uppercase;
     margin-left: 30px;
     transition: 1s ease all;
-
+    pointer-events: none;
     transform: translateX(300%);
+    user-select: none;
   }
 }
 @media (min-width: 2559px) {
