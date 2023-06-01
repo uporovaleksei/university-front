@@ -20,7 +20,7 @@ const handleScroll = () => {
       principles.style.transform = 'translateX(0)'
       setTimeout(() => {
         principles.style.opacity = '1'
-      }, 200) 
+      }, 200)
     }
   }
 }
@@ -63,7 +63,7 @@ onBeforeMount(() => {
           <p>
             Идея проекта «Открытого Университета РГППУ» связана с возрождением культуры дискуссий по ключевым проблемам
             современного социально-гуманитарного знания, находящимся в центре процессов развития страны. РГППУ выступает
-            как инициатор цикла публичных видиолекций, c одновременной их трансляцией в пространстве Интернет для
+            как инициатор цикла публичных видеолекций, c одновременной их трансляцией в пространстве Интернет для
             широкого круга заинтересованных участников. Проект предполагает активное участие студенческого и
             профессорско-преподавательского сообщества в Екатеринбурге и Свердловской области, а также всех
             профессиональных и общественных групп, имеющих интерес к проблематике современного социально-гуманитарного
@@ -76,7 +76,6 @@ onBeforeMount(() => {
           </p>
         </div>
       </div>
-
     </div>
     <div class="mission" ref="missionRef">
       <h1>Наша миссия</h1>
@@ -137,7 +136,6 @@ onBeforeMount(() => {
           </p>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -149,15 +147,14 @@ onBeforeMount(() => {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  
-  h1{
+
+  h1 {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
     padding-top: 100px;
-
   }
- .project {
+  .project {
     transform: translateX(-200%);
     transition: 1s ease all;
     background: url('@/assets/images/fon1.png') no-repeat;
@@ -168,7 +165,6 @@ onBeforeMount(() => {
     transition: 1s ease;
     opacity: 0;
     background: url('@/assets/images/fon2.png') no-repeat;
-
   }
   .principles {
     transform: translateX(-200%);
@@ -190,13 +186,13 @@ onBeforeMount(() => {
     transition: 0.9s ease all;
     position: relative;
     background-size: cover;
-    &::before{
+    &::before {
       position: absolute;
       content: '';
       width: 100%;
       height: 100%;
       z-index: -1;
-      background:  #082549e3;;
+      background: #082549e3;
     }
     .info {
       width: 100%;
@@ -205,7 +201,7 @@ onBeforeMount(() => {
       gap: 40px;
       align-items: flex-start;
       justify-content: center;
-          color: #fff;
+      color: #fff;
 
       .image {
         flex: 50% 0 0;

@@ -113,7 +113,7 @@ nav {
   height: 80px;
   position: fixed;
   z-index: 100;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease-in-out;
 
   .content {

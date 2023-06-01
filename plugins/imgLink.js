@@ -1,4 +1,4 @@
 export default ({ img }) => {
-  const { globalURL } = useRuntimeConfig()
-  return `${globalURL}imgs/${img?.id}.${img?.format}`
+  const { baseURL } = useRuntimeConfig()
+  return `${baseURL}imgs/${img?.id}.${img?.format}`
 }

@@ -72,10 +72,10 @@ export default {
     setQuality() {
       const player = videojs(this.$refs.videoPlayer)
       const selectedSource = this.sources[this.selectedQuality]
-      const currentTime = player.currentTime() // сохраняем текущую позицию воспроизведения
+      const currentTime = player.currentTime()
       player.src(selectedSource)
       player.on('loadedmetadata', () => {
-        player.currentTime(currentTime) // восстанавливаем позицию воспроизведения после загрузки нового источника
+        player.currentTime(currentTime)
         player.play()
       })
     },

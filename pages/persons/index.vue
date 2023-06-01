@@ -13,44 +13,42 @@ const showSerach = ref(false)
 
 const cardsRef = ref(null)
 
-const searchQuery = ref('');
+const searchQuery = ref('')
 const showSerachInput = () => {
-  
   showSerach.value = !showSerach.value
-  if(showSerach.value){
-  document.querySelector('.searchField').classList.add('active')
-  }else{
+  if (showSerach.value) {
+    document.querySelector('.searchField').classList.add('active')
+  } else {
     document.querySelector('.searchField').classList.remove('active')
   }
-
 }
 const handleScroll = () => {
   if (searchQuery.value === '') {
-    const cardsElement = cardsRef.value;
-    const windowHeight = window.innerHeight;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const cardsElement = cardsRef.value
+    const windowHeight = window.innerHeight
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
     if (cardsElement && !loading.value) {
-      const rect = cardsElement.getBoundingClientRect();
+      const rect = cardsElement.getBoundingClientRect()
       if (rect.bottom <= windowHeight + scrollTop) {
-        loadMoreItems();
+        loadMoreItems()
       }
     }
   }
-};
+}
 const filteredPersons = computed(() => {
   if (searchQuery.value === '') {
-    return persons.value.slice(0, loadedItems.value);
+    return persons.value.slice(0, loadedItems.value)
   } else {
-    return persons.value.filter((item) => {
-      return item.name.toLowerCase().includes(searchQuery.value.toLowerCase());
-    });
+    return persons.value.filter(item => {
+      return item.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+    })
   }
-});
+})
 const loadMoreItems = () => {
   if (loadedItems.value >= persons.length) {
     return
   }
-  
+
   loading.value = true
   setTimeout(() => {
     loadedItems.value += itemsPerLoad
@@ -61,8 +59,6 @@ const loadMoreItems = () => {
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
 })
-
-
 </script>
 <template>
   <Head>
@@ -72,10 +68,10 @@ onMounted(() => {
   <MainVue>
     <div class="container">
       <h1>Наши наставники</h1>
-                  <div class="search">
-      <input  v-model="searchQuery" class="searchField" type="text" placeholder="Поиск..." />
+      <div class="search">
+        <input v-model="searchQuery" class="searchField" type="text" placeholder="Поиск..." />
         <button @click="showSerachInput">
-          <img src="@/assets/images/search.svg" alt="">
+          <img src="@/assets/images/search.svg" alt="" />
         </button>
       </div>
       <div class="cards" ref="cardsRef">
@@ -90,8 +86,7 @@ onMounted(() => {
             </div>
           </NuxtLink>
         </div>
-           <div v-if="loading && loadedItems < persons.length && searchQuery === '' " class="custom-loader"></div>
-
+        <div v-if="loading && loadedItems < persons.length && searchQuery === ''" class="custom-loader"></div>
       </div>
     </div>
   </MainVue>
@@ -104,47 +99,47 @@ onMounted(() => {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-    .search{
+  .search {
     display: flex;
     align-self: flex-end;
     gap: 20px;
     height: 50px;
     margin: 20px 0;
-    button{
+    button {
       width: 50px;
       border-radius: 100%;
       outline: none;
       border: 0;
       background: #135aae;
       transition: 0.3s ease all;
-      &:hover{
+      &:hover {
         scale: 0.95;
         filter: drop-shadow(0 0 4px #135aae);
       }
-      &:active{
+      &:active {
         scale: 0.9;
       }
-      img{
+      img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         padding: 12px;
       }
     }
-    .searchField{
+    .searchField {
       opacity: 0;
       width: 0;
-      transition: all 0.5s ;
+      transition: all 0.5s;
     }
-          .active{
+    .active {
       display: block;
-        width: 300px;
-        opacity: 1;
+      width: 300px;
+      opacity: 1;
       padding: 10px;
-        outline: none;
-        border-radius: 50px;
-        border: 1px solid var(--blue);
-      }
+      outline: none;
+      border-radius: 50px;
+      border: 1px solid var(--blue);
+    }
   }
   h1 {
     margin-top: 40px;
@@ -176,7 +171,7 @@ onMounted(() => {
         position: relative;
         width: 100%;
         height: 100%;
-              min-height: 520px;
+        min-height: 520px;
 
         background: linear-gradient(291.45deg, #d1fff4 11.63%, #f0dcff 92.9%);
         border-radius: 10px 10px 0px 0px;
@@ -251,16 +246,20 @@ onMounted(() => {
       }
     }
   }
-      .custom-loader {
-  position: relative;
-  left: 50%;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  background:conic-gradient(#0000 10%,#135aae);
-  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
-  animation:s3 1s infinite linear;
-  @keyframes s3 {to{transform: rotate(1turn)}}
+  .custom-loader {
+    position: relative;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%, #135aae);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+    animation: s3 1s infinite linear;
+    @keyframes s3 {
+      to {
+        transform: rotate(1turn);
+      }
+    }
   }
   a {
     padding: 60px 0;
@@ -399,7 +398,7 @@ onMounted(() => {
     h1 {
     }
     .cards {
-    margin: 40px auto;
+      margin: 40px auto;
 
       display: flex;
       align-items: center;
