@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     baseURL: 'http://api2.bytezone.online/',
     public: {
       baseURL: 'https://api.bytezone.online/',
-      globalURL: 'https://api.bytezone.online/'
+      globalURL: 'https://api.bytezone.online/',
     },
   },
 })

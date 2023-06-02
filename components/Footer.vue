@@ -1,29 +1,32 @@
 <script setup>
 import { ref } from 'vue'
-import axios from 'axios'
-
 const showModal = ref(false)
+
 const name = ref('')
 const email = ref('')
-const message = ref('')
+const text = ref('')
 
 const sendEmail = async () => {
   try {
-    const response = await axios.post('/', {
-      name: name.value,
-      email: email.value,
-      message: message.value,
+    await useFetch('/', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        text: text.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-    console.log('Успешно')
-
-    showModal.value = false
+    console.log('111')
     name.value = ''
     email.value = ''
-    message.value = ''
+    text.value = ''
   } catch (error) {
-    // Обработка ошибок
-    console.error('Фэйл')
+    console.error(error)
   }
+  showModal.value = false
 }
 </script>
 <template>
@@ -70,20 +73,8 @@ const sendEmail = async () => {
             <NuxtLink to="/stories"> Истории </NuxtLink>
           </div>
           <div class="contacts">
-            <a @click="showModal = true">Обратная связь</a>
+            <NuxtLink to="/mail"> Обратная связь </NuxtLink>
           </div>
-          <ModalWindow v-if="showModal" @close="showModal = false">
-            <div class="modal">
-              <div class="header">
-                <button @click="showModal = !showModal">X</button>
-                <h1>Обратная связь</h1>
-              </div>
-              <input v-model="name" type="text" placeholder="Введите ваше имя" />
-              <input v-model="email" type="text" placeholder="Введите ваш e-mail" />
-              <textarea v-model="message" name="" id="" cols="30" rows="10"></textarea>
-              <button class="modal-default-button" @click="sendEmail">Отправить</button>
-            </div>
-          </ModalWindow>
         </div>
       </footer>
       <p>ФГАОУ ВО «Российский государственный профессионально-педагогический университет»</p>
