@@ -5,13 +5,18 @@ const title = ref('Наши наставники')
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/', { baseURL })
 const router = useRouter()
-
-const loadedItems = ref(3)
-const itemsPerLoad = 3
-const loading = ref(false)
 const showSerach = ref(false)
-
 const cardsRef = ref(null)
+
+const filteredPersons = computed(() => {
+  if (searchQuery.value === '') {
+    return persons.value
+  } else {
+    return persons.value.filter(item => {
+      return item.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+    })
+  }
+})
 
 const searchQuery = ref('')
 const showSerachInput = () => {
@@ -39,7 +44,7 @@ const showSerachInput = () => {
         </button>
       </div>
       <div class="cards" ref="cardsRef">
-        <div class="card" v-for="item in persons" :key="item.id">
+        <div class="card" v-for="item in filteredPersons" :key="item.id">
           <NuxtLink :to="'/persons/' + item.id">
             <div class="image">
               <img class="img" :src="imgLink(item)" />
