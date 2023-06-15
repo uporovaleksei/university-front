@@ -5,27 +5,7 @@ import imgLink from '@/plugins/imgLink'
 import { ref, computed, onMounted } from 'vue'
 
 const { data: stories } = await useFetch('/stories/4', { baseURL })
-const handleScroll = () => {
-  const element = document.querySelector('.storie__wrapper svg')
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top
-    const windowHeight = window.innerHeight
 
-    if (elementPosition < windowHeight) {
-      element.classList.add('active')
-    } else if (elementPosition > windowHeight) {
-      element.classList.remove('active')
-    }
-  }
-}
-
-onMounted(async () => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
 </script>
 
 <template>
@@ -257,13 +237,6 @@ onBeforeUnmount(() => {
         }
       }
     }
-    a {
-      button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
-      }
-    }
   }
 }
 @media (max-width: 1024px) {
@@ -310,13 +283,6 @@ onBeforeUnmount(() => {
             }
           }
         }
-      }
-    }
-    a {
-      button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
       }
     }
   }
@@ -366,13 +332,6 @@ onBeforeUnmount(() => {
         }
       }
     }
-    a {
-      button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
-      }
-    }
   }
 }
 @media (max-width: 425px) {
@@ -402,13 +361,6 @@ onBeforeUnmount(() => {
             font-size: 32px;
           }
         }
-      }
-    }
-    a {
-      button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
       }
     }
   }

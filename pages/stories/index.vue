@@ -24,19 +24,6 @@ const showSerachInput = () => {
     document.querySelector('.searchField').classList.remove('active')
   }
 }
-const handleScroll = () => {
-  if (searchQuery.value === '') {
-    const cardsElement = cardsRef.value
-    const windowHeight = window.innerHeight
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-    if (cardsElement && !loading.value) {
-      const rect = cardsElement.getBoundingClientRect()
-      if (rect.bottom <= windowHeight + scrollTop) {
-        loadMoreItems()
-      }
-    }
-  }
-}
 const filteredStories = computed(() => {
   if (searchQuery.value === '') {
     return stories.value.slice(0, loadedItems.value)
@@ -58,9 +45,6 @@ const loadMoreItems = () => {
   }, 1000)
 }
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
 </script>
 
 <template>

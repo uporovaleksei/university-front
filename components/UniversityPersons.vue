@@ -6,27 +6,7 @@ const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/6', { baseURL })
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
-const handleScroll = () => {
-  const element = document.querySelector('.person__wrapper svg')
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top
-    const windowHeight = window.innerHeight
 
-    if (elementPosition < windowHeight) {
-      element.classList.add('active')
-    } else if (elementPosition > windowHeight) {
-      element.classList.remove('active')
-    }
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
 </script>
 <template>
   <div class="person__wrapper">
@@ -241,8 +221,7 @@ onBeforeUnmount(() => {
     }
     a {
       button {
-        width: 370px;
-        height: 80px;
+
         font-size: 2.5rem;
       }
     }

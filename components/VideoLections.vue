@@ -6,27 +6,6 @@ import imgLink from '@/plugins/imgLink'
 const { data: lections } = await useFetch('/lections/4', { baseURL })
 const trimDescription = ({ description }) => description.split(' ').slice(0, 2).join(' ') + '....'
 
-const handleScroll = () => {
-  const element = document.querySelector('.wrapper svg')
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top
-    const windowHeight = window.innerHeight
-
-    if (elementPosition < windowHeight) {
-      element.classList.add('active')
-    } else if (elementPosition > windowHeight) {
-      element.classList.remove('active')
-    }
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
 </script>
 
 <template>
@@ -236,9 +215,7 @@ onBeforeUnmount(() => {
     }
     a {
       button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
+
       }
     }
   }
@@ -330,9 +307,7 @@ onBeforeUnmount(() => {
     }
     a {
       button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
+
       }
     }
   }
@@ -387,9 +362,7 @@ onBeforeUnmount(() => {
     }
     a {
       button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
+
       }
     }
   }
@@ -397,8 +370,6 @@ onBeforeUnmount(() => {
 @media (max-width: 426px) {
   .container {
     width: 80%;
-    h1 {
-    }
     .cards {
       display: flex;
       flex-direction: column;
@@ -427,13 +398,6 @@ onBeforeUnmount(() => {
             }
           }
         }
-      }
-    }
-    a {
-      button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
       }
     }
   }

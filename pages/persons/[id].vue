@@ -26,14 +26,12 @@ const { data: person } = await useFetch('person/' + route.params.id, { baseURL }
         </div>
       </div>
     </div>
-
     <div class="container">
       <div class="interview">
         <div class="btn" @click="show = !show">
           <h2>Интервью</h2>
           <img src="@/assets/images/arrow.svg" :class="{ active: show }" />
         </div>
-
         <Transition name="slide-fade">
           <div class="text" v-if="show" v-html="person.interview"></div>
         </Transition>
