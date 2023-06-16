@@ -7,12 +7,9 @@ const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: lections } = await useFetch('/lections', { baseURL })
 const title = ref('Лекции')
-const loadedItems = ref(8)
-const itemsPerLoad = 4
-const loading = ref(false)
 const showSerach = ref(false)
 
-const cardsRef = ref(null)
+
 
 const searchQuery = ref('')
 const showSerachInput = () => {
@@ -27,7 +24,7 @@ const showSerachInput = () => {
 
 const filteredLections = computed(() => {
   if (searchQuery.value === '') {
-    return lections.value.slice(0, loadedItems.value)
+    return lections.value 
   } else {
     return lections.value.filter(item => {
       return item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
@@ -51,7 +48,7 @@ const filteredLections = computed(() => {
           <img src="@/assets/images/search.svg" alt="" />
         </button>
       </div>
-      <div class="cards" ref="cardsRef">
+      <div class="cards" >
         <div class="card" v-for="(item, index) in filteredLections" :key="index">
           <NuxtLink :to="'/lections/' + item.id">
             <div class="image">

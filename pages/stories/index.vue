@@ -8,12 +8,7 @@ const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: stories } = await useFetch('/stories', { baseURL })
 
-const loadedItems = ref(8)
-const itemsPerLoad = 4
-const loading = ref(false)
 const showSerach = ref(false)
-
-const cardsRef = ref(null)
 
 const searchQuery = ref('')
 const showSerachInput = () => {
@@ -26,7 +21,7 @@ const showSerachInput = () => {
 }
 const filteredStories = computed(() => {
   if (searchQuery.value === '') {
-    return stories.value.slice(0, loadedItems.value)
+    return stories.value
   } else {
     return stories.value.filter(item => {
       return item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
