@@ -403,7 +403,7 @@ nav {
       top: 0;
     }
     span {
-      top: 45%;
+      top: 50%;
       transform: translate(0px -50%);
     }
   }
