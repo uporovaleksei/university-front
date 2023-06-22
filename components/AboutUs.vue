@@ -270,6 +270,28 @@ onBeforeMount(() => {
     }
   }
 }
+@media (max-width: 1024px) {
+  .container {
+    h1 {
+      font-size: 3rem;
+    }
+    .project,
+    .mission,
+    .principles {
+      width: 100%;
+      .info {
+        flex-direction: column;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        width: 80%;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
 @media (max-width: 425px) {
   .container {
     h1 {

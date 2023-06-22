@@ -205,6 +205,7 @@ nav {
 .scroll.main {
   background: transparent;
 }
+
 @media (max-width: 769px) {
   nav {
     width: 100%;
@@ -303,6 +304,111 @@ nav {
     &::before {
       top: 50%;
       transform: rotate(-45deg) translate(0px, -50%);
+    }
+    span {
+      transform: scale(0);
+    }
+  }
+}
+@media (max-width: 425px) {
+  nav {
+    width: 100%;
+    height: 90px;
+    background: #fff;
+    transition: 0.3s;
+    .content {
+      width: 80%;
+      padding-top: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+      display: flex;
+      .links {
+        display: none;
+        margin-left: 0;
+      }
+      .active {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: flex-start;
+          width: 60%;
+          li {
+            width: 100%;
+            a {
+              width: 100%;
+              height: 100px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 35px;
+              border: 2px solid #135aae;
+              font-size: 48px;
+            }
+          }
+        }
+      }
+      .menu__icon {
+        display: block;
+      }
+    }
+  }
+  .active {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    a {
+      order: 3;
+    }
+  }
+  .menu__icon {
+    cursor: pointer;
+    height: 40px;
+    width: 70px;
+    align-self: center;
+    position: relative;
+    display: block;
+    z-index: 5;
+    transition: 0.6s;
+    span,
+    &::before,
+    &::after {
+      position: absolute;
+      height: 22%;
+      width: 100%;
+      transition: 0.3s ease;
+      background: #031312;
+    }
+    &::before,
+    &::after {
+      content: '';
+    }
+    &::after {
+      bottom: 0;
+    }
+    &::before {
+      top: 0;
+    }
+    span {
+      top: 40%;
+      transform: translate(0px -50%);
+    }
+  }
+  .open {
+    align-self: flex-start;
+    &::after {
+      bottom: 50%;
+      transform: rotate(45deg) translate(0px, 50%);
+    }
+    &::before {
+      top: 50%;
+      transform: rotate(-45deg) translate(0px, -70%);
     }
     span {
       transform: scale(0);

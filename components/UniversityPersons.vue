@@ -300,11 +300,18 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
       }
     }
   }
+  .container{
+      h1 {
+      font-size: 3rem;
+    }
+  }
+
 }
 @media (max-width: 425px) {
   .container {
     width: 80%;
     h1 {
+      font-size: 3rem;
     }
     .cards {
       display: flex;
@@ -335,13 +342,6 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
             font-size: 2rem;
           }
         }
-      }
-    }
-    a {
-      button {
-        width: 370px;
-        height: 80px;
-        font-size: 2.5rem;
       }
     }
   }

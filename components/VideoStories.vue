@@ -207,7 +207,8 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
   .container {
     width: 80%;
     h1 {
-      font-size: 3rem;
+            font-size: 36px;
+
     }
     .cards {
       gap: 30px;
@@ -255,7 +256,8 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
   .container {
     width: 80%;
     h1 {
-      font-size: 3rem;
+            font-size: 36px;
+
     }
     .cards {
       gap: 30px;
