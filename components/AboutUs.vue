@@ -152,9 +152,12 @@ onBeforeMount(() => {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    padding-top: 100px;
+    padding-top: 150px;
+    
   }
   .project {
+
+
     transform: translateX(-200%);
     transition: 1s ease all;
     background: url('@/assets/images/fon1.png') no-repeat;
