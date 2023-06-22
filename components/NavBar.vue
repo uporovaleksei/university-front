@@ -89,7 +89,7 @@ export default {
         <span></span>
       </div>
       <NuxtLink to="/">
-        <img src="@/assets/images/logo.png" />
+        <img :class="{ active: menuIsOpen }" src="@/assets/images/logo.png" />
       </NuxtLink>
       <div :class="['links', { active: menuIsOpen }]">
         <ul>
@@ -313,15 +313,21 @@ nav {
 @media (max-width: 425px) {
   nav {
     width: 100%;
-    height: 90px;
+    height: 100px;
     background: #fff;
     transition: 0.3s;
     .content {
       width: 80%;
       padding-top: 20px;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       display: flex;
+      a{
+              img{
+      width: 90px;
+      height: 70px;
+      }
+      }
       .links {
         display: none;
         margin-left: 0;
@@ -365,6 +371,7 @@ nav {
     overflow: hidden;
     a {
       order: 3;
+      align-self: flex-start;
     }
   }
   .menu__icon {
@@ -380,7 +387,7 @@ nav {
     &::before,
     &::after {
       position: absolute;
-      height: 22%;
+      height: 20%;
       width: 100%;
       transition: 0.3s ease;
       background: #031312;
