@@ -1,7 +1,22 @@
 <script setup>
 import MainVue from '@/layouts/Main.vue'
 const title = ref('Открытый университет')
+import { onMounted, onUnmounted } from 'vue'
 
+const isMobile = ref(false)
+
+const handleResize = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+onMounted(() => {
+  handleResize()
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 </script>
 
 <template>
@@ -16,10 +31,92 @@ const title = ref('Открытый университет')
     <VideoLections />
     <VideoStories />
     <UniversityPersons />
+    <div class="mobile" :class="{ show: isMobile }">
+      <div class="container">
+      <div class="left">
+        <div class="text">
+          Скачать мобильное приложение:
+        </div>
+      <div class="image">
+<NuxtLink to="https://apps.rustore.ru/app/com.mickey.open_university_rsvpu" target="_blank">
+              <img src="@/assets/images/rustore.svg" alt="" />
+            </NuxtLink>
+            <NuxtLink
+              to="https://apps.apple.com/tr/app/%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8B%D0%B9-%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82-%D1%80%D0%B3%D0%BF%D0%BF%D1%83/id6448987693"
+              target="_blank"
+            >
+              <img src="@/assets/images/appstore.svg" alt="" />
+            </NuxtLink>
+            <NuxtLink
+              to="https://play.google.com/store/apps/details?id=com.mickey.open_university_rsvpu&hl=ru&gl=US"
+              target="_blank"
+            >
+              <img src="@/assets/images/gp.svg" alt="" />
+            </NuxtLink>
+      </div>
+      </div>
+      <div class="right">
+        <button @click="isMobile = !isMobile">X</button>
+      </div>
+      </div>
+
+    </div>
   </MainVue>
 </template>
 
 <style lang="scss">
+ .mobile{
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: fixed;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px 15px 0 0;
+  border: 4px solid #135aae;
+  padding: 20px;
+  width: 100%;
+  z-index: 100;
+  .container{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .left{
+      display: flex;
+      flex-direction: column;
+      gap: 10px ;
+      .text{
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .image{
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+          a{
+            width: 100%;
+
+          }
+      }
+    }
+    .right{
+      button{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        border: 0;
+        background: #c10020;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.6rem;
+      }
+    }
+  }
+ }
+ .mobile.show {
+  opacity: 1;
+}
 @media (max-width: 769px) {
   body {
     zoom: 0.63;
