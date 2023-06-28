@@ -307,7 +307,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
   }
 
 }
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .container {
     width: 80%;
     h1 {
