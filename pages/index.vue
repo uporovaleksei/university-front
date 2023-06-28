@@ -73,11 +73,11 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 15px 15px 0 0;
   border: 4px solid #135aae;
-  padding: 20px;
+  padding: 30px 0;
   width: 100%;
   z-index: 100;
   .container{
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -86,7 +86,7 @@ onUnmounted(() => {
       flex-direction: column;
       gap: 10px ;
       .text{
-        font-size: 2rem;
+        font-size: 2.6rem;
         font-weight: 700;
       }
       .image{
@@ -96,20 +96,22 @@ onUnmounted(() => {
         height: 100%;
           a{
             width: 100%;
-
+            img{
+              width: 230px;
+            }
           }
       }
     }
     .right{
       button{
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         border-radius: 100%;
         border: 0;
         background: #c10020;
         color: #fff;
         font-weight: 700;
-        font-size: 1.6rem;
+        font-size: 2.5rem;
       }
     }
   }
