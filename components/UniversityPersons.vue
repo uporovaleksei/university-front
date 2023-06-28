@@ -221,8 +221,9 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
     }
     a {
       button {
-
-        font-size: 2.5rem;
+        width: 370px;
+        height: 80px;
+        font-size: 2rem;
       }
     }
   }
