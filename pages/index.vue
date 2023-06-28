@@ -4,11 +4,19 @@ const title = ref('Открытый университет')
 import { onMounted, onUnmounted } from 'vue'
 
 const isMobile = ref(false)
+const notificationShown = ref(false)
 
 const handleResize = () => {
-  isMobile.value = window.innerWidth <= 768
+  if (!notificationShown.value && window.innerWidth <= 768) {
+    isMobile.value = true
+  } else {
+    isMobile.value = false
+  }
 }
-
+const close = () => {
+  isMobile.value = !isMobile.value;
+  notificationShown.value = !notificationShown.value;
+}
 onMounted(() => {
   handleResize()
   window.addEventListener('resize', handleResize)
@@ -56,7 +64,7 @@ onUnmounted(() => {
       </div>
       </div>
       <div class="right">
-        <button @click="isMobile = !isMobile">X</button>
+        <button @click="close()">X</button>
       </div>
       </div>
 
