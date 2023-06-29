@@ -47,8 +47,6 @@ export default {
     }
   },
   mounted() {
-    const picInpic = document.querySelector('.vjs-control-bar')
-    const settings = document.querySelector('#settings')
     const options = {
       qualitySelector: false,
       sources: [this.sources[this.selectedQuality]],
@@ -57,7 +55,6 @@ export default {
       preload: 'auto',
     }
     const player = videojs(this.$refs.videoPlayer, options)
-    const isFullscreen = player.isFullscreen();
     if (player) {
       const settings = document.querySelector('#settings')
       const bar = document.querySelector('.vjs-control-bar')
@@ -67,6 +64,9 @@ export default {
       pip.addEventListener('click', () => {
         document.querySelector('.video-js').classList.add('mobile__fullscren')
       })
+      pip.addEventListener('touchstart', () => {
+        document.querySelector('.video-js').classList.add('mobile__fullscren')
+})
 
       document.addEventListener('fullscreenchange', () => {
         if (!document.fullscreenElement) {

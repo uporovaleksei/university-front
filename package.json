@@ -32,6 +32,7 @@
     "videojs-hls-quality-selector": "^1.1.4",
     "videojs-settings-menu": "^0.0.2",
     "vue-core-video-player": "^0.2.0",
-    "vue-plyr": "^7.0.0"
+    "vue-plyr": "^7.0.0",
+    "vue-touch": "^1.1.0"
   }
 }
