@@ -1,13 +1,12 @@
 <template>
   <div>
-    <div class="video-wrapper">
-      <video controls ref="videoPlayer" class="video-js"></video>
-    </div>
-    <select id="settings" v-model="selectedQuality" @change="setQuality">
-      <option v-for="(source, index) in sources" :value="index" :key="index">
-        {{ source.label }}
-      </option>
-    </select>
+    <video controls ref="videoPlayer" class="video-js">
+      <select id="settings" v-model="selectedQuality" @change="setQuality">
+        <option class="options" v-for="(source, index) in sources" :value="index" :key="index">
+          {{ source.label }}
+        </option>
+      </select>
+    </video>
   </div>
 </template>
 
@@ -48,18 +47,34 @@ export default {
     }
   },
   mounted() {
-    const player = videojs(this.$refs.videoPlayer, this.getVideoOptions())
+    const picInpic = document.querySelector('.vjs-control-bar')
+    const settings = document.querySelector('#settings')
+    const options = {
+      qualitySelector: false,
+      sources: [this.sources[this.selectedQuality]],
+      controls: true,
+      autoplay: true,
+      preload: 'auto',
+    }
+    const player = videojs(this.$refs.videoPlayer, options)
+    const isFullscreen = player.isFullscreen();
+    if (player) {
+      const settings = document.querySelector('#settings')
+      const bar = document.querySelector('.vjs-control-bar')
+      const pip = document.querySelector('.vjs-fullscreen-control')
+      bar.appendChild(settings)
+      pip.before(settings)
+      pip.addEventListener('click', () => {
+        document.querySelector('.video-js').classList.add('mobile__fullscren')
+      })
+
+      document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement) {
+          document.querySelector('.video-js').classList.remove('mobile__fullscren')
+        }
+      })
+    }
     player.qualityLevels()
-
-    // Обработчик изменения размеров окна
-    window.addEventListener('resize', () => {
-      this.handleResize(player)
-    })
-
-    // Запуск обработчика при загрузке видео
-    player.on('loadedmetadata', () => {
-      this.handleResize(player)
-    })
   },
   methods: {
     setQuality() {
@@ -72,41 +87,17 @@ export default {
         player.play()
       })
     },
-    handleResize(player) {
-      const videoWrapper = document.querySelector('.video-wrapper')
-      const aspectRatio = player.videoWidth() / player.videoHeight()
-      const windowAspectRatio = window.innerWidth / window.innerHeight
-
-      if (windowAspectRatio > aspectRatio) {
-        videoWrapper.style.width = '100%'
-        videoWrapper.style.height = 'auto'
-      } else {
-        videoWrapper.style.width = 'auto'
-        videoWrapper.style.height = '100%'
-      }
-    },
-    getVideoOptions() {
-      return {
-        qualitySelector: false,
-        sources: [this.sources[this.selectedQuality]],
-        controls: true,
-        autoplay: true,
-        preload: 'auto',
-      }
-    },
   },
 }
 </script>
-
 <style>
 #settings option {
   background-image: url('@/assets/images/settings.svg');
+  transform: rotate(90deg);
 }
-
 .vjs-live-display {
   display: none;
 }
-
 #settings {
   border-radius: 5px;
   padding: 5px;
@@ -120,33 +111,25 @@ export default {
   -webkit-appearance: none;
   transition: 0.3s all ease;
 }
-
 #settings:focus {
   color: #fff;
   background: #2b333f;
   border: 0;
   outline: none;
 }
-
 #settings:focus #settings:hover {
   filter: drop-shadow(0 0 0px #fff);
 }
-
-.video-wrapper {
-  position: relative;
+video {
+}
+.video-js[tabindex='-1'] {
+  outline: none;
   width: 100%;
+  height: 0;
   padding-bottom: 56.25%;
-  /* Задаем соотношение сторон 16:9 для альбомного формата */
 }
-
 .video-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
-
 .vjs-default-skin {
   color: #fff;
 }
@@ -168,5 +151,71 @@ export default {
 .vjs-default-skin .vjs-play-progress:before,
 .vjs-default-skin .vjs-volume-level:before {
   border-color: #fff;
+}
+@media(max-width: 769px){
+.mobile__fullscren{
+  rotate: 90deg;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill;
+  scale: 1;
+
+}
+.mobile__fullscren .vjs-control-bar{
+position: absolute;
+bottom: 4%;
+}
+#settings option {
+    transform: rotate(90deg);
+  }
+
+}
+@media(max-width: 426px){
+.mobile__fullscren{
+  rotate: 90deg;
+  scale: 1.9;
+}
+.mobile__fullscren .vjs-control-bar{
+position: absolute;
+bottom: 38%;
+scale: 0.9;
+}
+#settings option {
+    transform: rotate(90deg);
+  }
+
+}
+@media(max-width: 376px){
+.mobile__fullscren{
+  rotate: 90deg;
+  scale: 1.78;
+}
+.mobile__fullscren .vjs-control-bar{
+position: absolute;
+bottom: 760px;
+scale: 0.9;
+}
+#settings option {
+    transform: rotate(90deg);
+  }
+
+}
+@media(max-width: 321px){
+.mobile__fullscren{
+  rotate: 90deg;
+  scale: 1.75;
+}
+.mobile__fullscren .vjs-control-bar{
+position: absolute;
+bottom: 1185px;
+scale: 0.9;
+}
+#settings option {
+    transform: rotate(90deg);
+  }
+
 }
 </style>
