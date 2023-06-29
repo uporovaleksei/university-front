@@ -1,12 +1,13 @@
 <template>
   <div>
-    <video controls ref="videoPlayer" class="video-js">
-      <select id="settings" v-model="selectedQuality" @change="setQuality">
-        <option v-for="(source, index) in sources" :value="index" :key="index">
-          {{ source.label }}
-        </option>
-      </select>
-    </video>
+    <div class="video-wrapper">
+      <video controls ref="videoPlayer" class="video-js"></video>
+    </div>
+    <select id="settings" v-model="selectedQuality" @change="setQuality">
+      <option v-for="(source, index) in sources" :value="index" :key="index">
+        {{ source.label }}
+      </option>
+    </select>
   </div>
 </template>
 
@@ -47,26 +48,18 @@ export default {
     }
   },
   mounted() {
-    const picInpic = document.querySelector('.vjs-control-bar')
-    const settings = document.querySelector('#settings')
-    console.log(picInpic)
-    const options = {
-      qualitySelector: false,
-      sources: [this.sources[this.selectedQuality]],
-      controls: true,
-      autoplay: true,
-      preload: 'auto',
-    }
-    const player = videojs(this.$refs.videoPlayer, options)
-    if (player) {
-      const settings = document.querySelector('#settings')
-      const bar = document.querySelector('.vjs-control-bar')
-      const pip = document.querySelector('.vjs-fullscreen-control')
-      bar.appendChild(settings)
-      pip.before(settings)
-      console.log(picInpic)
-    }
+    const player = videojs(this.$refs.videoPlayer, this.getVideoOptions())
     player.qualityLevels()
+
+    // Обработчик изменения размеров окна
+    window.addEventListener('resize', () => {
+      this.handleResize(player)
+    })
+
+    // Запуск обработчика при загрузке видео
+    player.on('loadedmetadata', () => {
+      this.handleResize(player)
+    })
   },
   methods: {
     setQuality() {
@@ -79,16 +72,41 @@ export default {
         player.play()
       })
     },
+    handleResize(player) {
+      const videoWrapper = document.querySelector('.video-wrapper')
+      const aspectRatio = player.videoWidth() / player.videoHeight()
+      const windowAspectRatio = window.innerWidth / window.innerHeight
+
+      if (windowAspectRatio > aspectRatio) {
+        videoWrapper.style.width = '100%'
+        videoWrapper.style.height = 'auto'
+      } else {
+        videoWrapper.style.width = 'auto'
+        videoWrapper.style.height = '100%'
+      }
+    },
+    getVideoOptions() {
+      return {
+        qualitySelector: false,
+        sources: [this.sources[this.selectedQuality]],
+        controls: true,
+        autoplay: true,
+        preload: 'auto',
+      }
+    },
   },
 }
 </script>
+
 <style>
 #settings option {
   background-image: url('@/assets/images/settings.svg');
 }
+
 .vjs-live-display {
   display: none;
 }
+
 #settings {
   border-radius: 5px;
   padding: 5px;
@@ -102,25 +120,33 @@ export default {
   -webkit-appearance: none;
   transition: 0.3s all ease;
 }
+
 #settings:focus {
   color: #fff;
   background: #2b333f;
   border: 0;
   outline: none;
 }
+
 #settings:focus #settings:hover {
   filter: drop-shadow(0 0 0px #fff);
 }
-video {
-}
-.video-js[tabindex='-1'] {
-  outline: none;
+
+.video-wrapper {
+  position: relative;
   width: 100%;
-  height: 0;
   padding-bottom: 56.25%;
+  /* Задаем соотношение сторон 16:9 для альбомного формата */
 }
+
 .video-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
 .vjs-default-skin {
   color: #fff;
 }
