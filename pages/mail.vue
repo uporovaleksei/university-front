@@ -9,9 +9,36 @@ const title = ref('Обратная связь')
 const name = ref('')
 const email = ref('')
 const text = ref('')
-
+const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
 const sendEmail = async () => {
-  await useFetch(
+  if (!name.value || !email.value || !text.value) {
+
+    const inputs = document.querySelectorAll('input');
+    const textAlert = document.querySelector('.text__alert');
+    const textArea = document.querySelector('textarea');
+textAlert.style.cssText = 'opacity: 1; scale: 1;';
+textAlert.textContent = 'Заполните все поля!';
+
+textAlert.classList.add('shake');
+textArea.style.cssText = 'border: 1px solid #c10020;';
+inputs.forEach(input => {
+  input.style.cssText = 'border: 1px solid#c10020;';
+});
+
+  setTimeout(() => {
+    textAlert.classList.remove('shake');
+    inputs.forEach(input => {
+    input.classList.remove('shake');
+});
+
+  }, 300);
+}
+else if (!emailRegex.test(email.value)) {
+  const textAlert = document.querySelector('.text__alert');
+  textAlert.textContent = 'Неправильный формат почты';
+  }
+  else{
+    await useFetch(
     `${baseURL}mail`,
     {
       method: 'POST',
@@ -22,7 +49,7 @@ const sendEmail = async () => {
       }),
     },
     {
-      headers: { 'Content-Type': 'application/json' }, // Указываем заголовок Content-Type
+      headers: { 'Content-Type': 'application/json' },
     }
   )
   console.log('111')
@@ -31,6 +58,8 @@ const sendEmail = async () => {
   text.value = ''
   showModal.value = false
    router.push('/')
+  }
+
 }
 const closeModal = () => {
   router.push('/')
@@ -53,6 +82,9 @@ const closeModal = () => {
             <input v-model="name" type="text" placeholder="Введите ваше имя" />
             <input v-model="email" type="text" placeholder="Введите ваш e-mail" />
             <textarea v-model="text" name="" id="" cols="30" rows="10"></textarea>
+            <div class="text__alert">
+              
+            </div>
             <button class="modal-default-button" @click="sendEmail">Отправить</button>
           </div>
         </div>
@@ -75,7 +107,7 @@ const closeModal = () => {
       border: none;
       width: 30px;
       height: 30px;
-      background: rgb(223, 35, 35);
+      background: #c10020;
       color: #fff;
       border-radius: 100%;
       transition: 0.3s all ease;
@@ -111,6 +143,16 @@ const closeModal = () => {
       border: 1px solid var(--red);
     }
   }
+  .text__alert{
+    color: red;
+    font-weight: 600;
+    transition: 0.3s ease all;
+    scale: 0.6;
+    opacity: 0;
+  }
+  .text__alert.shake {
+  animation: shake 0.5s;
+}
 }
 .modal-mask {
   position: fixed;
@@ -186,5 +228,11 @@ const closeModal = () => {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
 }
 </style>
