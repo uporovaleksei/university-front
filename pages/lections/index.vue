@@ -2,7 +2,8 @@
 import { ref, onMounted } from 'vue'
 import MainVue from '@/layouts/Main.vue'
 import imgLink from '@/plugins/imgLink'
-import dateFormat from '@/plugins/dateFormat'
+import trimWord from '@/plugins/trimWord'
+
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: lections } = await useFetch('/lections', { baseURL })
@@ -57,11 +58,11 @@ const filteredLections = computed(() => {
             </div>
             <div class="info">
               <div class="title">
-                <h2>{{ item.title.split(' ').slice(0, 3).join(' ') + '....' }}</h2>
+                <h2>{{ trimWord(item.title) }}</h2>
               </div>
               <div class="text">
                 <p>
-                  {{ item.description?.['Описание'].split(' ').slice(0, 5).join(' ') + '....' }}
+                  {{ trimWord(item.description?.['Описание']) }}
                 </p>
               </div>
             </div>

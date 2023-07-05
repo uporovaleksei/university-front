@@ -1,8 +1,8 @@
 <script setup>
 import MainVue from '@/layouts/Main.vue'
 import imgLink from '@/plugins/imgLink'
-import dateFormat from '@/plugins/dateFormat'
-import { onMounted } from 'vue'
+import trimWord from '@/plugins/trimWord'
+
 const title = ref('Истории')
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
@@ -64,7 +64,7 @@ const loadMoreItems = () => {
             </div>
             <div class="info">
               <div class="title">
-                <h2>{{ item.title.split(' ').slice(0, 8).join(' ') + '....' }}</h2>
+                <h2>{{ trimWord(item.title)}}</h2>
                 <p>{{ item.duration }}</p>
               </div>
             </div>

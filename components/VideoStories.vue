@@ -2,7 +2,7 @@
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 import imgLink from '@/plugins/imgLink'
-import { ref, computed, onMounted } from 'vue'
+import trimWord from '@/plugins/trimWord'
 
 const { data: stories } = await useFetch('/stories/4', { baseURL })
 
@@ -19,7 +19,7 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
               <img class="img" :src="imgLink(item)" />
               <p>{{ item.duration }}</p>
             </div>
-            <h2>{{ item.title.split(' ').slice(0, 4).join(' ') + '....' }}</h2>
+            <h2>{{ trimWord(item.title) }}</h2>
           </NuxtLink>
         </div>
       </div>

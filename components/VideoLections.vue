@@ -3,8 +3,8 @@ const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 import { ref, computed, onMounted } from 'vue'
 import imgLink from '@/plugins/imgLink'
+import trimWord from '@/plugins/trimWord'
 const { data: lections } = await useFetch('/lections/4', { baseURL })
-const trimDescription = ({ description }) => description.split(' ').slice(0, 2).join(' ') + '....'
 
 </script>
 
@@ -20,8 +20,8 @@ const trimDescription = ({ description }) => description.split(' ').slice(0, 2).
               <p>{{ item.duration }}</p>
             </div>
             <div class="text">
-              <h2>{{ item.title.split(' ').slice(0, 3).join(' ') + '....' }}</h2>
-              <p>{{ item.description['Описание'].split(' ').slice(0, 4).join(' ') + '....' }}</p>
+              <h2>{{ trimWord(item.title) }}</h2>
+              <p>{{ trimWord(item.description['Описание'])}}</p>
             </div>
           </NuxtLink>
         </div>
