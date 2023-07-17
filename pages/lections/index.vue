@@ -167,6 +167,8 @@ const filteredLections = computed(() => {
     .card {
       flex-basis: calc(24.8% - 20px);
       height: 415px;
+    margin: 20px 0;
+
       background: #d9d9d9;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       display: flex;
@@ -180,7 +182,7 @@ const filteredLections = computed(() => {
       }
       a {
         width: 100%;
-        height: 415px;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;

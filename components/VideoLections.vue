@@ -45,7 +45,6 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
     position: absolute;
     width: 100%;
     height: 100%;
-    // background: no-repeat url("@/assets/images/2.svg");
     background-size: contain;
     opacity: 0.5;
     z-index: -1;
@@ -71,7 +70,6 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
     justify-content: flex-start;
     gap: 30px;
     flex-wrap: wrap;
-
     .card {
       flex-basis: calc(24.8% - 30px);
       background: #d9d9d9;

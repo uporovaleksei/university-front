@@ -2,7 +2,7 @@
 export default defineNuxtPlugin((text, isTitle) => {
     try {
       const words = text.split(' ');
-      const maxWords = isTitle ? 3 : 5;
+      const maxWords = isTitle ? 3 : 3;
       const punctuationMarks = ['.', ',', '!', '?', ':', ';'];
       if (words.length <= maxWords) {
         return text;
