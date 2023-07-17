@@ -79,6 +79,7 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
       align-items: center;
       border-radius: 10px;
       transition: 0.3s ease all;
+      
       &:hover {
         transform: scale(1.05);
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
@@ -125,6 +126,7 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
         .text {
           padding-left: 20px;
           padding-top: 20px;
+          padding-right: 20px;
           padding-bottom: 15px;
           background: #135aae;
           width: 100%;
@@ -134,7 +136,7 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
           border-radius: 0 0 10px 10px;
           h2 {
             font-weight: 700;
-            font-size: 24px;
+            font-size: 22px;
             text-transform: uppercase;
             color: #ffffff;
           }
