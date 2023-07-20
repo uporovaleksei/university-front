@@ -11,7 +11,11 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 <template>
   <div class="person__wrapper">
     <div class="container">
-      <h1>Наши наставники</h1>
+            <div class="title">
+        <NuxtLink :to="'/persons/'">
+          <h1>Наши наставники</h1>
+        </NuxtLink>
+      </div>
       <div class="cards">
         <div class="card" v-for="item in persons" :key="item.id">
           <NuxtLink :to="'/persons/' + item.id">
@@ -56,13 +60,25 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  h1 {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-weight: 700;
-    font-size: 36px;
-    text-transform: uppercase;
-    color: #000000;
+.title{
+    width: fit-content;
+    a{
+    h1 {
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      font-size: 36px;
+      text-transform: uppercase;
+      color: #000000;
+      z-index: 20;
+      align-self: flex-end;
+      transition: 0.3s ease all;
+      &:hover{
+      color: #135aae;
+      opacity: 0.7;
+    }
+    }
+    }
   }
   .cards {
     display: flex;
