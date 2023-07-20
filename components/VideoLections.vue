@@ -11,7 +11,11 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
 <template>
   <div class="wrapper">
     <div class="container">
-      <h1>Лекции</h1>
+      <div class="title">
+        <NuxtLink :to="'/lections/'">
+          <h1>Лекции</h1>
+        </NuxtLink>
+      </div>
       <div class="cards">
         <div class="card" v-for="item in lections" :key="item.id">
           <NuxtLink :to="'/lections/' + item.id">
@@ -56,12 +60,23 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  h1 {
-    font-weight: 700;
-    font-size: 36px;
-    text-transform: uppercase;
-    color: #000000;
-    z-index: 20;
+  .title{
+    width: fit-content;
+    a{
+    h1 {
+      font-weight: 700;
+      font-size: 36px;
+      text-transform: uppercase;
+      color: #000000;
+      z-index: 20;
+      align-self: flex-end;
+      transition: 0.3s ease all;
+      &:hover{
+      color: #135aae;
+      opacity: 0.7;
+    }
+    }
+    }
   }
   .cards {
     display: flex;

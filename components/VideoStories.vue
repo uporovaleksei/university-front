@@ -11,7 +11,11 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
 <template>
   <div class="storie__wrapper">
     <div class="container">
-      <h1>Истории</h1>
+      <div class="title">
+        <NuxtLink :to="'/stories/'">
+          <h1>Истории</h1>
+        </NuxtLink>
+      </div>
       <div class="cards">
         <div class="card" v-for="item in stories" :key="item.id">
           <NuxtLink :to="'/stories/' + item.id">
@@ -53,15 +57,29 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  h1 {
-    font-weight: 700;
-    font-size: 36px;
-    text-transform: uppercase;
-    color: #000000;
+  .title{
+    width: fit-content;
+    a{
+    h1 {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      font-weight: 700;
+      font-size: 36px;
+      text-transform: uppercase;
+      color: #000000;
+      z-index: 20;
+      align-self: flex-end;
+      transition: 0.3s ease all;
+      &:hover{
+      color: #135aae;
+      opacity: 0.7;
+    }
+    }
+    }
   }
   .cards {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 30px;
     .card {
@@ -72,14 +90,11 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
       a {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         width: 100%;
-        min-height: 450px;
         .image {
-          margin-top: 66px;
           width: 100%;
-          height: 250px;
           display: flex;
           justify-content: center;
           background: #d9d9d9;

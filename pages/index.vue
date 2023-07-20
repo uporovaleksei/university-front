@@ -74,6 +74,7 @@ onUnmounted(() => {
 
 <style lang="scss">
  .mobile{
+  display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
   position: fixed;
@@ -126,6 +127,7 @@ onUnmounted(() => {
  }
  .mobile.show {
   opacity: 1;
+  display: block;
 }
 @media (max-width: 769px) {
   body {
