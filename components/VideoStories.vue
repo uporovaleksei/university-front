@@ -186,7 +186,6 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
         a {
           .image {
             width: 100%;
-            min-height: 350px;
             p {
               font-size: 2rem;
             }
@@ -323,6 +322,7 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
     .cards {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 50px;
       .card {
         width: 80%;
@@ -337,11 +337,12 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
             p {
               font-size: 2rem;
             }
+
           }
-          .text {
-            h2 {
-              font-size: 3rem;
+                        h2 {
+              font-size: 2rem;
             }
+          .text {
             p {
               font-size: 2.5rem;
             }

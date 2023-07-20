@@ -66,7 +66,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
     h1 {
       font-weight: 700;
       margin-top: 40px;
-      margin-bottom: 40px;
+       margin-bottom: 40px;
       font-size: 36px;
       text-transform: uppercase;
       color: #000000;
@@ -308,21 +308,43 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
   }
 }
 @media (max-width: 768px) {
-  .person__wrapper {
-    svg {
-      display: none;
+  .container {
+    width: 80%;
+    h1 {
+      font-size: 3rem;
+    }
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 75px;
+      flex-wrap: wrap;
+      .card {
+        height: 100%;
+        width: 80%;
+        border-radius: 10px;
+        background: #fff;
+        position: relative;
+        transition: 0.3s all ease-in-out;
+        .image {
+          height: 750px !important;
 
-      #Layer1 {
-        display: none;
+          img {
+            height: auto;
+            width: 80%;
+          }
+        }
+        .text {
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 2rem;
+          }
+        }
       }
     }
   }
-  .container{
-      h1 {
-      font-size: 3rem;
-    }
-  }
-
 }
 @media (max-width: 426px) {
   .container {
