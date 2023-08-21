@@ -27,7 +27,6 @@ const showSerachInput = () => {
     document.querySelector('.searchField').classList.remove('active')
   }
 }
-
 </script>
 <template>
   <Head>

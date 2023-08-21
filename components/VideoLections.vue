@@ -1,11 +1,9 @@
 <script setup>
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
-import { ref, computed, onMounted } from 'vue'
 import imgLink from '@/plugins/imgLink'
 import trimWord from '@/plugins/trimWord'
 const { data: lections } = await useFetch('/lections/4', { baseURL })
-
 </script>
 
 <template>
@@ -25,12 +23,11 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
             </div>
             <div class="text">
               <h2>{{ trimWord(item.title) }}</h2>
-              <p>{{ trimWord(item.description['Описание'])}}</p>
+              <p>{{ trimWord(item.description['Описание']) }}</p>
             </div>
           </NuxtLink>
         </div>
       </div>
-
       <NuxtLink to="/lections">
         <button>Все лекции</button>
       </NuxtLink>
@@ -39,50 +36,35 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
 </template>
 
 <style lang="scss" scoped>
-.wrapper {
-  width: 100%;
-  position: relative;
-  overflow-x: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    opacity: 0.5;
-    z-index: -1;
-  }
-}
 .container {
   width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  .title{
+  .title {
     width: fit-content;
-    a{
-    h1 {
-      font-weight: 700;
-      font-size: 36px;
-      text-transform: uppercase;
-      color: #000000;
-      z-index: 20;
-      align-self: flex-end;
-      transition: 0.3s ease all;
-      &:hover{
-      color: #135aae;
-      opacity: 0.7;
-    }
-    }
+    a {
+      h1 {
+        font-weight: 700;
+        font-size: 36px;
+        text-transform: uppercase;
+        color: #000000;
+        z-index: 20;
+        align-self: flex-end;
+        transition: 0.3s ease all;
+        &:hover {
+          color: #135aae;
+          opacity: 0.7;
+        }
+      }
     }
   }
   .cards {
     display: flex;
     margin-top: 40px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 30px;
     flex-wrap: wrap;
     .card {
@@ -94,7 +76,6 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
       align-items: center;
       border-radius: 10px;
       transition: 0.3s ease all;
-      
       &:hover {
         transform: scale(1.05);
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
@@ -188,19 +169,6 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
   }
 }
 @media (max-width: 1440px) {
-  .wrapper {
-    svg {
-      #Layer_1 {
-        scale: 0.8;
-        transform: translateX(-4%) translateY(8%);
-      }
-      #Layer_2 {
-        scale: 0.6;
-
-        transform: translateX(72%);
-      }
-    }
-  }
   .container {
     width: 80%;
     .cards {
@@ -216,21 +184,8 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
             img {
               height: 100%;
             }
-            p {
-            }
-          }
-          .text {
-            h2 {
-            }
-            p {
-            }
           }
         }
-      }
-    }
-    a {
-      button {
-
       }
     }
   }
@@ -293,8 +248,6 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
 @media (max-width: 1024px) {
   .container {
     width: 80%;
-    h1 {
-    }
     .cards {
       display: flex;
       gap: 30px;
@@ -308,38 +261,13 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
             img {
               height: 100%;
             }
-            p {
-            }
-          }
-          .text {
-            h2 {
-            }
-            p {
-            }
           }
         }
-      }
-    }
-    a {
-      button {
-
       }
     }
   }
 }
 @media (max-width: 768px) {
-  .wrapper {
-    svg {
-      display: none;
-
-      #Layer_1 {
-        display: none;
-      }
-      #Layer_2 {
-        display: none;
-      }
-    }
-  }
   .container {
     width: 80%;
     h1 {
@@ -373,11 +301,6 @@ const { data: lections } = await useFetch('/lections/4', { baseURL })
             }
           }
         }
-      }
-    }
-    a {
-      button {
-
       }
     }
   }

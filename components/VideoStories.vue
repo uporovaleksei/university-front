@@ -3,9 +3,7 @@ const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 import imgLink from '@/plugins/imgLink'
 import trimWord from '@/plugins/trimWord'
-
 const { data: stories } = await useFetch('/stories/4', { baseURL })
-
 </script>
 
 <template>
@@ -37,15 +35,15 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
 <style lang="scss" scoped>
 .storie__wrapper {
   width: 100%;
+
+
   position: relative;
   overflow-x: hidden;
-
   &::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    // background: no-repeat url("@/assets/images/2.svg");
     background-size: contain;
     opacity: 0.5;
     z-index: -1;
@@ -57,24 +55,24 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  .title{
+  .title {
     width: fit-content;
-    a{
-    h1 {
-      margin-top: 40px;
-      margin-bottom: 40px;
-      font-weight: 700;
-      font-size: 36px;
-      text-transform: uppercase;
-      color: #000000;
-      z-index: 20;
-      align-self: flex-end;
-      transition: 0.3s ease all;
-      &:hover{
-      color: #135aae;
-      opacity: 0.7;
-    }
-    }
+    a {
+      h1 {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-weight: 700;
+        font-size: 36px;
+        text-transform: uppercase;
+        color: #000000;
+        z-index: 20;
+        align-self: flex-end;
+        transition: 0.3s ease all;
+        &:hover {
+          color: #135aae;
+          opacity: 0.7;
+        }
+      }
     }
   }
   .cards {
@@ -206,23 +204,10 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
   }
 }
 @media (max-width: 1440px) {
-  .storie__wrapper {
-    svg {
-      #Layer1 {
-        transform: translateX(-4%);
-        scale: 0.8;
-      }
-      #Layer2 {
-        scale: 0.9;
-        transform: translateX(10%);
-      }
-    }
-  }
   .container {
     width: 80%;
     h1 {
-            font-size: 36px;
-
+      font-size: 36px;
     }
     .cards {
       gap: 30px;
@@ -255,23 +240,10 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
   }
 }
 @media (max-width: 1024px) {
-  .storie__wrapper {
-    svg {
-      #Layer1 {
-        transform: translateX(-1%);
-        scale: 0.7;
-      }
-      #Layer2 {
-        scale: 0.9;
-        transform: translateX(12%);
-      }
-    }
-  }
   .container {
     width: 80%;
     h1 {
-            font-size: 36px;
-
+      font-size: 36px;
     }
     .cards {
       gap: 30px;
@@ -304,16 +276,6 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
   }
 }
 @media (max-width: 768px) {
-  .storie__wrapper {
-    svg {
-      #Layer1 {
-        display: none;
-      }
-      #Layer2 {
-        display: none;
-      }
-    }
-  }
   .container {
     width: 80%;
     h1 {
@@ -337,11 +299,10 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
             p {
               font-size: 2rem;
             }
-
           }
-                        h2 {
-              font-size: 2rem;
-            }
+          h2 {
+            font-size: 2rem;
+          }
           .text {
             p {
               font-size: 2.5rem;
@@ -355,8 +316,6 @@ const { data: stories } = await useFetch('/stories/4', { baseURL })
 @media (max-width: 425px) {
   .container {
     width: 80%;
-    h1 {
-    }
     .cards {
       display: flex;
       flex-direction: column;

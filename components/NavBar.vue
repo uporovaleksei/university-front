@@ -34,29 +34,7 @@ export default {
           path: '/persons',
         },
       ],
-      routes: [
-        {
-          label: 'Главная',
-          path: '/',
-        },
-        {
-          label: 'О проекте',
-          path: '/about',
-        },
-        {
-          label: 'Лекции',
-          path: '/lections',
-        },
-        {
-          label: 'Истории',
-          path: '/stories',
-        },
-        {
-          label: 'Наставники',
-          path: '/persons',
-        },
-      ],
-      menuIsOpen: false,
+     menuIsOpen: false,
     }
   },
   mounted() {
@@ -88,7 +66,7 @@ export default {
       <div class="menu__icon" @click="lock" :class="{ open: menuIsOpen }">
         <span></span>
       </div>
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="logo">
         <img :class="{ active: menuIsOpen }" src="@/assets/images/logo.png" />
       </NuxtLink>
       <div :class="['links', { active: menuIsOpen }]">
@@ -110,7 +88,7 @@ export default {
 <style lang="scss" scoped>
 nav {
   width: 100%;
-  height: 80px;
+  height: 100px;
   position: fixed;
   z-index: 100;
   background: rgba(255, 255, 255, 0.8);
@@ -123,15 +101,15 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    img {
-      width: 70px;
-      height: 50px;
-      cursor: pointer;
-      transition: 0.3s ease all;
-      &:hover {
-        filter: drop-shadow(0 0 10px #fff);
+    .logo{
+      img {
+        width: 70px;
+        height: 50px;
+        cursor: pointer;
+        transition: 0.3s ease all;
       }
     }
+    
     .links {
       margin-left: 130px;
       ul {
@@ -143,17 +121,18 @@ nav {
           line-height: 33px;
           transition: 0.3s ease all;
           .active__links {
-            color: #000;
+            color: var(--blue);
           }
           a {
             font-style: normal;
             font-weight: 600;
             font-size: 24px;
-            color: #000;
+            color: var(--blue);
             position: relative;
             transition: 0.3s;
             &:hover {
-              color: rgba(0, 0, 0, 0.5);
+                          color: var(--blue);
+
             }
             &::before,
             &::after {
@@ -235,6 +214,7 @@ nav {
           width: 60%;
           li {
             width: 100%;
+            
             a {
               width: 100%;
               height: 70px;
@@ -244,6 +224,7 @@ nav {
               border-radius: 35px;
               border: 2px solid #135aae;
               font-size: 36px;
+              
             }
           }
         }
@@ -322,11 +303,11 @@ nav {
       justify-content: space-between;
       align-items: center;
       display: flex;
-      a{
-              img{
-      width: 90px;
-      height: 70px;
-      }
+      a {
+        img {
+          width: 90px;
+          height: 70px;
+        }
       }
       .links {
         display: none;
@@ -440,5 +421,42 @@ nav {
       }
     }
   }
+}
+@media (min-width: 1439px) {
+nav {
+  .content {
+    .logo{
+        position: relative;
+        width: 100px;
+        height: 60px;
+        transition: 0.3s ease all;
+      img {
+        width: 70px;
+        height: 50px;
+        cursor: pointer;
+        transition: 0.3s ease all;
+      }
+       &::after{
+        position: absolute;
+        background-image: url('@/assets/images/logo.svg');
+        background-size: 300px;
+        background-repeat: no-repeat;
+        width: 300px; 
+        height: 60px;
+        content:"";
+        left: -5px;
+        opacity: 0;
+        transition: 0.5s ease all;
+      }
+      &:hover{
+        &::after{
+        left: 90px;
+        opacity: 1;
+        }
+      }
+    }
+  
+  }
+}
 }
 </style>

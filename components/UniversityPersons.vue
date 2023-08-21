@@ -1,17 +1,13 @@
 <script setup>
 import imgLink from '~~/plugins/imgLink'
-
 const router = useRouter()
 const { baseURL } = useRuntimeConfig()
 const { data: persons } = await useFetch('persons/6', { baseURL })
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-
-
 </script>
 <template>
   <div class="person__wrapper">
     <div class="container">
-            <div class="title">
+      <div class="title">
         <NuxtLink :to="'/persons/'">
           <h1>Наши наставники</h1>
         </NuxtLink>
@@ -24,7 +20,6 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
             </div>
             <div class="text">
               <h2>{{ item.name }}</h2>
-              <!-- <p>{{ item.description?.['Должность'] }}</p> -->
             </div>
           </NuxtLink>
         </div>
@@ -46,7 +41,6 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
     position: absolute;
     width: 100%;
     height: 100%;
-    // background: no-repeat url("@/assets/images/2.svg");
     background-size: contain;
     opacity: 0.5;
     z-index: -1;
@@ -56,38 +50,38 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
   padding: 80px 0;
   width: 80%;
   overflow-x: hidden;
-
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-.title{
+  .title {
     width: fit-content;
-    a{
-    h1 {
-      font-weight: 700;
-      margin-top: 40px;
-       margin-bottom: 40px;
-      font-size: 36px;
-      text-transform: uppercase;
-      color: #000000;
-      z-index: 20;
-      align-self: flex-end;
-      transition: 0.3s ease all;
-      &:hover{
-      color: #135aae;
-      opacity: 0.7;
-    }
-    }
+    a {
+      h1 {
+        font-weight: 700;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-size: 36px;
+        text-transform: uppercase;
+        color: #000000;
+        z-index: 20;
+        align-self: flex-end;
+        transition: 0.3s ease all;
+        &:hover {
+          color: #135aae;
+          opacity: 0.7;
+        }
+      }
     }
   }
   .cards {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 75px;
+    justify-content: space-between;
     flex-wrap: wrap;
     .card {
       width: calc(30% - 10px);
+    margin-top: 40px;
+
       height: 100%;
       border-radius: 10px;
       background: #fff;
@@ -115,7 +109,6 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
           transition: all 0.5s ease;
         }
       }
-
       &:nth-child(2n) .image {
         background: linear-gradient(291.45deg, #e2f9fb 11.63%, #e6fcfc 92.9%);
       }
@@ -204,8 +197,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
     .cards {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      gap: 75px;
+      justify-content: space-between;
       flex-wrap: wrap;
       .card {
         min-height: 840px;
@@ -255,24 +247,12 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
         a {
           .image {
             height: 380px;
-            img {
-            }
           }
         }
         &::after {
           width: 100%;
           height: 100%;
         }
-        .text {
-          h2 {
-          }
-          p {
-          }
-        }
-      }
-    }
-    a {
-      button {
       }
     }
   }
@@ -281,28 +261,15 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
   .container {
     .cards {
       width: 100%;
-      justify-content: flex-start;
+      justify-content: space-between;
       .card {
         width: 29%;
         height: 100%;
         min-height: 450px;
-        a {
-          .image {
-            height: 320px;
-            img {
-            }
-          }
-        }
         &::after {
           width: 100%;
           height: 100%;
         }
-        .text {
-        }
-      }
-    }
-    a {
-      button {
       }
     }
   }
@@ -328,7 +295,6 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
         transition: 0.3s all ease-in-out;
         .image {
           height: 750px !important;
-
           img {
             height: auto;
             width: 80%;
@@ -367,7 +333,6 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
         transition: 0.3s all ease-in-out;
         .image {
           height: 750px !important;
-
           img {
             height: auto;
             width: 80%;

@@ -10,8 +10,6 @@ const { data: lections } = await useFetch('/lections', { baseURL })
 const title = ref('Лекции')
 const showSerach = ref(false)
 
-
-
 const searchQuery = ref('')
 const showSerachInput = () => {
   showSerach.value = !showSerach.value
@@ -22,17 +20,15 @@ const showSerachInput = () => {
   }
 }
 
-
 const filteredLections = computed(() => {
   if (searchQuery.value === '') {
-    return lections.value 
+    return lections.value
   } else {
     return lections.value.filter(item => {
       return item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
     })
   }
 })
-
 </script>
 
 <template>
@@ -49,7 +45,7 @@ const filteredLections = computed(() => {
           <img src="@/assets/images/search.svg" alt="" />
         </button>
       </div>
-      <div class="cards" >
+      <div class="cards">
         <div class="card" v-for="(item, index) in filteredLections" :key="index">
           <NuxtLink :to="'/lections/' + item.id">
             <div class="image">
@@ -167,7 +163,7 @@ const filteredLections = computed(() => {
     .card {
       flex-basis: calc(24.8% - 20px);
       height: 415px;
-    margin: 20px 0;
+      margin: 20px 0;
 
       background: #d9d9d9;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);

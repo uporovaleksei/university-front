@@ -1,15 +1,3 @@
-<template>
-  <div>
-    <video controls ref="videoPlayer" class="video-js">
-      <select id="settings" v-model="selectedQuality" @change="setQuality">
-        <option class="options" v-for="(source, index) in sources" :value="index" :key="index">
-          {{ source.label }}
-        </option>
-      </select>
-    </video>
-  </div>
-</template>
-
 <script>
 import videojs from 'video.js'
 import 'videojs-contrib-quality-levels'
@@ -66,7 +54,7 @@ export default {
       })
       pip.addEventListener('touchstart', () => {
         document.querySelector('.video-js').classList.add('mobile__fullscren')
-})
+      })
 
       document.addEventListener('fullscreenchange', () => {
         if (!document.fullscreenElement) {
@@ -90,6 +78,17 @@ export default {
   },
 }
 </script>
+<template>
+  <div>
+    <video controls ref="videoPlayer" class="video-js">
+      <select id="settings" v-model="selectedQuality" @change="setQuality">
+        <option class="options" v-for="(source, index) in sources" :value="index" :key="index">
+          {{ source.label }}
+        </option>
+      </select>
+    </video>
+  </div>
+</template>
 <style>
 #settings option {
   background-image: url('@/assets/images/settings.svg');
@@ -152,70 +151,65 @@ video {
 .vjs-default-skin .vjs-volume-level:before {
   border-color: #fff;
 }
-@media(max-width: 769px){
-.mobile__fullscren{
-  rotate: 90deg;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: fill;
-  scale: 1;
-
-}
-.mobile__fullscren .vjs-control-bar{
-position: absolute;
-bottom: 4%;
-}
-#settings option {
+@media (max-width: 769px) {
+  .mobile__fullscren {
+    rotate: 90deg;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill;
+    scale: 1;
+  }
+  .mobile__fullscren .vjs-control-bar {
+    position: absolute;
+    bottom: 4%;
+  }
+  #settings option {
     transform: rotate(90deg);
   }
-
 }
-@media(max-width: 426px){
-.mobile__fullscren{
-  rotate: 90deg;
-  scale: 1.9;
-}
-.mobile__fullscren .vjs-control-bar{
-position: absolute;
-bottom: 38%;
-scale: 0.9;
-}
-#settings option {
+@media (max-width: 426px) {
+  .mobile__fullscren {
+    rotate: 90deg;
+    scale: 1.9;
+  }
+  .mobile__fullscren .vjs-control-bar {
+    position: absolute;
+    bottom: 38%;
+    scale: 0.9;
+  }
+  #settings option {
     transform: rotate(90deg);
   }
-
 }
-@media(max-width: 376px){
-.mobile__fullscren{
-  rotate: 90deg;
-  scale: 1.78;
-}
-.mobile__fullscren .vjs-control-bar{
-position: absolute;
-bottom: 760px;
-scale: 0.9;
-}
-#settings option {
+@media (max-width: 376px) {
+  .mobile__fullscren {
+    rotate: 90deg;
+    scale: 1.78;
+  }
+  .mobile__fullscren .vjs-control-bar {
+    position: absolute;
+    bottom: 760px;
+    scale: 0.9;
+  }
+  #settings option {
     transform: rotate(90deg);
   }
-
 }
-@media(max-width: 321px){
-.mobile__fullscren{
-  rotate: 90deg;
-  scale: 1.75;
-}
-.mobile__fullscren .vjs-control-bar{
-position: absolute;
-bottom: 1185px;
-scale: 0.9;
-}
-#settings option {
+@media (max-width: 321px) {
+  .mobile__fullscren {
+    rotate: 90deg;
+    scale: 1.75;
+  }
+  .mobile__fullscren .vjs-control-bar {
+    position: absolute;
+    bottom: 1185px;
+    scale: 0.9;
+  }
+  #settings option {
     transform: rotate(90deg);
   }
-
 }
 </style>

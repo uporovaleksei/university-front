@@ -5,7 +5,7 @@ const title = 'О проекте'
 
 <template>
   <Head>
-    <Title>{{title}}</Title>
+    <Title>{{ title }}</Title>
   </Head>
   <MainVue>
     <AboutUs />
