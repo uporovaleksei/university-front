@@ -2,10 +2,10 @@
 export default defineNuxtConfig({
   css: ['@/assets/styles/root.scss', '@/assets/styles/animation.css'],
   runtimeConfig: {
-    baseURL: 'http://api2.bytezone.online/',
+    baseURL: 'http://api2.open.rsvpu.ru/',
     public: {
-      baseURL: 'https://api.bytezone.online/',
-      globalURL: 'https://api.bytezone.online/',
+      baseURL: 'https://api.open.rsvpu.ru/',
+      globalURL: 'https://api.open.rsvpu.ru/',
     },
   },
 })
