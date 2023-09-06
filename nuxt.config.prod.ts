@@ -4,8 +4,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     baseURL: 'http://api2.open.rsvpu.ru/',
     public: {
-      baseURL: 'https://api.open.rsvpu.ru/',
-      globalURL: 'https://api.open.rsvpu.ru/',
+      baseURL: 'http://api.open.rsvpu.ru/',
+      globalURL: 'http://api.open.rsvpu.ru/',
     },
   },
 })
