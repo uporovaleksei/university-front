@@ -46,7 +46,7 @@ const sendEmail = async () => {
     textAlert.textContent = 'Неправильный формат почты'
   } else {
     await useFetch(
-      `${baseURL}`,
+      `${baseURL}send_mail`,
       {
         method: 'POST',
         body: JSON.stringify({

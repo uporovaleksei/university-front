@@ -193,9 +193,9 @@ const showSerachInput = () => {
         align-items: center;
         h2 {
           width: 90%;
-          font-family: 'Unbounded';
+          font-family: 'Nunito', sans-serif;
           font-style: normal;
-          font-weight: 700;
+          font-weight: 800;
           font-size: 20px;
           text-align: center;
           text-transform: uppercase;
