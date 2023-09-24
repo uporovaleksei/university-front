@@ -31,7 +31,7 @@ onUnmounted(() => {
   <Head>
     <Title>{{ title }}</Title>
     <Meta name="description" :content="title" />
-    <meta name="yandex-verification" content="95aaee8d77d5c438" />
+    <Meta name="yandex-verification" content="95aaee8d77d5c438" />
   </Head>
   <MainVue>
     <OpenUniversity />
