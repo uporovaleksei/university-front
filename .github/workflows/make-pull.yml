@@ -15,4 +15,4 @@ jobs:
           script: |
             cd university-front
             git reset --hard
-            git pull --rebase
+            git pull
