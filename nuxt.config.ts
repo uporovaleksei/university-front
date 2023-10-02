@@ -22,7 +22,5 @@ export default defineNuxtConfig({
       },
     ],
   },
-  modules: [
-    '@fullpage/nuxt-fullpage'
-  ]
+  modules: ['@fullpage/nuxt-fullpage']
 })
