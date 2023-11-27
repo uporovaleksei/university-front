@@ -22,5 +22,8 @@ export default defineNuxtConfig({
       },
     ],
   },
-  modules: ['@fullpage/nuxt-fullpage']
+  modules: ['@fullpage/nuxt-fullpage','yandex-metrika-module-nuxt3'],
+  yandexMetrika: {
+    id: '95404856',
+  }
 })
