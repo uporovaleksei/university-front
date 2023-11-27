@@ -8,4 +8,8 @@ export default defineNuxtConfig({
       globalURL: 'http://api.open.rsvpu.ru/',
     },
   },
+  modules: ['@fullpage/nuxt-fullpage','yandex-metrika-module-nuxt3'],
+  yandexMetrika: {
+    id: '95404856',
+  }
 })
