@@ -3,9 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 
 onMounted(() => {
   document.querySelector('#stick').style = 'height:300px;'
-  document.querySelector('#logo').style = 'transform: translateX(0%);'
-  document.querySelector('#logo').style = 'transform: translateX(0%);'
-  document.querySelector('#text').style = 'transform: translateX(0%);'
+  document.querySelector('.text').style = 'transform: translate(0);'
 })
 
 const windowWidth = ref(0)
@@ -27,9 +25,17 @@ function handleMouseMove(event) {
 </script>
 <template>
   <div class="container radial-gradient" @mousemove="handleMouseMove" :style="{ background: radialGradientStyle }">
-    <img id="logo" src="@/assets/images/second_logo.png" />
-    <span id="stick"></span>
-    <h1 id="text">Открытый Университет</h1>
+    <div class="content">
+
+      <div class="title">
+        <span id="stick"></span>
+        <div class="text">
+          <h1>Открытый</h1>
+          <h2>Университет</h2>
+        </div>
+      </div>
+      <img id="logo" src="@/assets/images/phone.webp" />
+    </div>
   </div>
 </template>
 
@@ -38,7 +44,7 @@ function handleMouseMove(event) {
   height: 300px;
 }
 .container {
-  overflow-x: hidden;
+  overflow: hidden;
   transition: 0.3s ease all;
   width: 100%;
   height: 100vh;
@@ -46,49 +52,163 @@ function handleMouseMove(event) {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  img {
-    transition: 1s ease all;
-    width: 225px;
-    height: 200px;
-    transform: translateX(-500%);
-    pointer-events: none;
-    user-select: none;
-  }
-  span {
-    height: 3px;
-    margin-left: 50px;
-    width: 3px;
-    background: var(--white);
-    transition: 1s ease all;
-    pointer-events: none;
-  }
-  h1 {
-    width: 470px;
-    color: var(--white);
-    font-weight: 700;
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    margin-left: 30px;
-    transition: 1s ease all;
-    pointer-events: none;
-    transform: translateX(300%);
-    user-select: none;
-  }
-}
-@media (min-width: 2559px) {
-  .container {
+  position: relative;
+  .content{
+    display: flex;
+    width: 80%;
+    align-items: center;
     img {
-      scale: 2.5;
+      transition: 1s ease all;
+      max-width: 950px;
+      max-height: 950px;
+      pointer-events: none;
+      user-select: none;
+      position: absolute;
+      right: 0;
     }
-    span {
-      height: 600px;
-      margin-left: 200px;
-      width: 6px;
-    }
-    h1 {
-      font-size: 6rem;
+    .title{
+      display: flex;
+      align-items: center;
+      width: 817px;
+      span {
+        display: block;
+        height: 3px;
+        margin-right: 50px;
+        width: 3px;
+        background: var(--white);
+        transition: 1s ease all;
+        pointer-events: none;
+      }
+      .text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        transform: translate(-300%);
+        transition: 1s ease;
+        h1 {
+          width: 470px;
+          color: var(--white);
+          font-weight: 700;
+          font-size: 128px;
+          text-transform: uppercase;
+          transition: 1s ease all;
+          pointer-events: none;
+          user-select: none;
+          margin-left: -12px;
+        }
+        h2 {
+          width: 470px;
+          color: var(--white);
+          font-weight: 700;
+          font-size: 100px;
+          text-transform: uppercase;
+          transition: 1s ease all;
+          pointer-events: none;
+          user-select: none;
+        }
+
+      }
     }
   }
+
 }
+
+
+@media(min-width: 1440px) and (max-width: 1650px){
+.container {
+
+  .content{
+
+    img {
+      max-width: 750px;
+      max-height: 750px;
+    }
+    .title{
+
+      .text{
+
+        h1 {
+          width: auto;
+          font-size: 100px;
+        }
+        h2 {
+          font-size: 72px;
+        }
+
+      }
+    }
+  }
+
+}
+}
+@media(min-width: 768px) and (max-width: 1440px){
+.container {
+
+  .content{
+
+    img {
+      max-width: 550px;
+      max-height: 550px;
+    }
+    .title{
+
+      .text{
+
+        h1 {
+          width: auto;
+
+          font-size: 72px;
+        }
+        h2 {
+          font-size: 48px;
+        }
+
+      }
+    }
+  }
+
+}
+}
+@media(max-width: 768px){
+.container {
+height: 200dvh;
+  .content{
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    img {
+      max-width: 1525px;
+      max-height: 1525px;
+      bottom: -40px;
+      right: -350px;
+    }
+    .title{
+      margin-top: 120px;
+      align-items: center;
+      justify-content: center;
+
+      span{
+        display: none;
+      }
+      .text{
+
+        h1 {
+          width: auto;
+
+          font-size: 160px;
+        }
+        h2 {
+          width: auto;
+
+          font-size: 125px;
+        }
+
+      }
+    }
+  }
+
+}
+}
+
 </style>
